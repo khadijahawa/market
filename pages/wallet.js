@@ -113,6 +113,7 @@ const Wallet = () => {
                                 <div className="default-btn small-btn move-right" onClick={async() => {await connectMetamask();}}><span>Sign In</span> </div>
                                 <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">Learn how to use Metamask
                                     wallet</a>
+                                    <h6>If you wish to disconnect after connecting, you must do from your metamask for security</h6>
                             </div>
                         </div>
                     </div>
@@ -130,19 +131,7 @@ const Wallet = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="tab-pane fade" id="pills-wallet-3" role="tabpanel" aria-labelledby="wallet-tab-3">
-                        <div className="wallet-content">
-                            <div className="wallet-img">
-                                <img src="assets/images/wallet/formatic.svg" alt="Wallet Name" />
-                            </div>
-                            <div className="wallet-desc">
-                                <h5>Connect Your Formatic Wallet</h5>
-                                <a href="#" className="default-btn small-btn move-right"><span>Sign In</span></a>
-                                <a href="#" target="_blank" rel="noopener noreferrer">Learn how to use Formatic
-                                    wallet</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
