@@ -116,8 +116,6 @@ const Header = () => {
         require('bootstrap/dist/js/bootstrap')  
         }
     }, [])
-    
-    
     const router = useRouter();
 
 
@@ -142,7 +140,7 @@ const Header = () => {
                     <form action="#" className="header__search">
               <input
                 type="text"
-                placeholder="Search items, collections, and creators"
+                placeholder="Search by address"
                 value={searchTerm}
                 onChange={handleSearchChange}
               />
