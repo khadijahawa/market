@@ -10,7 +10,7 @@ import Profil from '../engine/Profil';
 import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
 import AuthorCard from "./common/AuthorCard";
 import NFTS from "../engine/NFTS.json";
-
+import UDdis from './UDdisconect';
 
 
 
@@ -185,11 +185,7 @@ const Header = () => {
                                         <a className={router.pathname == "/exploretwo" ? "drop-down-item active" : "drop-down-item"}>Market</a>
                                     </Link>            
                                     </li>             
-                                    <li>
-                                        <Link href="/auction">
-                                        <a className={router.pathname == "/auction" ? "drop-down-item active" : "drop-down-item"}>Auction</a>
-                                        </Link>
-                                    </li>        
+                                         
                                     <li>
                                     <Link href="/collection">
                                         <a className={router.pathname == "/collection" ? "drop-down-item active" : "drop-down-item"}>Club Collections</a>
@@ -217,6 +213,11 @@ const Header = () => {
                                     </svg></a>
 
                                 <ul className="dropdown-menu header__nav-menu">
+                                <li>
+                                    <Link href="https://multisender.bullsclub.space" target='blank'>
+                                        <a className={router.pathname == "" ? "drop-down-item active" : "drop-down-item"}>BEB20 Multisender</a>
+                                    </Link>
+                                    </li>
                                     <li>
                                     <Link href="mailto:support@bullsclub.space" target='blank'>
                                         <a className={router.pathname == "" ? "drop-down-item active" : "drop-down-item"}>Contact</a>
@@ -284,10 +285,12 @@ const Header = () => {
                                     <Link href="/wallet">
                                         <a className={router.pathname == "/wallet" ? "dropdown-item active" : "dropdown-item"}><span className="me-1"><i
                                                     className="icofont-login"></i></span>
-                                            Web3 Login</a>
+                                            W3B Login</a>
                                     </Link>
                                     </li>
-
+                                    <li>
+                                     <UDdis />
+                                    </li>
 
 
 
