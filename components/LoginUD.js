@@ -1,5 +1,9 @@
 import UAuth from "@uauth/js"
 import Callback from "./callback"
+import { useRouter } from 'next/router'
+import { useEffect,useState } from "react";
+
+
 
 function LoginUD () {
          const uauth = new UAuth ({
@@ -13,6 +17,15 @@ function LoginUD () {
          }
          const logout = () => { 
          }
+
+         useEffect(() => {
+
+          if(window.ethereum && window.ethereum?.selectedAddress)
+          {
+             router.push("/");
+          }
+     }, [])
+     const router = useRouter()
  return(
   <div id="Loginwithud">
 
