@@ -246,16 +246,10 @@ const Header = () => {
                                     <span><i className="icofont-user"></i></span> <span className="d-none d-md-inline">
                                         </span>
                                 </a>
-
                                 <ul className="dropdown-menu">
                                 <li>
                                 <Profil wallet={wallet}/>
                                     </li>
-                                   
-
-
-
-
                                     <li>
                                     <Link href="/activity">
                                         <a className={router.pathname == "/activity" ? "dropdown-item active" : "dropdown-item"}><span className="me-1"><i
@@ -263,10 +257,8 @@ const Header = () => {
                                             Activity</a>
                                     </Link>
                                     </li>
-                                   
-
                                     <li>
-                                    <Link href="/author">
+                                    <Link href="/address">
                                         <a className={router.pathname == "/author" ? "dropdown-item active" : "dropdown-item"}><span className="me-1"><i
                                                     className="icofont-files-stack"></i></span>
                                             My Items</a>
