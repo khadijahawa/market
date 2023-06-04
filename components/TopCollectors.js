@@ -3,22 +3,18 @@ import User from '../data/User/Users.json';
 import Link from 'next/link';
 
 var TopCollector = User.slice(0,9);
-
 const TopCollectors = () => {
-
     return (
         <div>
             <section className="seller-section pb-100">
         <div className="container">
             <div className="section-header">
-                <h3 className="header-title">Top Collectors</h3>
+                <h3 className="header-title">Club Collectors</h3>
                 <div className="header-content">
-                    <ul className="filter-group d-flex flex-wrap align-items-center">
-                        
+                    <ul className="filter-group d-flex flex-wrap align-items-center">       
                         <li className="li day-filter">
                             <div className="select-wrapper arrow-orange" data-icon="&#xea99;">
                                 <select className="form-select" aria-label="Day select">
-                                    
                                     <option value="1">All Time</option>
                                 </select>
                             </div>
@@ -34,14 +30,12 @@ const TopCollectors = () => {
                                 <Collector key={item.id} data={item} count={i} />
                                 
                             ))
-                        }
-                        
+                        }  
                     </div>
                     <div className="text-center mt-5">
-                        <Link href="/allauthors">
+                        <Link href="/allauthorstwo">
                         <a className="default-btn move-right"><span>Go To Rank</span></a>
                         </Link>
-                        
                     </div>
                 </div>
             </div>
