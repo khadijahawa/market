@@ -113,7 +113,7 @@ const Wallet = () => {
                                 <div className="default-btn small-btn move-right" onClick={async() => {await connectMetamask();}}><span>Sign In</span> </div>
                                 <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">Learn how to use Metamask
                                     wallet</a>
-                                    <h6>If you wish to disconnect after connecting, you must do from your metamask for security</h6>
+                                    <h6>If you wish to disconnect after connecting, you must do from metamask for security</h6>
                             </div>
                         </div>
                     </div>

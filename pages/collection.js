@@ -20,6 +20,7 @@ const Collection = () => {
         
         <section className="collection-section padding-top padding-bottom">
             <div className="container">
+                <h2>Mint Live till supply Last</h2>
                 <div className="section-header">
                     <h3 className="header-title">All Collection</h3>
                 </div>

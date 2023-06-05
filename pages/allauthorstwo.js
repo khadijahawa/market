@@ -65,10 +65,10 @@ const AllAuthorsTwo = () => {
                        
                         <div className="form-floating">
                             <select className="form-select" id="sortSelect" aria-label="Floating label select example">
-                                <option>All Authors</option>
+                                <option>Club Collectors</option>
                                
                             </select>
-                            <label >Author Type</label>
+                            <label > Type</label>
                         </div>
                     </div>
                     <div className="nft-search">

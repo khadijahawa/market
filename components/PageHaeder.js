@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const PageHeader = ({text,breadcrumb = true}) => {
     const authorSection = 
-    <a className="col-author" href="author.html"><img /* eslint-disable-line */src="assets/images/seller/collector-3.gif"
+    <a className="col-author" href="author.html"><img src="assets/images/seller/collector-3.gif"
     alt="Author" />
-    <span>Nakashika _Chang</span></a>;
+    <span>BULLSclub</span></a>;
 
     const breadcurmbSection = <ol className="breadcrumb">
         <li>

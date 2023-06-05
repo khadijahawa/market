@@ -1,27 +1,24 @@
 import { useState,useEffect } from 'react';
 import { useRouter } from "next/router";
-
 import {ethers} from "ethers";
-import PageHeader from '../components/PageHaeder';
-import ProductSingle from "../components/common/ProductSingle";
+import ProductSingle from "../components/common/ProductSingle1";
 import BullscMarket from "../engine/BullscMarket.json"
 import NFT from "../engine/NFT.json"
 import axios from "axios"
 import detectEthereumProvider from '@metamask/detect-provider';
 
+
+
+
+
+
+
 const Provider = "https://polygon-rpc.com/";
 const bsctrpc = "https://bsc-dataseed1.ninicoin.io";
-
 const privKey = "713b86cbd9689ccc2bd09bf4ca9030e4e3b4e484d7161b05dc45239ebdcaa0eb";
 
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"Explore"
-};
 const getprods = async() =>
 {   
-
     var hh = "0x7a69";
     var goe = "0x5";
     var mm = "0x13881";
@@ -37,9 +34,7 @@ const getprods = async() =>
     }
     contactAddr="0x30Eff4daCc828A916438Aab8c4005B4EA2b241EE";
     provider = new ethers.providers.JsonRpcProvider(Provider);
-
     const signer = new ethers.Wallet(privKey);
-    
     const account = signer.connect(provider);
     //const gasPrice = await provider.getFeeData();
     //var gaz=ethers.utils.formatUnits(gasPrice.gasPrice, "ether")
@@ -58,20 +53,12 @@ const getprods = async() =>
     console.log("****ok*****");
     // console.log(val.c[0]);
     const tx = await products.getAvailableNft();
-    console.log(tx);
-    
-   
-    
-    
-    return tx;
-  
-    
+    console.log(tx);  
+    return tx;    
 }
 const getBaseUri = async(cnt,id) => {
     const provider = new ethers.providers.JsonRpcProvider(Provider);
-
     const signer = new ethers.Wallet(privKey);
-    
     const account = signer.connect(provider);
     const NFTs = new ethers.Contract(
         cnt,
@@ -81,7 +68,6 @@ const getBaseUri = async(cnt,id) => {
     console.log(cnt,id)
     const tx = await NFTs.tokenURI(id.toString());
     console.log(tx);
-
     return(tx);
 }
 const getMetadata = async(baseURI) => {
@@ -93,21 +79,16 @@ const Explore = () => {
     const [Prods, setProds] = useState([]);
     const [loading, setLoading] = useState(0);
    const router = useRouter();
-   
     useEffect(() => {
        const effect = async() => {
-
       if (window.ethereum.selectedAddress)
-      {
-        
+      { 
         console.log(window.ethereum.selectedAddress)
       }
       else
       {
         router.push("/wallet")
-
       }
-
        let x= await getprods();
        console.log(x);
        let s=[]
@@ -178,7 +159,7 @@ const Explore = () => {
     return (
         <div>
            
-        <PageHeader text={PageHeaderText} />
+       
         <section className="explore-section padding-top padding-bottom">
         <div className="container">
             <div className="section-wrapper">

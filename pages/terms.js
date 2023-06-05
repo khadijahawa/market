@@ -1,12 +1,7 @@
 import PageHeader from '../components/PageHaeder';
 
 
-
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"Terms of service"
-};
+ 
 
 const Terms = () => {
     return (

@@ -1,4 +1,4 @@
-import PageHeader from '../components/PageHaeder'
+
 import Products from '../data/Product/Products.json';
 import CollectionSingle from '../components/common/Collection';
 import PopularList from '../data/Collection/Popular.json'

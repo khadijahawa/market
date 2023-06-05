@@ -13,11 +13,7 @@ const TopCollectors = () => {
                 <div className="header-content">
                     <ul className="filter-group d-flex flex-wrap align-items-center">       
                         <li className="li day-filter">
-                            <div className="select-wrapper arrow-orange" data-icon="&#xea99;">
-                                <select className="form-select" aria-label="Day select">
-                                    <option value="1">All Time</option>
-                                </select>
-                            </div>
+                            
                         </li>
                     </ul>
                 </div>
@@ -34,7 +30,7 @@ const TopCollectors = () => {
                     </div>
                     <div className="text-center mt-5">
                         <Link href="/allauthorstwo">
-                        <a className="default-btn move-right"><span>Go To Rank</span></a>
+                        <a className="default-btn move-right"><span>All Collectors</span></a>
                         </Link>
                     </div>
                 </div>

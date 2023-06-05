@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 
-import { DefaultNFTPolygon,polygonRpc,bsctrpc  } from '../engine/configuration';
+import { DefaultNFTBSC, DefaultNFTPolygon,polygonRpc,bsctrpc  } from '../engine/configuration';
 import  NFTcreate  from  '../engine/NFTcreate';
 import Web3 from 'web3';
 import { useRouter } from "next/router";
@@ -203,7 +203,7 @@ const CreateNft = () => {
                                 </div>
                                 
                                 <div className="item-category-field mb-30">
-                                    <h4>Select Catergory</h4>
+                                    <h4>Upload for any Category</h4>
                                     <ul className="item-cat-list d-flex flex-wrap">
                                         <li className="item-cat-btn active">
                                             <span><i className="icofont-vector-path"></i></span>
@@ -242,53 +242,22 @@ const CreateNft = () => {
                                     </ul>
                                 </div>
                                 
-                                 <div className="item-price-field mb-3">
-                                    <div className="row g-3">
-                                        <div className="col-md-6">
-                                            <div className="form-floating">
-                                                <select className="form-select" id="selectCrypto"
-                                                    aria-label="Floating label select">
-                                                    <option>
-                                                        MATIC
-                                                    </option>
-                                                    <option value="1">
-                                                        BNB
-                                                    </option>
-                                                    <option value="2">USDT
-                                                    </option>
-                                                    <option value="3">BULLS
-                                                    </option>
-                                                </select>
-                                                <label>Select
-                                                    Currency</label>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="form-floating">
-                                                <input type="text" className="form-control" id="itemPriceInput"
-                                                    placeholder="Item Price" />
-                                                <label>Item
-                                                    Price</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                 
                                
                                 <div className="item-price-field mb-5">
                                     <div className="row g-3 justify-content-center">
                                         <div className="col-md-6 col-lg-4">
-                                            <div className="form-floating">
-                                                <input type="text" className="form-control" id="royalityInput"
-                                                    placeholder="Royalities" />
-                                                <label>Royalities</label>
-                                            </div>
+                                           
                                         </div>   
                                     </div>
+                                    <h5>Creating an NFT is free, only pay network fees.</h5>
+                                    <h5>You can trade your newly minted NFT at your profile</h5>
                                 </div>
                                 <div className="submit-btn-field text-center" onClick={()=>handleSubmission()}>
                                     <button>Create
                                         Item</button>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

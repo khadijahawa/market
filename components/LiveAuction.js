@@ -9,7 +9,7 @@ const TrendingNow = () => {
             <section className="artwork-section">
             <div className="container">
                 <div className="section-header">
-                    <h3 className="header-title">Trending Now</h3>
+                    <h3 className="header-title">Live Now</h3>
                     <div className="header-content">
                         <ul className="filter-group d-flex flex-wrap align-items-center">
                             <li className="li collection-filter">

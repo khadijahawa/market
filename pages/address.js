@@ -1,35 +1,24 @@
 import { useState, useEffect } from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
-// import Products from '../data/Product/Products.json';
-import CollectionSingle from "../collectionsingle";
+import CollectionSingle from "../components/common/Collection";
 import copy from "copy-to-clipboard";
-import ProductSingle from "../../components/common/ProductSingle";
-import User from "../../data/User/Users.json";
-import BullscMarket from "../../engine/BullscMarket.json";
-import NFT from "../../engine/NFT.json";
-import NFTS from "../../engine/NFTS.json";
-import { supabase } from "../../engine/Supabase";
-import ActivitySingle from "../../components/common/ActivitySingle";
-import PopularList from "../../data/Collection/Popular.json";
-import FollowerSingle from "../../components/common/Collector";
 
+import PopularList from "../data/Collection/Popular.json";
+import ProductSingle from "../components/common/ProductSingle";
+import FollowerSingle from "../components/common/Collector";
+import User from "../data/User/Users.json";
+import BullscMarket from "../engine/BullscMarket.json";
+import NFT from "../engine/NFT.json";
+import NFTS from "../engine/NFTS.json";
+import { supabase } from "../engine/Supabase";
 
-
-
-
+import ActivitySingle from "../components/common/ActivitySingle";
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
 const Provider = "https://polygon-rpc.com/";
 const privKey =
   "713b86cbd9689ccc2bd09bf4ca9030e4e3b4e484d7161b05dc45239ebdcaa0eb";
-
-
-
-
-
-
-
 
 const contactAddrs = ["0x4C52548145a99EAcDe86561ef30Cd01c103cB579"];
 var Follower = User.slice(0, 8);
@@ -100,21 +89,6 @@ const AuthorInfo = {
     },
   ],
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const Author = () => {
   const router = useRouter();
@@ -218,27 +192,6 @@ const Author = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
   return (
     <>
