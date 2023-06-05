@@ -160,14 +160,14 @@ const Author = () => {
               "https://ipfs.io/ipfs/"
             )
           : null,
-        wishlist: "0.152",
+       
         address: item.contract_address,
         expiredate: "",
         seller: item.owners[item.owners.length - 1],
         title: item.collection.name + " " + item.token_id,
         stock: "1",
-        price: 3,
-        category: "Art",
+       
+       
         tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
         desc: item.description,
         owners: [

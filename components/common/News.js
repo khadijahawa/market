@@ -20,7 +20,7 @@ const News = ({data}) => {
                             <div className="meta-info">
                                 
                             </div>
-                            <Link href="https://ipfs.io/ipfs/QmVgVdE7AEJs8qrhK1Y9UBwQbHFYf1owMKPgG4pax2WBJG">
+                            <Link href="https://ipfs.io/ipfs/QmbeW8LBF38QBSJjVGrUMA5znASZKHfX3QvgzvTJenvFUC/">
                             <a
                                 className="default-btn move-right small-btn"><span>SHOP NOW
                                     </span> </a>

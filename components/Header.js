@@ -271,13 +271,7 @@ const Header = () => {
                                     </li>
 
 
-                                    <li>
-                                    <Link href="/wallet">
-                                        <a className={router.pathname == "/wallet" ? "dropdown-item active" : "dropdown-item"}><span className="me-1"><i
-                                                    className="icofont-login"></i></span>
-                                            W3B Login</a>
-                                    </Link>
-                                    </li>
+                                   
                                     <li>
                                      <UDdis />
                                     </li>

@@ -1,8 +1,3 @@
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"Maintainance Mode Page"
-};
 const Maintainance = () => {
     return (
         <div> 

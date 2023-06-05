@@ -14,18 +14,18 @@ import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { mmnft, mmresell, mmnftcol, mmrpc } from '../engine/configuration';
 import { goenft, goeresell, goenftcol, goerpc } from '../engine/configuration';
-import { hhnft, hhresell, hhnftcol, hhrpc,cryptoBearNFT,CryptoCowsClub07,marketplaceAddress,bsctmarket } from '../engine/configuration';
-import { bsctnft, bsctresell, bsctnftcol, bsctrpc } from '../engine/configuration';
+import { BearNFT, CowsNFT, marketplaceAddress, bsctmarket, BearBSCNFT, BulBSCNFT, BullsNFT, PolarBearNFT, YellowCowsNFT } from '../engine/configuration';
+import { bsctrpc } from '../engine/configuration';
 import { cipherEth, simpleCrypto  } from '../engine/configuration';
 import Select, { components } from "react-select";
 
 export default function Sell() {
   const options = [
-    { value: "-", label: "Choose", icon: "" },
+    
     { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
     { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
     { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
-    { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "" },
+    { value: "0x0dB1Ac300A55Ec29519E3440b17A4A4ea1b570f7", label: "BULL", icon: "logo.png" },
 
     
   ];
@@ -253,11 +253,11 @@ export default function Sell() {
         var nft = mmnft
       }
       else if (connected.chainId == bsct) {
-        var nft = [cryptoBearNFT,CryptoCowsClub07];
+        var nft = [BearBSCNFT, BulBSCNFT];
       }
       if(connected.chainId == polyChain)
       {
-        var nft = [cryptoBearNFT,CryptoCowsClub07];
+        var nft = [BearNFT, CowsNFT, YellowCowsNFT, PolarBearNFT, BullsNFT ];
       }
       getNftCustom(nft);
       console.log(nft)
@@ -411,7 +411,7 @@ const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceadd);
       // console.log(txHash);
       return {
           success: true,
-          status: "✅ Check out your transaction on Etherscan: " + txHash
+          status: "✅ Check out your transaction on polyscan: " + txHash
       }
   } catch (error) {
       return {
@@ -680,7 +680,24 @@ return (
                         <Text h5>
                           {nft.name} Token-{nft.id}
                         </Text>
-                        <Text>{nft.desc}</Text>
+                        
+                        
+      <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
+                        >
+                          Approve
+                        </Button>
+                        <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
+                        >
+                          Relist for Sale
+                        </Button>
                         <Input
                           size="sm"
                           css={{
@@ -690,7 +707,7 @@ return (
                             border: "$blue500",
                           }}
                           style={{
-                            color: "white",
+                            color: "black",
                             fontFamily: "SF Pro Display",
                             fontWeight: "bolder",
                             fontSize: "15px",
@@ -718,22 +735,6 @@ return (
         }
       />
       
-      <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
-                        >
-                          Approve
-                        </Button>
-                        <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
-                        >
-                          Relist for Sale
-                        </Button>
                       </Card.Body>
                     </Card>
                   </a>

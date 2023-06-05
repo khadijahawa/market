@@ -90,7 +90,7 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 <p>{`${data.price}`} MATIC
                                 </p>
                             </div>
-                            <Link href="/itemdetails">
+                            <Link href="/exploretwo">
                             <a className="nft-bid">Market</a>
                             </Link>
                         </div>

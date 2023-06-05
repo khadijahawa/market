@@ -1,24 +1,27 @@
 import { useState,useEffect } from 'react';
 import { useRouter } from "next/router";
+
 import {ethers} from "ethers";
+import PageHeader from '../components/PageHaeder';
 import ProductSingle from "../components/common/ProductSingle1";
 import BullscMarket from "../engine/BullscMarket.json"
 import NFT from "../engine/NFT.json"
 import axios from "axios"
 import detectEthereumProvider from '@metamask/detect-provider';
 
-
-
-
-
-
-
 const Provider = "https://polygon-rpc.com/";
 const bsctrpc = "https://bsc-dataseed1.ninicoin.io";
+
 const privKey = "713b86cbd9689ccc2bd09bf4ca9030e4e3b4e484d7161b05dc45239ebdcaa0eb";
 
+const PageHeaderText =
+{
+    "linkText":"Home",
+    "heading":"Explore"
+};
 const getprods = async() =>
 {   
+
     var hh = "0x7a69";
     var goe = "0x5";
     var mm = "0x13881";
@@ -34,7 +37,9 @@ const getprods = async() =>
     }
     contactAddr="0x30Eff4daCc828A916438Aab8c4005B4EA2b241EE";
     provider = new ethers.providers.JsonRpcProvider(Provider);
+
     const signer = new ethers.Wallet(privKey);
+    
     const account = signer.connect(provider);
     //const gasPrice = await provider.getFeeData();
     //var gaz=ethers.utils.formatUnits(gasPrice.gasPrice, "ether")
@@ -53,12 +58,95 @@ const getprods = async() =>
     console.log("****ok*****");
     // console.log(val.c[0]);
     const tx = await products.getAvailableNft();
-    console.log(tx);  
-    return tx;    
+    console.log(tx);
+    
+   
+    
+    
+    return tx;
+  
+    
 }
+
+
+
+
+
+const getSimpleHash = async () => {
+    const options = {
+      headers: {
+        accept: "application/json",
+        "X-API-KEY":
+          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7",
+      },
+    };
+
+    const rest = await axios.get(
+      "https://api.simplehash.com/api/v0/nfts/collections/bsc/0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e?limit=50",
+      "https://api.simplehash.com/api/v0/nfts/collections/polygon/0x803927bCc14A38029a6Cf1149be71cc17F12B931?limit=50",
+      options
+    );
+
+
+
+
+
+    console.log(rest.data);
+    const simpleHashNFTs = rest.data.nfts.map((item) => {
+      return {
+        id: item.token_id,
+        image: item.extra_metadata.image_original_url
+          ? item.extra_metadata.image_original_url.replace(
+              "ipfs://",
+              "https://ipfs.io/ipfs/"
+            )
+          : null,
+       
+        address: item.contract_address,
+        expiredate: "",
+        
+        title: item.collection.name + " " + item.token_id,
+        stock: "1",
+       
+       
+        tags: "Polygone | BSC | For Sell | For Collect | Trending |  Trending_Arts",
+        desc: item.description,
+        owners: [
+          {
+            id: "1",
+            name: "",
+            image: "/assets/images/seller/collector-1.png",
+            verified: false,
+            prfileLink: "/",
+          },
+        ],
+      };
+    });
+    setProds(simpleHashNFTs);
+    setLoading(true);
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const getBaseUri = async(cnt,id) => {
     const provider = new ethers.providers.JsonRpcProvider(Provider);
+
     const signer = new ethers.Wallet(privKey);
+    
     const account = signer.connect(provider);
     const NFTs = new ethers.Contract(
         cnt,
@@ -68,27 +156,54 @@ const getBaseUri = async(cnt,id) => {
     console.log(cnt,id)
     const tx = await NFTs.tokenURI(id.toString());
     console.log(tx);
+
     return(tx);
 }
 const getMetadata = async(baseURI) => {
     let s=await axios.get(baseURI.replace("ipfs://","https://ipfs.io/ipfs/"));
     return s.data;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const Explore = () => {
     const [products, setshowProducts] = useState([]);
     const [Prods, setProds] = useState([]);
     const [loading, setLoading] = useState(0);
    const router = useRouter();
+   
     useEffect(() => {
        const effect = async() => {
+
       if (window.ethereum.selectedAddress)
-      { 
+      {
+        
         console.log(window.ethereum.selectedAddress)
       }
       else
       {
         router.push("/wallet")
+
       }
+
        let x= await getprods();
        console.log(x);
        let s=[]
@@ -159,7 +274,7 @@ const Explore = () => {
     return (
         <div>
            
-       
+        <PageHeader text={PageHeaderText} />
         <section className="explore-section padding-top padding-bottom">
         <div className="container">
             <div className="section-wrapper">

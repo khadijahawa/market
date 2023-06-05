@@ -1,5 +1,4 @@
 import { useState,useEffect } from 'react';
-
 import { DefaultNFTBSC, DefaultNFTPolygon,polygonRpc,bsctrpc  } from '../engine/configuration';
 import  NFTcreate  from  '../engine/NFTcreate';
 import Web3 from 'web3';
@@ -65,7 +64,7 @@ export const createToken = async(baseURI) => {
            }
            return {
                success: true,
-               status: "✅ Check out your transaction on Etherscan: https://ropsten.etherscan.io/tx/" + txHash
+               status: "✅ Check out your transaction on polyscan: https://polygonscan.com/tx/" + txHash
            }
        } catch (error) {
            return {
@@ -251,13 +250,12 @@ const CreateNft = () => {
                                         </div>   
                                     </div>
                                     <h5>Creating an NFT is free, only pay network fees.</h5>
-                                    <h5>You can trade your newly minted NFT at your profile</h5>
+                                    <h5>Go to Profile to trade your newly minted NFT</h5>
                                 </div>
                                 <div className="submit-btn-field text-center" onClick={()=>handleSubmission()}>
                                     <button>Create
                                         Item</button>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,3 @@
-import PageHeader from '../components/PageHaeder';
-
-
- 
-
 const Terms = () => {
     return (
         <div>

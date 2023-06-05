@@ -1,3 +1,4 @@
+import { Spacer } from "@nextui-org/react";
 import SellCardList from "../data/Other/SellCard.json";
 
 var GetSellCardList = SellCardList
@@ -5,8 +6,8 @@ var GetSellCardList = SellCardList
 const SellCard = () => {
     return(
         <div>
-            <section className="process-section padding-bottom">
-                
+            <Spacer />
+            <section className="process-section padding-bottom">  
         <div className="container">
         <div className="section-header justify-content-center">
                 <div className="header-title">
@@ -42,6 +43,7 @@ const SellCard = () => {
                 </div>
             </div>
         </div>
+        <Spacer />
         <div className="section-header justify-content-center">
                         <h3>Exchange 500+ Tokens</h3>
                         <h6 className="section-header justify-content-center"> Save exchane ID if need support</h6>

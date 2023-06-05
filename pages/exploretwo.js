@@ -88,8 +88,114 @@ const getprods = async () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 const ExploreTwo = () => {
-    const [showProducts,setshowProducts] = useState(productList);
+    const [products, showProducts, setshowProducts] = useState([]);
+    const [Prods, setProds] = useState([]);
+    const [loading, setLoading] = useState(0);
+    const router = useRouter();
+
+
+
+    useEffect(() => {
+        const effect = async() => {
+ 
+       if (window.ethereum.selectedAddress)
+       {
+         
+         console.log(window.ethereum.selectedAddress)
+       }
+       else
+       {
+         router.push("/wallet")
+ 
+       }
+ 
+        let x= await getprods();
+        console.log(x);
+        let s=[]
+       const l= x.map(async(item) => {
+         if(item[1] != "0x0000000000000000000000000000000000000000")
+         {
+         console.log(item[7].toString());
+         const baseURI = await getBaseUri(item[1],item[2]);
+         let r = await getMetadata (baseURI);
+        
+ 
+        const s =
+         {
+             id: r.name.split("#")[1],
+             itemID : item[0].toString(),
+             image: r.image.replace("ipfs://","https://ipfs.io/ipfs/"),
+             wishlist: "0.352",
+             expiredate: r.data,
+             contactAddr : item[1],
+             title: r.name,
+             stock: "1",
+             token : item[3],
+             isPayble : item[4],
+             seller : item[5],
+             price: (Number(item[7]) / 10**18).toString() ,
+             category: "Art",
+             tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
+             
+            
+         }
+       console.log(s);
+       
+        return s;
+       }
+       
+      
+     })
+    let filesPromise = await Promise.all(l)
+    console.log(filesPromise)
+   
+    console.log(filesPromise)
+    
+    setshowProducts(filesPromise);
+    setProds(filesPromise);
+     }
+     effect();
+    
+       }, [])
+
+
+
+
+
+
+
+    const productSearch = (keyword) => {
+        if (keyword != '') {
+            var productListFiltered = Prods.filter((item) => {
+                var productTag = item.tags.toLowerCase();
+                var searchkeyword =keyword.toLowerCase();
+                return productTag.includes(searchkeyword);
+
+            });
+            setshowProducts(productListFiltered);
+        }else {
+            setshowProducts(productList);
+
+        }
+
+        
+        
+    }
+
+
 
     const getProductsByCategory = (category) => {
         if (category != 'All') {
@@ -101,6 +207,10 @@ const ExploreTwo = () => {
         }
         
     }
+
+    
+
+
 
     return (
         <div>
