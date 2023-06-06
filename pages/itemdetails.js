@@ -70,7 +70,75 @@ const ItemInfo =
 
 
 
+const ItemDetails = () => {
+    const router = useRouter();
+    const query = router.query;
+    console.log(query)
+    const [TokenLabel,setTokenLabel] = useState("");
+    console.log(query.isPayble);
+   const buyToken = async() =>{
+        console.log(rpc);
+        const provider= new ethers.providers.JsonRpcProvider(rpc);
+        var web3 = new Web3(new Web3.providers.HttpProvider(rpc));
+  
+        const gazfees= await provider.getFeeData();
+        console.log(gazfees.maxPriorityFeePerGas.toString())
+        console.log(gazfees.maxFeePerGas.toString())
+  
+  const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceAddress);
+   //set up your Ethereum transaction
+    const transactionParameters = {
+        to: marketplaceAddress, // Required except during contract publications.
+        from: window.ethereum.selectedAddress, // must match user's active address.
+    //gasLimit: web3.utils.toHex(web3.utils.toWei('50','gwei')),  
+    //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')), 
+        maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
+        maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
+        // gas: ethers.BigNumber.from(300000).toHexString(),
+        'data': nftContract.methods.BULLSCMarketSaleToken(query.contactAddr,query.itemID).encodeABI() //make call to NFT smart contract 
+    //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
+    };
+    console.log(transactionParameters)
+    //sign transaction via Metamask
+    try {
+        const txHash = await window.ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParameters],
+            });
+        // console.log(txHash);
+        return {
+            success: true,
+            status: "✅ Check out your transaction on Etherscan: " + txHash
+        }
+    } catch (error) {
+        return {
+            success: false,
+            status: "😥 Something went wrong: " + error.message
+        }
+    }
+      
+   }
+    const Tokens = [
+        { value: "-", label: "Choose", icon: "" },
+        { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
+        { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
+        { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
+        { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "letter-f-initial-icon-logo-template_23987-54.avif" },
+    
+        
+      ];
+    const getTokenFromAddr = () => {
+        console.log(query);
 
+        const x = Tokens.filter((key) => key.value.toLowerCase() == query?.token?.toString().toLowerCase())
+        console.log(x);
+        setTokenLabel(x[0]?.label);
+        
+    }
+    useEffect(() => {
+        getTokenFromAddr(query.token);
+        
+       }, [TokenLabel])
 
 
 
@@ -148,7 +216,7 @@ const ItemDetails = () => {
     
     return (
         <div>
-     
+        <PageHeader text={PageHeaderText} />
         <div className="item-details-section padding-top padding-bottom">
         <div className="container">
             <div className="item-details-wrapper">
@@ -157,7 +225,7 @@ const ItemDetails = () => {
                         <div className="item-desc-part">
                             <div className="item-desc-inner">
                                 <div className="item-desc-thumb">
-                                    <img src={`${ItemInfo.image}`} alt="item-img" />
+                                    <img src={`${query.image}`} alt="item-img" />
                                 </div>
                                 <div className="item-desc-content">
                                     <nav>
@@ -177,10 +245,9 @@ const ItemDetails = () => {
                                         <div className="details-tab tab-pane fade show active" id="nav-details"
                                             role="tabpanel" aria-labelledby="nav-details-tab">
 
-                                            <p>{`${ItemInfo.description}`}</p>
                                             <div className="author-profile d-flex flex-wrap align-items-center gap-15">
                                                 <div className="author-p-thumb">
-                                                <Link href="/author">
+                                                <Link href={"/author/"+query.seller.owner_address}>
                                                     <a><img
                                                             src="assets/images/seller/collector-3.gif"
                                                             alt="author-img " /></a>
@@ -189,7 +256,7 @@ const ItemDetails = () => {
                                                 <div className="author-p-info">
                                                     <p className="mb-0">Owner</p>
                                                     <h6>
-                                                        <Link href="/author"><a>{`${ItemInfo.owners[0].name}`}</a></Link>
+                                                        <Link href={"/author/"+query.seller.owner_address}><a>{`${query.seller.owner_address}`}</a></Link>
                                                         
                                                     </h6>
                                                 </div>
@@ -202,7 +269,7 @@ const ItemDetails = () => {
                                                     <div className="item-info-details">
                                                         <div id="cryptoCode" className="crypto-page">
                                                             <input id="cryptoLink"
-                                                                value={`${ItemInfo.owners[0].contactAddress}`}
+                                                                value={`${query.address}`}
                                                                 readOnly />
                                                             <div id="cryptoCopy" data-bs-toggle="tooltip"
                                                                 data-bs-placement="top" title="Copy Address">
@@ -221,7 +288,7 @@ const ItemDetails = () => {
                                                         <h6>Token ID</h6>
                                                     </div>
                                                     <div className="item-info-details">
-                                                        <p>{`${ItemInfo.owners[0].token}`}</p>
+                                                        <p>{`${query.id}`}</p>
                                                     </div>
 
                                                 </li>
@@ -230,11 +297,11 @@ const ItemDetails = () => {
                                                         <h6>Blockchain</h6>
                                                     </div>
                                                     <div className="item-info-details">
-                                                        <p>{`${ItemInfo.owners[0].blockchain}`}</p>
+                                                        <p>{`${query.chain}`}</p>
                                                     </div>
                                                 </li>
 
-                                                
+                                               
                                             </ul>
                                         </div>
                                         <div className="bids-tab tab-pane fade" id="nav-bids" role="tabpanel"
@@ -268,7 +335,7 @@ const ItemDetails = () => {
                     <div className="col-lg-6">
                         <div className="item-buy-part">
                             <div className="nft-item-title">
-                                <h3>#003 da Silly Cat wid baLoon NFT: size 1/50</h3>
+                                <h3>{query.title}</h3>
                                 <div className="share-btn">
                                     <div className=" dropstart">
                                         <a className=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -295,17 +362,11 @@ const ItemDetails = () => {
                             </div>
                             <div className="item-price">
                                 <h4>Price</h4>
-                                <p><span><i className="icofont-coins"></i> {`${ItemInfo.price}`} ETH
-                                    </span>($ 6,227.15)</p>
+                                
+                                <p><span><i className="icofont-coins"></i> {`${query.price}`} {query?.isPayble == "true" ? " MATIC" : TokenLabel}</span></p>
                             </div>
                             <div className="buying-btns d-flex flex-wrap">
-                                <Link href="/wallet">
-                                <a className="default-btn move-right"><span>Buy Now</span> </a>
-                                </Link>
-                                <Link href="/wallet">
-                                <a className="default-btn style-2 move-right"><span>Place a Bid</span>
-                                </a>
-                                </Link>
+                                <div className="default-btn move-right" onClick={() => buyToken()}><span>Buy Now</span> </div>
                             </div>
                         </div>
                     </div>
@@ -315,6 +376,6 @@ const ItemDetails = () => {
     </div>
         </div>
     )
-}
+}}
 
 export default ItemDetails;
