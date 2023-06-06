@@ -6,22 +6,16 @@ import Link from 'next/link';
 
 
 const ProductSingle = ({data,countdown=false,style}) => {
-    console.log("🚀 ~ file: ProductSingle.js:6 ~ ProductSingle ~ data:", data);
+    console.log(data)
+    
     return (
+        <>
+         {data &&
         <div className="nft-item" style={style}>
             <div className="nft-inner">
                 
                 <div className="nft-item-top d-flex justify-content-between align-items-center">
-                    <div className="author-part">
-                        <ul className="author-list d-flex">
-                            {
-                                data.owners.map((item) =>(
-                                    <OwnerList data={item} key={item.id} />
-                                ))
-                            }
-                            
-                        </ul>
-                    </div>
+                    
                     <div className="more-part">
                         <div className=" dropstart">
                             <a className=" dropdown-toggle" href="#" role="button"
@@ -56,16 +50,13 @@ const ProductSingle = ({data,countdown=false,style}) => {
                     <div className="nft-content">
                         <div className="content-title">
                             <h5>
-                            <Link
-                  href={{
-                    pathname: "/itemdetails",
-                    query: {
-                      seller: JSON.stringify(data?.owners),
-                    },
-                  }}
-                >
-                  <a>{`${data.title}`}</a>
-                </Link>
+                                <Link 
+                                href={{
+            pathname: "/itemdetails",
+            query: data, // the data
+          }}>
+                                <a>{`${data.title}`}</a> 
+                                </Link>
                             </h5>
                         </div>
 
@@ -84,20 +75,22 @@ const ProductSingle = ({data,countdown=false,style}) => {
                         <div className="price-like d-flex justify-content-between align-items-center">
                             <div className="nft-price d-flex align-items-center">
                                 <span className="currency-img">
-                                    <img src='assets/images/currency/currency-3.png'
+                                    <img src='/assets/images/currency/currency-3.png'
                                         alt="currency img" />
                                 </span>
                                 <p>{`${data.price}`} MATIC
                                 </p>
                             </div>
-                            <Link href="/exploretwo">
-                            <a className="nft-bid">Market</a>
+                            <Link href="/itemdetails" >
+                            <a className="nft-bid">Place Bid</a>
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        }
+        </>
     )
 }
 
