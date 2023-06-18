@@ -4,19 +4,21 @@ import PageHeader from "../components/PageHaeder";
 import {
   DefaultNFTPolygon,
   polygonRpc,
-  bsctrpc,
+  bsctrpc
 } from "../engine/configuration";
 import NFTcreate from "../engine/NFTcreate";
 import Web3 from "web3";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const { ethers, Wallet } = require("ethers");
 const axios = require("axios");
 
 const PageHeaderText = {
   linkText: "Home",
-  heading: "Create NFT",
+  heading: "Create NFT"
 };
+
 const JWT = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxNTEyMDQ4ZS0xOWFlLTQ4ZmYtOGFiOS0xZGQxNDljMGRiMjQiLCJlbWFpbCI6ImNvbnRhY3QuZWxlYXJuaW5nMjAyMEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiMWQ0YjNhN2FjMDBiZWYwMDU5ZmMiLCJzY29wZWRLZXlTZWNyZXQiOiIzMzdlMTM5OTUwMjUwYjBmOWM1OGIzOTJkYTkxZjUzM2U1NWViZmNmNDQ3ZThiMWFkMDFiOTg5MTRkYWQ5ZTljIiwiaWF0IjoxNjc1MTY1MTUwfQ.Of1UvNC2NF3oBh0Qkr7aA7rVNJCl6oN6W08TeOYmEVI`;
 export const createToken = async (baseURI) => {
   //error handling
@@ -50,7 +52,7 @@ export const createToken = async (baseURI) => {
     ),
     maxFeePerGas: null,
     gas: ethers.BigNumber.from(210000).toHexString(),
-    data: nftContract.methods.createToken(baseURI).encodeABI(), //make call to NFT smart contract
+    data: nftContract.methods.createToken(baseURI).encodeABI() //make call to NFT smart contract
 
     // 'data': nftContract.methods.transferFrom(amount).encodeABI()
     //make call to NFT smart contract
@@ -61,7 +63,7 @@ export const createToken = async (baseURI) => {
   try {
     const txHash = await window?.ethereum?.request({
       method: "eth_sendTransaction",
-      params: [transactionParameters],
+      params: [transactionParameters]
     });
     // console.log(txHash);
     window.crypto_cb = function () {
@@ -72,81 +74,86 @@ export const createToken = async (baseURI) => {
       success: true,
       status:
         "✅ Check out your transaction on Etherscan: https://ropsten.etherscan.io/tx/" +
-        txHash,
+        txHash
     };
   } catch (error) {
     return {
       success: false,
-      status: "😥 Something went wrong: " + error.message,
+      status: "😥 Something went wrong: " + error.message
     };
   }
 };
 const CreateNft = () => {
+  const router = useRouter();
   const [selectedFile, setSelectedFile] = useState(null);
   console.log(selectedFile);
   const [titreNFT, settitreNFT] = useState("");
   const [descriptionNFT, setdescriptionNFT] = useState("");
-  useEffect(() => {
-    if (window?.ethereum?.selectedAddress) {
-      console.log("new", window.ethereum.selectedAddress);
-    } else {
-      router.push("/wallet");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window?.ethereum?.selectedAddress) {
+  //     console.log("new", window.ethereum.selectedAddress);
+  //   } else {
+  //     router.push("/Wallet");
+  //   }
+  // }, []);
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
   const handleSubmission = async () => {
-    const formData = new FormData();
-    formData.append("file", selectedFile);
+    if (selectedFile && selectedFile.size <= 150 * 1024 * 1024) {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
 
-    const metadata = JSON.stringify({
-      name: "File name",
-    });
-    formData.append("pinataMetadata", metadata);
+      const metadata = JSON.stringify({
+        name: "File name"
+      });
+      formData.append("pinataMetadata", metadata);
 
-    const options = JSON.stringify({
-      cidVersion: 0,
-    });
-    formData.append("pinataOptions", options);
-    console.log(formData);
-    try {
-      const res = await axios.post(
-        "https://api.pinata.cloud/pinning/pinFileToIPFS",
-        formData,
-        {
-          maxBodyLength: "Infinity",
+      const options = JSON.stringify({
+        cidVersion: 0
+      });
+      formData.append("pinataOptions", options);
+      console.log(formData);
+      try {
+        const res = await axios.post(
+          "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          formData,
+          {
+            maxBodyLength: "Infinity",
+            headers: {
+              "Content-Type": formData._boundary,
+              Authorization: JWT
+            }
+          }
+        );
+        let metadataNFT = {
+          name: titreNFT,
+          image: "ipfs://" + res.data.IpfsHash,
+          description: descriptionNFT,
+          attributes: []
+        };
+        var config = {
+          method: "post",
+          url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
           headers: {
-            "Content-Type": formData._boundary,
-            Authorization: JWT,
+            "Content-Type": "application/json",
+            Authorization: JWT
           },
-        }
-      );
+          data: metadataNFT
+        };
 
-      let metadataNFT = {
-        name: titreNFT,
-        image: "ipfs://" + res.data.IpfsHash,
-        description: descriptionNFT,
-        attributes: [],
-      };
-      var config = {
-        method: "post",
-        url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: JWT,
-        },
-        data: metadataNFT,
-      };
-
-      const result = await axios(config);
-      console.log(result);
-
-      await createToken("ipfs://" + result.data.IpfsHash);
-    } catch (error) {
-      console.log(error);
+        const result = await axios(config);
+        console.log(result);
+        await createToken("ipfs://" + result.data.IpfsHash);
+      } catch (error) {
+        console.log(error);
+      }
+      alert("NFT created successfully!");
+      router.push("wallet");
+    } else {
+      // Handle error for exceeding file size limit
+      alert("File size exceeds the limit of 150MB.");
     }
-    router.push("/wallet");
   };
   return (
     <div>
@@ -169,14 +176,15 @@ const CreateNft = () => {
                       </div>
                     </div>
                     <div>
-                      {/* {selectedFile && (
+                      {selectedFile && (
                         <Image
                           src={URL.createObjectURL(selectedFile)}
                           width={500}
                           height={500}
+                          className=""
                           alt="image"
                         />
-                      )} */}
+                      )}
                     </div>
                     <div className="form-floating item-name-field mb-3">
                       <input

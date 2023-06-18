@@ -14,22 +14,11 @@ import ActivitySingle from "../../components/common/ActivitySingle";
 import PopularList from "../../data/Collection/Popular.json";
 import FollowerSingle from "../../components/common/Collector";
 
-
-
-
-
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
 const Provider = "https://polygon-rpc.com/";
 const privKey =
   "713b86cbd9689ccc2bd09bf4ca9030e4e3b4e484d7161b05dc45239ebdcaa0eb";
-
-
-
-
-
-
-
 
 const contactAddrs = ["0x4C52548145a99EAcDe86561ef30Cd01c103cB579"];
 var Follower = User.slice(0, 8);
@@ -43,12 +32,8 @@ var GetPopularList = PopularList.slice(0, 3);
 
 const PageHeaderText = {
   linkText: "Home",
-  heading: "Author Profile",
+  heading: "Author Profile"
 };
-
-
-
-
 
 const AuthorInfo = {
   name: "Tamer",
@@ -71,7 +56,7 @@ const AuthorInfo = {
         "GOLD DIGGER (x Antoni Tudisco) #44/44 was put up for sale for0.0991 ETH",
       image: "/assets/images/activity/01.gif",
       by: "@rasselmrh",
-      createdAt: "10/07/2022, 10:03 am",
+      createdAt: "10/07/2022, 10:03 am"
     },
     {
       id: 2,
@@ -79,7 +64,7 @@ const AuthorInfo = {
       description: "two rare collection purchased for0.001 ETH",
       image: "/assets/images/activity/02.gif",
       by: "@technonazmul",
-      createdAt: "10/07/2022, 08:23 am",
+      createdAt: "10/07/2022, 08:23 am"
     },
     {
       id: 3,
@@ -87,7 +72,7 @@ const AuthorInfo = {
       description: "The Shopping Cart #54/65 was put up for sale for 0.021 ETH",
       image: "/assets/images/activity/03.gif",
       by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am",
+      createdAt: "10/07/2022, 12:03 am"
     },
     {
       id: 4,
@@ -96,25 +81,10 @@ const AuthorInfo = {
         "A offer of $200.00 was placed for ÜNDERSTANDING (Sean Williams) #1/20",
       image: "/assets/images/activity/04.gif",
       by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am",
-    },
-  ],
+      createdAt: "10/07/2022, 12:03 am"
+    }
+  ]
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const Author = () => {
   const router = useRouter();
@@ -140,8 +110,8 @@ const Author = () => {
       headers: {
         accept: "application/json",
         "X-API-KEY":
-          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7",
-      },
+          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7"
+      }
     };
 
     const rest = await axios.get(
@@ -160,14 +130,13 @@ const Author = () => {
               "https://ipfs.io/ipfs/"
             )
           : null,
-       
+
         address: item.contract_address,
         expiredate: "",
         seller: item.owners[item.owners.length - 1],
         title: item.collection.name + " " + item.token_id,
         stock: "1",
-       
-       
+
         tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
         desc: item.description,
         owners: [
@@ -176,9 +145,9 @@ const Author = () => {
             name: "",
             image: "/assets/images/seller/collector-1.png",
             verified: false,
-            prfileLink: "/",
-          },
-        ],
+            prfileLink: "/"
+          }
+        ]
       };
     });
     setProds(simpleHashNFTs);
@@ -214,31 +183,6 @@ const Author = () => {
     getSimpleHash(address);
     getAvatar();
   }, [loading]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
   return (
     <>
