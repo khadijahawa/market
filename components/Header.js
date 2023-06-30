@@ -373,7 +373,7 @@ const Header = () => {
                   <a>
                     <span>
                       <i className="icofont-wallet" data-blast="color"></i>
-                    </span>{" "}
+                    </span>
                     <span className="d-none d-md-inline">
                       {wallet != ""
                         ? wallet.slice(0, 4) + "...." + wallet.slice(-2)

@@ -9,7 +9,7 @@ import Web3 from "web3";
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
     {
-      wallet: wallet
+      wallet: wallet,
     },
     { onConflict: "wallet" }
   );
@@ -27,11 +27,11 @@ const Wallet = () => {
       console.log(window.ethereum);
 
       const addressArray = await window.ethereum.request({
-        method: "eth_requestAccounts"
+        method: "eth_requestAccounts",
       });
       const obj = {
         status: "Write a message in the text-field above.",
-        address: addressArray[0]
+        address: addressArray[0],
       };
       localStorage.setItem("data", JSON.stringify(obj));
       await insertUserWallet(addressArray[0]);
@@ -51,13 +51,13 @@ const Wallet = () => {
               </a>
             </p>
           </span>
-        )
+        ),
       };
     }
   };
   useEffect(() => {
     if (window.ethereum && window.ethereum?.selectedAddress) {
-      router.push("/");
+      // router.push("/");
     }
   }, []);
   return (
