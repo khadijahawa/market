@@ -14,18 +14,18 @@ import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { mmnft, mmresell, mmnftcol, mmrpc } from '../engine/configuration';
 import { goenft, goeresell, goenftcol, goerpc } from '../engine/configuration';
-import { BearNFT, CowsNFT, marketplaceAddress, bsctmarket, BearBSCNFT, BulBSCNFT, BullsNFT, PolarBearNFT, YellowCowsNFT } from '../engine/configuration';
-import { bsctrpc } from '../engine/configuration';
+import { hhnft, hhresell, hhnftcol, hhrpc,cryptoBearNFT,CryptoCowsClub07,marketplaceAddress,bsctmarket } from '../engine/configuration';
+import { bsctnft, bsctresell, bsctnftcol, bsctrpc } from '../engine/configuration';
 import { cipherEth, simpleCrypto  } from '../engine/configuration';
 import Select, { components } from "react-select";
 
 export default function Sell() {
   const options = [
-    
+    { value: "-", label: "Choose", icon: "" },
     { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
     { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
     { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
-    { value: "0x0dB1Ac300A55Ec29519E3440b17A4A4ea1b570f7", label: "BULL", icon: "logo.png" },
+    { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "" },
 
     
   ];
@@ -203,7 +203,7 @@ export default function Sell() {
       }
       if(connected.chainId == poly)
       {
-        var mainnet = "https://polygon-rpc.com/";
+        var mainnet = "https://polygon.meowrpc.com";
       }
       console.log(mainnet);
 
@@ -253,11 +253,11 @@ export default function Sell() {
         var nft = mmnft
       }
       else if (connected.chainId == bsct) {
-        var nft = [BearBSCNFT, BulBSCNFT];
+        var nft = [cryptoBearNFT,CryptoCowsClub07];
       }
       if(connected.chainId == polyChain)
       {
-        var nft = [BearNFT, CowsNFT, YellowCowsNFT, PolarBearNFT, BullsNFT ];
+        var nft = [cryptoBearNFT,CryptoCowsClub07];
       }
       getNftCustom(nft);
       console.log(nft)
@@ -375,10 +375,10 @@ export default function Sell() {
     }
 
     async function SellNFT(address,tokenID,price,Token) {
-      console.log(Token);
+      console.log(rpc);
       const provider= new ethers.providers.JsonRpcProvider(rpc);
       var web3 = new Web3(new Web3.providers.HttpProvider(rpc));
-      const val= Number(((Token == "0" ? parseFloat(price):0) +0.0125) * 1e18).toString(16);
+      const val= Number(0.0125 * 1e18).toString(16);
       const pricing = Token == "0" ? (parseFloat(price)* 1e18).toString(16) : (parseFloat(price)* 10**18).toString()   ;
 console.log(pricing)
       const fee = Number(0.0125 * 1e18).toString(16);
@@ -394,9 +394,9 @@ const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceadd);
       from: window.ethereum.selectedAddress, // must match user's active address.
   //gasLimit: web3.utils.toHex(web3.utils.toWei('50','gwei')),  
   //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')), 
-      maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
-      maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
-      // gas: ethers.BigNumber.from(300000).toHexString(),
+      // maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
+      // maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
+      gas: ethers.BigNumber.from(300000).toHexString(),
       value:val,
       'data': nftContract.methods.createVaultItem(address,tokenID.toString(),"0x"+pricing,Token == "0" ? true: false,Token == "0" ? "0x0000000000000000000000000000000000000000":Token).encodeABI() //make call to NFT smart contract 
   //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
@@ -411,7 +411,7 @@ const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceadd);
       // console.log(txHash);
       return {
           success: true,
-          status: "✅ Check out your transaction on polyscan: " + txHash
+          status: "✅ Check out your transaction on Etherscan: " + txHash
       }
   } catch (error) {
       return {
@@ -438,7 +438,7 @@ const nftContract = await new web3.eth.Contract(NFT, address);
   //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')), 
       maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
       maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
-      // gas: ethers.BigNumber.from(300000).toHexString(),
+      gas: ethers.BigNumber.from(500000).toHexString(),
       'data': nftContract.methods.approve(marketplaceadd, tokenID).encodeABI() //make call to NFT smart contract 
   //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
   };
@@ -680,24 +680,7 @@ return (
                         <Text h5>
                           {nft.name} Token-{nft.id}
                         </Text>
-                        
-                        
-      <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
-                        >
-                          Approve
-                        </Button>
-                        <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
-                        >
-                          Relist for Sale
-                        </Button>
+                        <Text>{nft.desc}</Text>
                         <Input
                           size="sm"
                           css={{
@@ -707,7 +690,7 @@ return (
                             border: "$blue500",
                           }}
                           style={{
-                            color: "black",
+                            color: "white",
                             fontFamily: "SF Pro Display",
                             fontWeight: "bolder",
                             fontSize: "15px",
@@ -735,6 +718,22 @@ return (
         }
       />
       
+      <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
+                        >
+                          Approve
+                        </Button>
+                        <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
+                        >
+                          Relist for Sale
+                        </Button>
                       </Card.Body>
                     </Card>
                   </a>
