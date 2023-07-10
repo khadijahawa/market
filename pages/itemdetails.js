@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import {ethers} from "ethers";
 import Web3 from 'web3';
 import BullscMarket from "../engine/BullscMarket.json"
+import PageHeader from "../components/PageHaeder";
 
 
 
@@ -23,7 +24,11 @@ const bsctmarket = "0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e";
 
 
 
-
+const PageHeaderText =
+{
+    "linkText":"ItemDetails",
+    "heading":"Item details"
+};
 
 
 const ItemInfo =
@@ -187,7 +192,6 @@ const ItemDetails = () => {
 
 
 
-const ItemDetails = () => {
 
 
 
@@ -376,6 +380,6 @@ const ItemDetails = () => {
     </div>
         </div>
     )
-}}
+}
 
 export default ItemDetails;
