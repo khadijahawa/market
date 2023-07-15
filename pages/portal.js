@@ -732,6 +732,7 @@ return (
                           style={{ fontSize: "20px" }}
                           onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
                         >
+
                           Relist for Sale
                         </Button>
                       </Card.Body>
