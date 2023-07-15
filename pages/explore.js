@@ -19,7 +19,34 @@ const PageHeaderText =
     "linkText":"Home",
     "heading":"Explore"
 };
-const getprods = async() =>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Explore = () => {
+    const [products, setshowProducts] = useState([]);
+    const [Prods, setProds] = useState([]);
+    const [loading, setLoading] = useState(0);
+   const router = useRouter();
+   const getprods = async() =>
 {   
 
     var hh = "0x7a69";
@@ -35,7 +62,9 @@ const getprods = async() =>
          web3 = new Web3(new Web3.providers.HttpProvider(bsctrpc));
          contactAddr="0x238d94ed5780f5F058a2f6CfaF3aD975887a7308";
     }
-    contactAddr="0x30Eff4daCc828A916438Aab8c4005B4EA2b241EE";
+    web3 = new Web3(new Web3.providers.HttpProvider(Provider));
+   console.log(Provider);
+    contactAddr="0x30eff4dacc828a916438aab8c4005b4ea2b241ee";
     provider = new ethers.providers.JsonRpcProvider(Provider);
 
     const signer = new ethers.Wallet(privKey);
@@ -55,13 +84,16 @@ const getprods = async() =>
       BullscMarket,
       account
     );
+
     console.log("****ok*****");
     // console.log(val.c[0]);
     const tx = await products.getAvailableNft();
     console.log(tx);
-    
-   
-    
+
+    // const decodedResult = web3.eth.abi.decode(['uint256', 'address',"uint256","address","bool","address","address","uint256","bool"], tx1);
+
+    console.log(tx);
+
     
     return tx;
   
@@ -72,59 +104,7 @@ const getprods = async() =>
 
 
 
-const getSimpleHash = async () => {
-    const options = {
-      headers: {
-        accept: "application/json",
-        "X-API-KEY":
-          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7",
-      },
-    };
 
-    const rest = await axios.get(
-      "https://api.simplehash.com/api/v0/nfts/collections/bsc/0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e?limit=50",
-      "https://api.simplehash.com/api/v0/nfts/collections/polygon/0x803927bCc14A38029a6Cf1149be71cc17F12B931?limit=50",
-      options
-    );
-
-
-
-
-
-    console.log(rest.data);
-    const simpleHashNFTs = rest.data.nfts.map((item) => {
-      return {
-        id: item.token_id,
-        image: item.extra_metadata.image_original_url
-          ? item.extra_metadata.image_original_url.replace(
-              "ipfs://",
-              "https://ipfs.io/ipfs/"
-            )
-          : null,
-       
-        address: item.contract_address,
-        expiredate: "",
-        
-        title: item.collection.name + " " + item.token_id,
-        stock: "1",
-       
-       
-        tags: "Polygone | BSC | For Sell | For Collect | Trending |  Trending_Arts",
-        desc: item.description,
-        owners: [
-          {
-            id: "1",
-            name: "",
-            image: "/assets/images/seller/collector-1.png",
-            verified: false,
-            prfileLink: "/",
-          },
-        ],
-      };
-    });
-    setProds(simpleHashNFTs);
-    setLoading(true);
-  };
 
 
 
@@ -163,33 +143,8 @@ const getMetadata = async(baseURI) => {
     let s=await axios.get(baseURI.replace("ipfs://","https://ipfs.io/ipfs/"));
     return s.data;
 }
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Explore = () => {
-    const [products, setshowProducts] = useState([]);
-    const [Prods, setProds] = useState([]);
-    const [loading, setLoading] = useState(0);
-   const router = useRouter();
-   
     useEffect(() => {
        const effect = async() => {
 
@@ -208,6 +163,7 @@ const Explore = () => {
        console.log(x);
        let s=[]
       const l= x.map(async(item) => {
+        console.log(item)
         if(item[1] != "0x0000000000000000000000000000000000000000")
         {
         console.log(item[7].toString());
@@ -231,8 +187,7 @@ const Explore = () => {
             price: (Number(item[7]) / 10**18).toString() ,
             category: "Art",
             tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
-            
-           
+      
         }
       console.log(s);
       
