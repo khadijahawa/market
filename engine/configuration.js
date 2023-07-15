@@ -31,7 +31,7 @@ export var  BulBSCNFT = "0x1326ddFa30cac96370fC1Bf3b297a5212B85817B";
 export var BearBSCNFT = "0x4C52548145a99EAcDe86561ef30Cd01c103cB579";
 
 
-export var  marketplaceAddress = "0x803927bCc14A38029a6Cf1149be71cc17F12B931";
+export var  marketplaceAddress = "0x30eff4dacc828a916438aab8c4005b4ea2b241ee";
 export var  bsctmarket = "0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e";
 
 
