@@ -64,7 +64,7 @@ const Explore = () => {
     }
     web3 = new Web3(new Web3.providers.HttpProvider(Provider));
    console.log(Provider);
-    contactAddr="0x30eff4dacc828a916438aab8c4005b4ea2b241ee";
+    contactAddr="0xDBC3233788bab61C0A9D9b155539DE04fdA06EAd";
     provider = new ethers.providers.JsonRpcProvider(Provider);
 
     const signer = new ethers.Wallet(privKey);
