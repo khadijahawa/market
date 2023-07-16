@@ -1,16 +1,17 @@
 import OwnerList from "./OwnerList";
 import Timer from './TimerTwo';
 import Link from 'next/link';
+import { useState } from "react";
 
 
 
 
 const ProductSingle = ({data,countdown=false,style}) => {
     console.log(data)
-    
+    const [da,setDA] = useState(data);
     return (
         <>
-         {data &&
+         {da &&
         <div className="nft-item" style={style}>
             <div className="nft-inner">
                 
@@ -39,13 +40,13 @@ const ProductSingle = ({data,countdown=false,style}) => {
                 <div className="nft-item-bottom">
                     
                     <div className="nft-thumb">
-                        <img src={`${data.image}`} alt="nft-img" />
+                        <img src={`${da.image}`} alt="nft-img" />
 
                             
-                            {countdown == true ? (<Timer data={data}/>): '' }
+                            {countdown == true ? (<Timer data={da}/>): '' }
                             <span className="badge rounded-pill position-absolute"><i
                                 className="icofont-heart"></i>
-                                {`${data.wishlist}`}k</span>
+                                {`${da.wishlist}`}k</span>
                     </div>
                     <div className="nft-content">
                         <div className="content-title">
@@ -53,9 +54,9 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 <Link 
                                 href={{
             pathname: "/itemdetails",
-            query: data, // the data
+            query: da // the data
           }}>
-                                <a>{`${data.title}`}</a> 
+                                <a>{`${da.title}`}</a> 
                                 </Link>
                             </h5>
                         </div>
@@ -70,7 +71,7 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 </Link>
                                 
                                 </span>
-                            <div className="nft-stock"> {`${data.stock}`} in Stock</div>
+                            <div className="nft-stock"> {`${da.stock}`} in Stock</div>
                         </div>
                         <div className="price-like d-flex justify-content-between align-items-center">
                             <div className="nft-price d-flex align-items-center">
@@ -78,10 +79,14 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                     <img src='/assets/images/currency/currency-3.png'
                                         alt="currency img" />
                                 </span>
-                                <p>{`${data.price}`} MATIC
+                                <p>{`${da.price}`} MATIC
                                 </p>
                             </div>
-                            <Link href="/itemdetails" >
+                            <Link            href={{
+            pathname: "/itemdetails",
+            query: da // the data
+          }} >
+                 
                             <a className="nft-bid">Place Bid</a>
                             </Link>
                         </div>
