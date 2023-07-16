@@ -17,7 +17,7 @@ import PageHeader from "../components/PageHaeder";
 
 const rpc = "https://polygon-rpc.com/";
 const bsctrpc = "https://bsc-dataseed2.defibit.io";
-const  marketplaceAddress = "0x803927bCc14A38029a6Cf1149be71cc17F12B931";
+const  marketplaceAddress = "0xDBC3233788bab61C0A9D9b155539DE04fdA06EAd";
 const bsctmarket = "0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e";
 
 
@@ -78,7 +78,7 @@ const ItemInfo =
 const ItemDetails = () => {
     const router = useRouter();
     const query = router.query;
-    console.log(query)
+    console.log(router)
     const [TokenLabel,setTokenLabel] = useState("");
     console.log(query.isPayble);
    const buyToken = async() =>{
@@ -89,7 +89,7 @@ const ItemDetails = () => {
         const gazfees= await provider.getFeeData();
         console.log(gazfees.maxPriorityFeePerGas.toString())
         console.log(gazfees.maxFeePerGas.toString())
-  
+        const val = query.price;
   const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceAddress);
    //set up your Ethereum transaction
     const transactionParameters = {
@@ -97,11 +97,11 @@ const ItemDetails = () => {
         from: window.ethereum.selectedAddress, // must match user's active address.
     //gasLimit: web3.utils.toHex(web3.utils.toWei('50','gwei')),  
     //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')), 
-        maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
-        maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
-        // gas: ethers.BigNumber.from(300000).toHexString(),
-        'data': nftContract.methods.BULLSCMarketSaleToken(query.contactAddr,query.itemID).encodeABI() //make call to NFT smart contract 
-    //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
+        // maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
+        // maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
+        gas: ethers.BigNumber.from(300000).toHexString(),
+        'data': nftContract.methods.BULLSCMarketSaleToken(query.contactAddr,query.itemID).encodeABI(), //make call to NFT smart contract 
+    value : query.isPayble ? Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16) : 0
     };
     console.log(transactionParameters)
     //sign transaction via Metamask
@@ -251,7 +251,7 @@ const ItemDetails = () => {
 
                                             <div className="author-profile d-flex flex-wrap align-items-center gap-15">
                                                 <div className="author-p-thumb">
-                                                <Link href={"/author/"+query.seller.owner_address}>
+                                                <Link href={"/author/"+query.seller}>
                                                     <a><img
                                                             src="assets/images/seller/collector-3.gif"
                                                             alt="author-img " /></a>
@@ -260,7 +260,7 @@ const ItemDetails = () => {
                                                 <div className="author-p-info">
                                                     <p className="mb-0">Owner</p>
                                                     <h6>
-                                                        <Link href={"/author/"+query.seller.owner_address}><a>{`${query.seller.owner_address}`}</a></Link>
+                                                        <Link href={"/author/"+query.seller}><a>{`${query.seller}`}</a></Link>
                                                         
                                                     </h6>
                                                 </div>
@@ -273,7 +273,7 @@ const ItemDetails = () => {
                                                     <div className="item-info-details">
                                                         <div id="cryptoCode" className="crypto-page">
                                                             <input id="cryptoLink"
-                                                                value={`${query.address}`}
+                                                                value={`${query.contactAddr}`}
                                                                 readOnly />
                                                             <div id="cryptoCopy" data-bs-toggle="tooltip"
                                                                 data-bs-placement="top" title="Copy Address">
@@ -301,7 +301,7 @@ const ItemDetails = () => {
                                                         <h6>Blockchain</h6>
                                                     </div>
                                                     <div className="item-info-details">
-                                                        <p>{`${query.chain}`}</p>
+                                                        <p>{`${"Polygon"}`}</p>
                                                     </div>
                                                 </li>
 
