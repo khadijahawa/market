@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "../engine/Supabase";
 import LoginUD from "../components/LoginUD";
 import Web3 from "web3";
+import UDdis from "../components/UDdisconect";
+import { Spacer } from "@nextui-org/react";
 
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
@@ -57,7 +59,7 @@ const Wallet = () => {
   };
   useEffect(() => {
     if (window.ethereum && window.ethereum?.selectedAddress) {
-      // router.push("/");
+      router.push("/");
     }
   }, []);
   return (
@@ -65,7 +67,7 @@ const Wallet = () => {
       <div className="container">
         <div className="wallet-inner">
           <div className="wallet-title text-center">
-            <h3 className="mb-3">Connect your crypto wallet</h3>
+            <h3 className="mb-3">Connect your WEB3 wallet</h3>
             <p className="m-auto mb-5">
               Connect with one of available wallet providers
             </p>
@@ -139,7 +141,7 @@ const Wallet = () => {
                     Learn how to use Metamask wallet
                   </a>
                   <h6>
-                    If you wish to disconnect after connecting, you must do from
+                    If you wish disconnect after connecting, must do from
                     metamask for security
                   </h6>
                 </div>
@@ -162,6 +164,8 @@ const Wallet = () => {
                 <div className="wallet-desc">
                   <h5>Connect Your Unstoppable Domain</h5>
                   <LoginUD />
+                  <UDdis />
+                  <Spacer></Spacer>
                   <a
                     href="https://unstoppabledomains.com/?ref=e904125842e0429"
                     target="_blank"

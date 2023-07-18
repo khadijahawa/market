@@ -20,14 +20,14 @@ const disconnectWallet = () =>{
 const Home = () => {
   return (
     <div>
-      <Banner />
-      <Category />
-      <LiveAuction /> 
-      <SellCard /> 
-      <Web3Domain />
-       <PopularCollection /> 
-       <TopCollectors />  
-    </div>
+    <Banner />
+    <Category />
+    <SellCard /> 
+    <Web3Domain />
+    <LiveAuction /> 
+     <PopularCollection /> 
+     <TopCollectors />  
+  </div>
   )
 }
 

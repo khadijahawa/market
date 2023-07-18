@@ -1,45 +1,16 @@
 import { useState,useEffect } from 'react';
 import { useRouter } from "next/router";
-
 import {ethers} from "ethers";
-import PageHeader from '../components/PageHaeder';
 import ProductSingle from "../components/common/ProductSingle1";
 import BullscMarket from "../engine/BullscMarket.json"
 import NFT from "../engine/NFT.json"
 import axios from "axios"
 import detectEthereumProvider from '@metamask/detect-provider';
+import Web3 from "web3"
 
 const Provider = "https://polygon-rpc.com/";
 const bsctrpc = "https://bsc-dataseed1.ninicoin.io";
-
 const privKey = "713b86cbd9689ccc2bd09bf4ca9030e4e3b4e484d7161b05dc45239ebdcaa0eb";
-
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"Explore"
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const Explore = () => {
     const [products, setshowProducts] = useState([]);
@@ -48,7 +19,6 @@ const Explore = () => {
    const router = useRouter();
    const getprods = async() =>
 {   
-
     var hh = "0x7a69";
     var goe = "0x5";
     var mm = "0x13881";
@@ -84,49 +54,18 @@ const Explore = () => {
       BullscMarket,
       account
     );
-
     console.log("****ok*****");
     // console.log(val.c[0]);
     const tx = await products.getAvailableNft();
     console.log(tx);
-
     // const decodedResult = web3.eth.abi.decode(['uint256', 'address',"uint256","address","bool","address","address","uint256","bool"], tx1);
 
     console.log(tx);
-
-    
-    return tx;
-  
-    
+    return tx; 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const getBaseUri = async(cnt,id) => {
     const provider = new ethers.providers.JsonRpcProvider(Provider);
-
     const signer = new ethers.Wallet(privKey);
-    
     const account = signer.connect(provider);
     const NFTs = new ethers.Contract(
         cnt,
@@ -136,29 +75,23 @@ const getBaseUri = async(cnt,id) => {
     console.log(cnt,id)
     const tx = await NFTs.tokenURI(id.toString());
     console.log(tx);
-
     return(tx);
 }
 const getMetadata = async(baseURI) => {
     let s=await axios.get(baseURI.replace("ipfs://","https://ipfs.io/ipfs/"));
     return s.data;
 }
- 
-
     useEffect(() => {
        const effect = async() => {
 
       if (window.ethereum.selectedAddress)
-      {
-        
+      {  
         console.log(window.ethereum.selectedAddress)
       }
       else
       {
         router.push("/wallet")
-
       }
-
        let x= await getprods();
        console.log(x);
        let s=[]
@@ -170,13 +103,12 @@ const getMetadata = async(baseURI) => {
         const baseURI = await getBaseUri(item[1],item[2]);
         let r = await getMetadata (baseURI);
        
-
        const s =
         {
             id: r.name.split("#")[1],
             itemID : item[0].toString(),
             image: r.image.replace("ipfs://","https://ipfs.io/ipfs/"),
-            wishlist: "0.352",
+            wishlist: "",
             expiredate: r.data,
             contactAddr : item[1],
             title: r.name,
@@ -189,18 +121,13 @@ const getMetadata = async(baseURI) => {
             tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
       
         }
-      console.log(s);
-      
+      console.log(s); 
        return s;
-      }
-      
-     
+      } 
     })
    let filesPromise = await Promise.all(l)
    console.log(filesPromise)
-  
    console.log(filesPromise)
-   
    setshowProducts(filesPromise);
    setProds(filesPromise);
     }
@@ -220,21 +147,53 @@ const getMetadata = async(baseURI) => {
         }else {
             setshowProducts(productList);
 
-        }
-
-        
-        
+        }    
     }
-
     return (
         <div>
-           
-        <PageHeader text={PageHeaderText} />
-        <section className="explore-section padding-top padding-bottom">
+        <section className="explore-section padding-top padding-bottom">  
+        <div className="container">
+<div className="section-wrapper">
+    <div className="explore-category mb-5">
+        <div className="row g-2 justify-content-center">
+            <div className="col-xl-2 col-md-3 col-6 ">
+                <div className="excat-item active" data-filter=""><a ><i
+                            className="icofont-cubes"></i>
+                        Utility</a></div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-6 ">
+                <div className="excat-item" data-filter=".art"><a ><i
+                            className="icofont-drawing-tablet"></i> Art</a></div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-6 ">
+                <div className="excat-item" data-filter=".virtual"><a><i
+                            className="icofont-diving-goggle"></i> Virtual World</a>
+                </div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-6 ">
+                <div className="excat-item" data-filter=".trade"><a ><i
+                            className="icofont-penalty-card"></i>
+                        Cards</a>
+                </div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-6 ">
+                <div className="excat-item" data-filter=".collect"><a><i
+                            className="icofont-cat-face"></i>
+                        Collectibles</a></div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-6 ">
+                <div className="excat-item" data-filter=".sport"><a><i
+                            className="icofont-runner-alt-1"></i>
+                        Sports</a></div>
+            </div>
+        </div>
+    </div>   
+</div>
+</div>
+  
         <div className="container">
             <div className="section-wrapper">
                 <div className="row gy-5 flex-row-reverse">
-
                     <div className="col-lg-9">
                         <div className="explore-wrapper explore-load">
                             <div className="row g-4">
@@ -243,10 +202,8 @@ const getMetadata = async(baseURI) => {
                                         <div className="col-xl-4 col-md-6" key={item?.id}>
                                             <ProductSingle data={item ? item : null} />
                                         </div>
-                                    ))
-                                    
-                                }
-                                
+                                    ))   
+                                } 
                             </div>
                         </div>
                     </div>
@@ -264,33 +221,19 @@ const getMetadata = async(baseURI) => {
                                     <div id="collapseOne" className="accordion-collapse collapse show"
                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div className="accordion-body">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="Ethereum" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    Ethereum
-                                                </label>
-                                            </div>
+                                            
                                             <div className="form-check">
                                             <input className="form-check-input" type="checkbox" value="BSC" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-
                                                 <label className="form-check-label">
                                                     BSC
                                                 </label>
                                             </div>
                                             <div className="form-check">
                                             <input className="form-check-input" type="checkbox" value="Polygone" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-
                                                 <label className="form-check-label">
-                                                    Polygone
+                                                    Polygon
                                                 </label>
-                                            </div>
-                                            <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value="Cronos" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-
-                                                <label className="form-check-label">
-                                                    Solana
-                                                </label>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>
@@ -309,66 +252,6 @@ const getMetadata = async(baseURI) => {
                                             <input className="form-check-input" type="checkbox" value="For Sell" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
                                                 <label className="form-check-label">
                                                     For Sell
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value="For Collect" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    For Collect
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="Trending" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    Trending
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item">
-                                    <h2 className="accordion-header" id="headingThree">
-                                        <button className="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseThree">
-                                            <i className="icofont-library"></i> Collections
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" className="accordion-collapse collapse"
-                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="BEARS T1" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    BEARS T1
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="COWS T1" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    COWS T1
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="Polar BEARS T2" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label" >
-                                                    POLAR BEARS T2
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="Yellow COWS T2" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    YELLOW COWS T2
-                                                </label>
-                                            </div>
-                                            
-                                            
-                                            
-                                            
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="BULLS T1" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    BULLS T1
                                                 </label>
                                             </div>
                                         </div>

@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 // import Products from '../data/Product/Products.json';
-import CollectionSingle from "../collectionsingle";
 import copy from "copy-to-clipboard";
-import ProductSingle from "../../components/common/ProductSingle";
+import ProductSingle from "../../components/common/ProductSingle2";
 import User from "../../data/User/Users.json";
 import BullscMarket from "../../engine/BullscMarket.json";
 import NFT from "../../engine/NFT.json";
@@ -13,6 +12,7 @@ import { supabase } from "../../engine/Supabase";
 import ActivitySingle from "../../components/common/ActivitySingle";
 import PopularList from "../../data/Collection/Popular.json";
 import FollowerSingle from "../../components/common/Collector";
+
 
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
@@ -37,7 +37,7 @@ const PageHeaderText = {
 
 const AuthorInfo = {
   name: "Tamer",
-  profileImage: "/assets/images/profile/1.gif",
+  profileImage: "/assets/images/nft-item/style-3/02.jpg",
   cover: "/assets/images/profile/cover.jpg",
   userName: "@Tamer11",
   about:
@@ -65,24 +65,7 @@ const AuthorInfo = {
       image: "/assets/images/activity/02.gif",
       by: "@technonazmul",
       createdAt: "10/07/2022, 08:23 am"
-    },
-    {
-      id: 3,
-      title: "Trust In meh",
-      description: "The Shopping Cart #54/65 was put up for sale for 0.021 ETH",
-      image: "/assets/images/activity/03.gif",
-      by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am"
-    },
-    {
-      id: 4,
-      title: "Sysytan #0le",
-      description:
-        "A offer of $200.00 was placed for ÜNDERSTANDING (Sean Williams) #1/20",
-      image: "/assets/images/activity/04.gif",
-      by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am"
-    }
+    } 
   ]
 };
 
@@ -143,7 +126,7 @@ const Author = () => {
           {
             id: "1",
             name: "",
-            image: "/assets/images/seller/collector-1.png",
+            image: "/assets/images/seller/collector-2.png",
             verified: false,
             prfileLink: "/"
           }
@@ -209,7 +192,7 @@ const Author = () => {
                       </div>
                       <div className="profile-information">
                         <div className="profile-pic">
-                          <img src={avatar} alt="DP" />
+                          <img src={avatar} alt="avatar" />
 
                           <div className="custom-upload">
                             <>
@@ -451,33 +434,12 @@ const Author = () => {
                               <div className="col-xl-3">
                                 <aside className="mt-5 mt-xl-0">
                                   <div className="profile-widget search-widget">
-                                    <div className="widget-inner">
-                                      <div className="widget-title">
-                                        <h5>Search NFT</h5>
-                                      </div>
-                                      <div className="widget-content">
-                                        <p>
-                                          Search from best Rarest NFT
-                                          collections
-                                        </p>
-                                        <div className="form-floating nft-search-input">
-                                          <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Search NFT"
-                                          />
-                                          <label>Search NFT</label>
-                                          <button type="button">
-                                            {" "}
-                                            <i className="icofont-search-1"></i>
-                                          </button>
-                                        </div>
-                                      </div>
+                                    <div className="widget-inner"> 
                                     </div>
                                   </div>
                                   <div className="widget widget-instagram">
                                     <div className="widget-header">
-                                      <h5 className="title">Featured NFT</h5>
+                                      <h5 className="title">Featured NFTs</h5>
                                     </div>
                                     <ul className="widget-wrapper d-flex flex-wrap justify-content-center">
                                       {Prods?.map((item) => (

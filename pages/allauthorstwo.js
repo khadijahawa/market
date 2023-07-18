@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import PageHeader from '../components/PageHaeder';
+
 import Users from '../data/User/Authors.json';
 import AuthorCard from "../components/common/AuthorCard";
 import NFTS from "../engine/NFTS.json"
@@ -71,13 +71,7 @@ const AllAuthorsTwo = () => {
                             <label > Type</label>
                         </div>
                     </div>
-                    <div className="nft-search">
-                        <div className="form-floating nft-search-input">
-                            <input type="text" className="form-control" id="nftSearch" placeholder="Search Author" />
-                            <label >Search Author</label>
-                            <button type="button"> <i className="icofont-search-1"></i></button>
-                        </div>
-                    </div>
+                    
                 </div>
                     <div className="section-wrapper">
                         <div className="explore-wrapper">

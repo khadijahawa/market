@@ -40,20 +40,21 @@ export const createToken = async (baseURI) => {
   const gasPrice = await provider.getFeeData();
 
   const nftContract = await new web3.eth.Contract(NFTcreate, DefaultNFTPolygon);
+  const val = (parseFloat(0.0125)* 1e18).toString(16);
 
-  console.log(Number(gasPrice.maxPriorityFeePerGas));
+  console.log(baseURI);
   const transactionParameters = {
     to: DefaultNFTPolygon, // Required except during contract publications.
     from: window.ethereum.selectedAddress, // must match user's active address.
     //gasLimit: web3.utils.toHex(web3.utils.toWei('50','gwei')),
     //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')),
-    maxPriorityFeePerGas: web3.utils.toHex(
-      Number(gasPrice.maxPriorityFeePerGas) * 25
-    ),
-    maxFeePerGas: null,
-    gas: ethers.BigNumber.from(210000).toHexString(),
-    data: nftContract.methods.createToken(baseURI).encodeABI() //make call to NFT smart contract
-
+    // maxPriorityFeePerGas: web3.utils.toHex(
+    //   Number(gasPrice.maxPriorityFeePerGas) * 25
+    // ),
+    // maxFeePerGas: null,
+    gas: ethers.BigNumber.from(600000).toHexString(),
+    data: nftContract.methods.createToken(baseURI).encodeABI(), //make call to NFT smart contract
+    value:val
     // 'data': nftContract.methods.transferFrom(amount).encodeABI()
     //make call to NFT smart contract
     //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
@@ -164,28 +165,32 @@ const CreateNft = () => {
               <div className="col-lg-8">
                 <div className="create-nft py-5 px-4">
                   <div className="create-nft-form">
-                    <h2>CONNECT To BSC OR POLYGON</h2>
+                    <h3>CONNECT To BSC OR POLYGON</h3>
+                    <h5>Upload 3D items, Music, Video or Art and more</h5>
+                    
                     <div className="upload-item mb-30">
-                      <p>PNG,JPG,JPEG,SVG,WEBP,Mp3 & Mp4 (Max-150mb)</p>
+                      <p>PNG,JPG,JPEG,SVG,WEBP,AVI,HTML,Mp3 & Mp4 (Max-150mb)</p>
                       <div className="custom-upload">
                         <div className="file-btn">
                           <i className="icofont-upload-alt"></i>
                           Upload a file
                         </div>
                         <input type="file" onChange={changeHandler} />
+                        
                       </div>
-                    </div>
-                    <div>
+                      <div>
                       {selectedFile && (
                         <Image
                           src={URL.createObjectURL(selectedFile)}
-                          width={500}
-                          height={500}
+                          width={300}
+                          height={300}
                           className=""
                           alt="image"
                         />
                       )}
                     </div>
+                    </div>
+                    
                     <div className="form-floating item-name-field mb-3">
                       <input
                         type="text"
@@ -210,20 +215,43 @@ const CreateNft = () => {
                     </div>
 
                     <div className="item-category-field mb-30">
-                      <h4>Select Item Catergory</h4>
+                      <h4>Upload for Catergories</h4>
                       <ul className="item-cat-list d-flex flex-wrap">
                         <li className="item-cat-btn active">
                           <span>
-                            <i className="icofont-vector-path"></i>
+                            <i className="icofont-paint-brush"></i>
                           </span>
                           Art
                         </li>
                         <li className="item-cat-btn">
                           <span>
-                            <i className="icofont-penalty-card"></i>
+                            <i className="icofont-music-alt"></i>
                           </span>
                           Music
                         </li>
+
+                        <li className="item-cat-btn">
+                          <span>
+                            <i className="icofont-video-cam"></i>
+                          </span>
+                         Video
+                        </li>
+
+
+                        <li className="item-cat-btn">
+                          <span>
+                            <i className="icofont-ticket"></i>
+                          </span>
+                          Ticket
+                        </li>
+
+                        <li className="item-cat-btn">
+                          <span>
+                            <i className="icofont-web"></i>
+                          </span>
+                          Domain
+                        </li>
+
                         <li className="item-cat-btn">
                           <span>
                             <i className="icofont-ui-game"></i>
@@ -232,14 +260,14 @@ const CreateNft = () => {
                         </li>
                         <li className="item-cat-btn">
                           <span>
-                            <i className="icofont-music-disk"></i>
+                            <i className="icofont-file-pdf"></i>
                           </span>
-                          Domain
+                          Article
                         </li>
 
                         <li className="item-cat-btn">
                           <span>
-                            <i className="icofont-twitter"></i>
+                            <i className="icofont-abacus-alt"></i>
                           </span>
                           Multiverse
                         </li>
@@ -308,26 +336,21 @@ const CreateNft = () => {
                             <label>Size</label>
                           </div>
                         </div>
-                        <div className="col-md-6 col-lg-4">
-                          <div className="form-floating">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="itemNumbersInput"
-                              placeholder="Number of Copies"
-                            />
-                            <label>Number of Copies</label>
-                          </div>
-                        </div>
+                       
                       </div>
                     </div>
-
+                    <h6>By Creating an Item, Your NFT will Mint on the Blockchain of choice "Polygon Or BSC" where the NFT will live for ever. "Minting Fee 0.0125 Matic or BNB, plus network fee" </h6>
+                      <h6>The information added above for the metadata creation.</h6>
+                   <h6>List your Newely Minted NFT for Sale @ your Profile, Or from the W3B Wallet at any 3rd party Marketplace</h6>
+                   <h6></h6>
                     <div
                       className="submit-btn-field text-center"
                       onClick={() => handleSubmission()}
                     >
                       <button>Create Item</button>
+                      
                     </div>
+                    
                   </div>
                 </div>
               </div>

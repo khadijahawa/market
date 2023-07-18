@@ -126,11 +126,7 @@ const ItemDetails = () => {
     const Tokens = [
         { value: "-", label: "Choose", icon: "" },
         { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-        { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
-        { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
-        { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "letter-f-initial-icon-logo-template_23987-54.avif" },
-    
-        
+       
       ];
     const getTokenFromAddr = () => {
         console.log(query);
@@ -142,85 +138,10 @@ const ItemDetails = () => {
     }
     useEffect(() => {
         getTokenFromAddr(query.token);
-        
        }, [TokenLabel])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     return (
         <div>
-        <PageHeader text={PageHeaderText} />
+        
         <div className="item-details-section padding-top padding-bottom">
         <div className="container">
             <div className="item-details-wrapper">
@@ -240,9 +161,7 @@ const ItemDetails = () => {
                                             <button className="nav-link" id="nav-bids-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-bids" type="button" role="tab"
                                                 aria-controls="nav-bids" aria-selected="false">Bids</button>
-                                            <button className="nav-link" id="nav-history-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-history" type="button" role="tab"
-                                                aria-controls="nav-history" aria-selected="false">History</button>
+                                            
                                         </div>
                                     </nav>
                                     <div className="tab-content" id="nav-tabContent">
@@ -253,7 +172,7 @@ const ItemDetails = () => {
                                                 <div className="author-p-thumb">
                                                 <Link href={"/author/"+query.seller}>
                                                     <a><img
-                                                            src="assets/images/seller/collector-3.gif"
+                                                            src="assets/images/seller/collector-2.png"
                                                             alt="author-img " /></a>
                                                 </Link>
                                                 </div>
@@ -268,7 +187,7 @@ const ItemDetails = () => {
                                             <ul className="other-info-list">
                                                 <li className="item-other-info">
                                                     <div className="item-info-title">
-                                                        <h6>Contact Address</h6>
+                                                        <h6>Contract Address</h6>
                                                     </div>
                                                     <div className="item-info-details">
                                                         <div id="cryptoCode" className="crypto-page">
@@ -313,23 +232,7 @@ const ItemDetails = () => {
                                             <span><i className="icofont-law-order"></i></span>
                                             <p>No active bids yet. Be the first to make a bid!</p>
                                         </div>
-                                        <div className="history-tab tab-pane fade" id="nav-history" role="tabpanel"
-                                            aria-labelledby="nav-history-tab">
-                                            <ul className="item-histo-list">
-                                                <li className="histo-item">
-                                                    <p>Created by <Link href="/author"><a>{`${ItemInfo.createdBy}`}</a></Link></p>
-                                                    <time>2022-08-04 23:05:07</time>
-                                                </li>
-                                                <li className="histo-item">
-                                                    <p>Listed by <Link href="/author"><a >{`${ItemInfo.listedBy}`}</a></Link></p>
-                                                    <time>2022-08-04 20:05:07</time>
-                                                </li>
-                                                <li className="histo-item">
-                                                    <p>Owned by <Link href="/author"><a>{`${ItemInfo.owners[0].name}`}</a></Link></p>
-                                                    <time>2022-08-04 22:05:07</time>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -348,22 +251,19 @@ const ItemDetails = () => {
                                         </a>
 
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#"><span>
+                                            <li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span>
                                                         <i className="icofont-twitter"></i>
                                                     </span> Twitter </a>
                                             </li>
-                                            <li><a className="dropdown-item" href="#"><span><i
-                                                            className="icofont-telegram"></i></span> Telegram</a></li>
-                                            <li><a className="dropdown-item" href="#"><span><i
+                                            <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
+                                                            className="icofont-facebook"></i></span> FaceBook</a></li>
+                                            <li><a className="dropdown-item" href="mailto:?subject=Check out BULLSCLUB Marketplace!&body=https://marketplace.bullsclub.space/" target="blank"><span><i
                                                             className="icofont-envelope"></i></span> Email</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div className="item-details-countdown">
-                                <h4>Ends In:</h4>
-                                <TimerTwo data={ItemInfo}/>
-                            </div>
+                           
                             <div className="item-price">
                                 <h4>Price</h4>
                                 
