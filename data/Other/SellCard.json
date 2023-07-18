@@ -2,13 +2,13 @@
     {
         "id":1,
         "title":"Set Up Your Wallet",
-        "text":"Once you've set up your wallet of choice, connect it to BULLSclub by clicking the wallet icon in the top right corner or by web3 Login. ",
+        "text":"Once you've set up your wallet of choice, connect it to BULLSCLUB by clicking the wallet icon in the top right corner or by web3 Login. ",
         "image":"assets/images/nft-item/style-3/01.png"
     },
     {
         "id":2,
         "title":"Creat Your NFTs",
-        "text":"Click Create and Mint your NFT. Add a Name and a description. Creating an NFT is free, Only pay network fees",
+        "text":"Click Create and Mint your NFT. Add a Name and a description, pay network fees",
         "image":"assets/images/nft-item/style-3/02.png"
     },
     {
@@ -20,7 +20,7 @@
     {
         "id":4,
         "title":"List NFT For Sale",
-        "text":"Sell your NFT from your profile page, Approve and list your NFT for sale!",
+        "text":"Sell your NFT from your profile page, Approve and list your NFTs for sale!",
         "image":"assets/images/nft-item/style-3/04.png"
     }
 ]

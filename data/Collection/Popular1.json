@@ -1,10 +1,10 @@
 [
     {
         "id":"1",
-        "title":"COWS  mint live @1 matic",
+        "title":"The COWS",
         "items":1111,
         "link": "https://polygon-minter.bullsclub.space/",
-        "idd":"https://opensea.io/collection/cryptocowsclub07",
+        
         "users": [
             {
                 "id":"1",
@@ -35,9 +35,9 @@
     },
     {
         "id":"2",
-        "title":"POLAR-BEARS @3Matic",
+        "title":"POLAR-BEARS",
         "items":777,
-        "idd":"https://opensea.io/collection/polarbearsclub-v2",
+        
         "link": "https://polygon-minter.bullsclub.space/polarbears",
         "users": [
             {
@@ -65,9 +65,9 @@
     },
     {
         "id":"3",
-        "title":"YELLOW-COWS-@5Matic",
+        "title":"YELLOW-COWS",
         "items":777,
-        "idd":"https://opensea.io/collection/yellow-cows-club-v2",
+  
         "link": "https://polygon-minter.bullsclub.space/yellowcow",
         "users": [
             {
@@ -98,10 +98,10 @@
     },
     {
         "id":"4",
-        "title":"BULL Mint cost 15 Matic",
+        "title":"BULLS",
         "items":1111,
         "link": "https://polygon-minter.bullsclub.space/bulls",
-        "idd":"https://opensea.io/collection/bullsthebulls",
+       
         "users": [
             {
                 "id":"4",
@@ -127,9 +127,9 @@
     },
     {
         "id":"6",
-        "title":"BEARS-1Matic",
+        "title":"BEARS",
         "items":1111,
-        "idd":"https://opensea.io/collection/cryptobearsclub13",
+        
         "link": "https://polygon-minter.bullsclub.space/bears",
         "users": [
             {
@@ -160,9 +160,9 @@
     },
     {
         "id":"5",
-        "title":"Alexandria Stamps @3Matic",
+        "title":"Alexandria Stamps",
         "items":365,
-        "idd":"https://opensea.io/collection/alexandria-sunken-treasure-memorial-stamp",
+       
         "link": "https://polygon-minter.bullsclub.space/Alex",
         "users": [
             {
