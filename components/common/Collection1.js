@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 SwiperCore.use([Autoplay]);
 
-const CollectionSingal = ({item}) => {
+const Collection = ({item}) => {
     return (
         <div className="col-lg-4 col-md-6">
             <div className="nft-item collection-item">
@@ -16,7 +16,6 @@ const CollectionSingal = ({item}) => {
                             spaceBetween={10}
                             slidesPerView={3}
                             autoplay={true}
-                            
                             className="thumb-list swiper-wrapper"
                             >
                             {
@@ -29,38 +28,25 @@ const CollectionSingal = ({item}) => {
                                     </SwiperSlide>
                                 ))
                             }
-                            
-                            
-                            </Swiper>
-                                
+                            </Swiper>      
                             </div>
                         </div>
                     </div>
-
                     <div className="nft-content">
                         <div className="collection-title">
                             <h5>
-                                <Link href="/collectionsingle">
                                 <a>{`${item.title}`}</a>
-                                </Link>
                             </h5>
                             <p>Collection has {`${item.items}`} items</p>
                         </div>
-                        <div
-                            className="author-details d-flex flex-wrap justify-content-between align-items-center">
-                            <div className="single-author d-flex align-items-center">
-                                <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/">
-                                <a className="veryfied"><img
-                                        src={`${item.users[0].image}`} alt="author-img" /></a>
-                                </Link>
-                                <h6>
-                                <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/">
-                                    <a>{`${item.users[0].name}`} </a>
-                                </Link>
-                                </h6>
-                            </div>
-                            
-                        </div>
+                        <div className="meta-info"></div>
+              <Link href={`${item.link}`}>
+                <a className="default-btn move-left small-btn">
+                  <span>MINT LIVE</span>
+                </a>
+              </Link>
+              <spacer></spacer>
+              
                     </div>
                 </div>
             </div>
@@ -68,4 +54,4 @@ const CollectionSingal = ({item}) => {
     )
 }
 
-export default CollectionSingal;
+export default Collection;

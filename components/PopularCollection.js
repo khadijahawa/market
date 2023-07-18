@@ -1,19 +1,17 @@
-import CollectionSingle from "./common/Collection";
-import PopularList from '../data/Collection/Popular.json';
+import CollectionSingle from "./common/Collection1";
+import PopularList from '../data/Collection/Popular1.json';
 import Link from 'next/link';
 
 var GetPopularList = PopularList.slice(0,3);
 
 
 const PopularCollection = () => {
-
     return(
         <section className="collection-section padding-top padding-bottom">
         <div className="container">
             <div className="section-header">
                 <h3 className="header-title">CLUB COLLECTIONS</h3>
                 <div className="header-content">
-
                     <Link href="/collection">
                     <a
                         className="default-btn style-2 small-btn move-right"><span>View All
@@ -25,12 +23,10 @@ const PopularCollection = () => {
                 <div className="collection-wrapper">
                     <div className="row justify-content-center g-4">
                     {
-                            GetPopularList.map((item) => (
-                                <CollectionSingle item={item} key={item.id} />
+                     GetPopularList.map((item) => (
+                     <CollectionSingle item={item} key={item.id} />
                             ))
-                        }
-                       
-                        
+                        }  
                     </div>
                 </div>
             </div>

@@ -15,14 +15,10 @@ const TrendingNow = () => {
                             <li className="li collection-filter">
                                 <div className="select-wrapper arrow-blue" data-icon="&#xef29;">
                                     <select className="form-select " aria-label="Collection select">
-                                        <option>Recently Added</option>
-                                       
+                                        <option>Recently Added</option>  
                                     </select>
                                 </div>
-                            </li>
-                            
-                            
-                            
+                            </li> 
                         </ul>
                     </div>
                 </div>
@@ -34,9 +30,7 @@ const TrendingNow = () => {
                                     <ProductSingle data={item} />
                                 </div>
                             ))
-                        }
-                        
-                        
+                        }  
                     </div>
                 </div>
             </div>

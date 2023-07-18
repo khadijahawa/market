@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
-
-
-
-
-
-
 const Callback = (props) => {
   const [navigateTo, setNavigateTo] = useState();
-
   useEffect(() => {
     // Try to exchange authorization code for access and id tokens.
     uauth
@@ -25,13 +18,9 @@ const Callback = (props) => {
         setNavigateTo('/login?error=' + error.message);
       });
   }, []);
-
   if (navigateTo) {
     return <Navigate to={navigateTo} />;
   }
-
   return <>Loading...</>;
 };
-
-
 export default Callback;

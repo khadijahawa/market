@@ -7,7 +7,7 @@ const News = ({ data }) => {
         <div className="nft-inner">
           <div className="nft-thumb">
             <Link
-              href="https://unstoppabledomains.com/?ref=e904125842e0429"
+              href=""
               target="blank"
             >
               <img src={`${data.image}`} alt="blog-img" />
@@ -21,7 +21,7 @@ const News = ({ data }) => {
                 </Link>
               </h4>
               <div className="meta-info"></div>
-              <Link href={`${data.link}`}>
+              <Link href={`${data.link}`} target="blank" >
                 <a className="default-btn move-right small-btn">
                   <span>SHOP NOW</span>
                 </a>

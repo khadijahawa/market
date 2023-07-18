@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 var BannerImageListOne = BannerImages.slice(0,12);
 var BannerImageListTwo = BannerImages.slice(11,24);
-
 const Banner = () => {
     return(
         <div>
@@ -29,7 +28,6 @@ const Banner = () => {
                                     <a className="default-btn style-2 move-right"><span>CREATE</span>
                                     </a>
                                     </Link>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -60,7 +58,6 @@ const Banner = () => {
                             <BannerSingle data={item} key={item.id} />
                         ))
                     }
-                    
                 </div>
                 <div className="row g-3">
                     {

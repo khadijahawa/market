@@ -10,13 +10,13 @@ function LoginUD() {
     redirectUri: "http://localhost:3000",
     scope: "openid wallet email profile:optional social:optional",
   });
-
+  
   const login = () => {
     uauth.loginWithPopup().then((authorization) => {
       console.log(authorization);
       alert("Signed in successfully");
       setIsLoggedIn(true);
-      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("isLoggedIn", "true"); 
     });
   };
 
@@ -36,7 +36,7 @@ function LoginUD() {
       storedLoginStatus === "true"
     ) {
       setIsLoggedIn(true);
-      // router.push("/");
+      router.push("/");
     }
     // else {
     //   setIsLoggedIn(false);
@@ -44,7 +44,6 @@ function LoginUD() {
   }, []);
 
   const router = useRouter();
-
   return (
     <div id="Loginwithud">
       {!isLoggedIn && (

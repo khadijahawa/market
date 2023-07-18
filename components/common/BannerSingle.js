@@ -7,5 +7,4 @@ const BannerSingle = ({data}) => {
         </div>
     )
 }
-
 export default BannerSingle

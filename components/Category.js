@@ -9,15 +9,14 @@ const Category = () => {
             <section className="catergory-section padding-top padding-bottom">
         <div className="container">
             <div className="section-header">
-                <h3 className="header-title">Browse By Catergory</h3>
+                <h3 className="header-title">Market</h3>
                 <div className="header-content">
-                    <Link href="/exploretwo">
+                    <Link href="/explore">
                     <a
                         className="default-btn style-2 small-btn move-right"><span>View All
                             <i className="icofont-circled-right"></i></span>
                     </a>
-                    </Link> 
-                            
+                    </Link>        
                     </div>
             </div>
             <div className="category-wrapper">
@@ -40,7 +39,6 @@ const Category = () => {
                             </div>
                         ))
                     }
-                    
                 </div>
             </div>
         </div>

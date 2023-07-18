@@ -28,10 +28,19 @@ const ProductSingle = ({data,countdown=false,style}) => {
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" href="#"><span>
                                     <i className="icofont-warning"></i>
-                                </span> Report </a>
+                                    </span> Report </a>
                                 </li>
-                                <li><a className="dropdown-item" href="#"><span><i
-                                    className="icofont-reply"></i></span> Share</a></li>
+                                <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
+                                    className="icofont-facebook"></i></span> FaceBook</a></li>
+
+<li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
+                                    className="icofont-twitter"></i></span> Twitter</a></li>
+
+
+<li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
+                                    className="icofont-linkedin"></i></span>Linkedin</a></li>
+
+
                             </ul>
                         </div>
                     </div>
@@ -87,7 +96,7 @@ const ProductSingle = ({data,countdown=false,style}) => {
             query: da // the data
           }} >
                  
-                            <a className="nft-bid">Place Bid</a>
+                            <a className="nft-bid">Buy</a>
                             </Link>
                         </div>
                     </div>

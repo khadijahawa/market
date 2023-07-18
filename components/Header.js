@@ -34,12 +34,10 @@ const Header = () => {
     });
     setSearchResults(results);
   };
-
   const renderSearchResults = () => {
     if (searchResults.length === 0 && searchTerm !== "") {
       return <div>No search results</div>;
     }
-
     return (
       <ul>
         {searchResults.map((nft) => (
@@ -71,14 +69,11 @@ const Header = () => {
       window.ethereum.selectedAddress ? window.ethereum.selectedAddress : ""
     );
   }, []);
-
   async function onDisconnect() {
     console.log("Killing the wallet connection", provider);
-
     // TODO: Which providers have close method?
     if (provider.close) {
       await provider.close();
-
       // If the cached provider is not cleared,
       // WalletConnect will default to the existing session
       // and does not allow to re-scan the QR code with a new wallet.
@@ -86,9 +81,7 @@ const Header = () => {
       await web3Modal.clearCachedProvider();
       provider = null;
     }
-
     selectedAccount = null;
-
     // Set the UI back to the initial state
     document.querySelector("#prepare").style.display = "block";
     document.querySelector("#connected").style.display = "none";
@@ -109,31 +102,12 @@ const Header = () => {
               <Link href="http://bullsclub.space/">
                 <a>
                   <img
-                    /* eslint-disable-line */ src="assets/images/logo/logo.png"
+                    /* eslint-disable-line */ src="/assets/images/logo/logo.png"
                     alt="logo"
                   ></img>
                 </a>
               </Link>
             </div>
-
-            <form action="#" className="header__search">
-              <input
-                type="text"
-                placeholder="Search by address"
-                value={searchTerm}
-                onChange={handleSearchChange}
-              />
-              <button type="button">
-                <i className="icofont-search-2"></i>
-              </button>
-              <button type="button" className="close">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z" />
-                </svg>
-              </button>
-            </form>
-            {renderSearchResults()}
-
             <div className="header__menu ms-auto">
               <ul className="header__nav mb-0">
                 <li className="header__nav-item">
@@ -154,7 +128,6 @@ const Header = () => {
                   >
                     NFTs
                   </a>
-
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
                       <Link href="/createnft">
@@ -170,23 +143,23 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/allauthorstwo">
+                      <Link href="/portal">
                         <a
                           className={
-                            router.pathname == "/allauthorstwo"
+                            router.pathname == "/portal"
                               ? "drop-down-item active"
                               : "drop-down-item"
                           }
                         >
-                          Authors
+                          Sell NFT
                         </a>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/exploretwo">
+                      <Link href="/explore">
                         <a
                           className={
-                            router.pathname == "/exploretwo"
+                            router.pathname == "/explore "
                               ? "drop-down-item active"
                               : "drop-down-item"
                           }
@@ -195,7 +168,7 @@ const Header = () => {
                         </a>
                       </Link>
                     </li>
-
+                    
                     <li>
                       <Link href="/collection">
                         <a
@@ -228,7 +201,6 @@ const Header = () => {
                     BLOG
                   </a>
                 </li>
-
                 <li className="header__nav-item">
                   <a
                     className="header__nav-link"
@@ -278,7 +250,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/">
+                      <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/" target="blank">
                         <a>BULLSCLUB</a>
                       </Link>
                     </li>
@@ -286,7 +258,6 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-
             <div className="header__actions">
               <div className="header__action header__action--search">
                 <button className="header__action-btn" type="button">
@@ -313,38 +284,7 @@ const Header = () => {
                     <li>
                       <Profil wallet={wallet} />
                     </li>
-                    <li>
-                      <Link href="/activity">
-                        <a
-                          className={
-                            router.pathname == "/activity"
-                              ? "dropdown-item active"
-                              : "dropdown-item"
-                          }
-                        >
-                          <span className="me-1">
-                            <i className="icofont-lightning-ray"></i>
-                          </span>
-                          Activity
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/address">
-                        <a
-                          className={
-                            router.pathname == "/author"
-                              ? "dropdown-item active"
-                              : "dropdown-item"
-                          }
-                        >
-                          <span className="me-1">
-                            <i className="icofont-files-stack"></i>
-                          </span>
-                          My Items
-                        </a>
-                      </Link>
-                    </li>
+                   
                     <li>
                       <Link href="/portal">
                         <a
@@ -361,10 +301,9 @@ const Header = () => {
                         </a>
                       </Link>
                     </li>
-
-                    <li>
-                      <UDdis />
-                    </li>
+                         <li>
+                            <UDdis />
+                          </li>
                   </ul>
                 </div>
               </div>
@@ -383,7 +322,6 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-
             <button className="menu-trigger header__btn" id="menu05">
               <span></span>
               <span></span>

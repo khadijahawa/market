@@ -14,7 +14,6 @@ const Web3Domain = () => {
             <h3 className="header-title"> Own your Domain forever</h3>
             <div className="header-content"></div>
           </div>
-
           <div className="section-wrapper">
             <div className="blog-wrapper">
               <div className="row justify-content-center g-4">

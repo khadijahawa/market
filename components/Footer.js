@@ -102,7 +102,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://tokenomics.bullsclub.space/"
+                          href="https://tokenomics.bullsclub.space/" target="blank"
                           className="footer-link"
                         >
                           Token
@@ -110,7 +110,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://radio.bullsclub.space/"
+                          href="https://radio.bullsclub.space/" target="blank"
                           className="footer-link"
                         >
                           Radio
@@ -125,7 +125,7 @@ const Footer = () => {
                     <ul className="footer-link-list">
                       <li>
                         <a
-                          href="https://bullsclub.space/cryptobullsclub-space-team/"
+                          href="https://bullsclub.space/cryptobullsclub-space-team/" target="blank"
                           className="footer-link"
                         >
                           Team
@@ -133,7 +133,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://roadmap.bullsclub.space/"
+                          href="https://roadmap.bullsclub.space/" target="blank"
                           className="footer-link"
                         >
                           Roadmap
@@ -141,15 +141,15 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://bullsclub.space/bullsclub-space/faq/whitepaper/"
+                          href="https://bullsclub.space/bullsclub-space/faq/whitepaper/" target="blank"
                           className="footer-link"
                         >
-                          White Paper
+                          BULLSPaper
                         </a>
                       </li>
                       <li>
                         <a
-                          href="https://bullsclub.space/crypto-blog/"
+                          href="https://bullsclub.space/crypto-blog/" target="blank"
                           className="footer-link"
                         >
                           WEB3 Blog
@@ -157,7 +157,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://travel-blog.bullsclub.space/"
+                          href="https://travel-blog.bullsclub.space/" 
                           target="blank"
                           className="footer-link"
                         >
@@ -191,7 +191,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://bullsclub.space/bullsclub-space/faq/bullsc-nft-agreement/"
+                          href="https://bullsclub.space/bullsclub-space/faq/bullsc-nft-agreement/" target="blank"
                           className="footer-link"
                         >
                           Agreement
@@ -199,7 +199,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="https://bullsclub.space/presentation/"
+                          href="https://bullsclub.space/presentation/" target="blank"
                           className="footer-link"
                         >
                           Learn
@@ -263,7 +263,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-
       <a href="#" className="scrollToTop">
         <i className="icofont-swoosh-up"></i>
       </a>
