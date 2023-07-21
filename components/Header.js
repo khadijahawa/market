@@ -182,11 +182,29 @@ const Header = () => {
                         </a>
                       </Link>
                     </li>
+
+                    
+
                     <li>
                       <Link href="https://explorer.bullsclub.space/">
                         <a>Club Explorer</a>
                       </Link>
                     </li>
+
+                    <li>
+                      <Link href="/allauthorstwo">
+                        <a
+                          className={
+                            router.pathname == "/collection"
+                              ? "drop-down-item active"
+                              : "drop-down-item"
+                          }
+                        >
+                          Collectors
+                        </a>
+                      </Link>
+                    </li>
+                    
                   </ul>
                 </li>
                 <li className="header__nav-item">
