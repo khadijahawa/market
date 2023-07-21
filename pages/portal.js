@@ -21,13 +21,9 @@ import Select, { components } from "react-select";
 
 export default function Sell() {
   const options = [
-    { value: "-", label: "Choose", icon: "" },
+   
     { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-    { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
-    { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
-    { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "" },
-
-    
+   
   ];
   const { Option } = components;
 
@@ -698,8 +694,8 @@ return (
                          <Select
                          styles={{zIndex:10000}}
         defaultValue={options[0]}
-        options={options}
-        components={{ Option: IconOption }}
+       
+        
         onChange={(e) => {
           let s = resaleToken
           s[i] = e.value
@@ -715,7 +711,10 @@ return (
                           onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
                         >
                           Approve
-                        </Button></Row>
+                        </Button>
+                        <Spacer>
+                          </Spacer>
+                          </Row>
                         <Spacer />
                         <Button
                           size="sm"
