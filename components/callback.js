@@ -10,12 +10,12 @@ const Callback = (props) => {
       // Successfully logged and cached user in `window.localStorage`
       .then((response) => {
         console.log('loginCallback ->', response);
-        setNavigateTo('/profile');
+        setNavigateTo('/');
       })
       // Failed to exchange authorization code for token.
       .catch((error) => {
         console.error('callback error:', error);
-        setNavigateTo('/login?error=' + error.message);
+        setNavigateTo('/wallet?error=' + error.message);
       });
   }, []);
   if (navigateTo) {

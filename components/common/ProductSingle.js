@@ -10,7 +10,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
     return (
         <div className="nft-item" style={style}>
             <div className="nft-inner">
-                
                 <div className="nft-item-top d-flex justify-content-between align-items-center">
                     <div className="author-part">
                         <ul className="author-list d-flex">
@@ -19,7 +18,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                     <OwnerList data={item} key={item.id} />
                                 ))
                             }
-                            
                         </ul>
                     </div>
                     <div className="more-part">
@@ -29,7 +27,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 data-bs-offset="25,0">
                                 <i className="icofont-flikr"></i>
                             </a>
-
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" href="mailto:support@bullsclub.space" target="_blank"><span>
                                     <i className="icofont-warning"></i>
@@ -37,23 +34,17 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 </li>
                                 <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-facebook"></i></span> FaceBook</a></li>
-
 <li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
                                     className="icofont-twitter"></i></span> Twitter</a></li>
-
-
 <li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-linkedin"></i></span>Linkedin</a></li>
-
-
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className="nft-item-bottom">
                     <div className="nft-thumb">
-                        <img src={`${data.image}`} alt="nft-img" />
-                            {countdown == true ? (<Timer data={data}/>): '' }
+                        <img src={`${data.image}`} alt="nft-img" />      
                             <span className="badge rounded-pill position-absolute"><i
                                 className="icofont-heart"></i>
                                 </span>
@@ -86,14 +77,14 @@ const ProductSingle = ({data,countdown=false,style}) => {
                         <div className="price-like d-flex justify-content-between align-items-center">
                             <div className="nft-price d-flex align-items-center">
                                 <span className="currency-img">
-                                    <img src='assets/images/currency/currency-3.png'
+                                    <img src='/assets/images/currency/currency-3.png' 
                                         alt="currency img" />
                                 </span>
                                 <p>{`${data.price}`} MATIC
                                 </p>
                             </div>
                             <Link href="/explore">
-                            <a className="nft-bid">Sell</a>
+                            <a className="nft-bid">BUY</a>
                             </Link>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ import UAuth from "@uauth/js"
 function UDdis () {
          const uauth = new UAuth ({
   clientID: "db9bc76f-a465-483e-9022-de0bd19ffe95",
-  redirectUri: "http://localhost:3000",
+  redirectUri: "https://marketplace.bullsclub.space",
   scope: "openid wallet email profile:optional social:optional"
          })
          const login = () => { 

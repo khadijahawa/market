@@ -1,16 +1,11 @@
 import OwnerList from "./OwnerList";
 import Timer from './TimerTwo';
 import Link from 'next/link';
-
-
-
-
 const ProductSingle = ({data,countdown=false,style}) => {
     console.log("🚀 ~ file: ProductSingle.js:6 ~ ProductSingle ~ data:", data);
     return (
         <div className="nft-item" style={style}>
             <div className="nft-inner">
-                
                 <div className="nft-item-top d-flex justify-content-between align-items-center">
                     <div className="author-part">
                         <ul className="author-list d-flex">
@@ -19,7 +14,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                     <OwnerList data={item} key={item.id} />
                                 ))
                             }
-                            
                         </ul>
                     </div>
                     <div className="more-part">
@@ -29,20 +23,13 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 data-bs-offset="25,0">
                                 <i className="icofont-flikr"></i>
                             </a>
-
-                            <ul className="dropdown-menu">
-                               
+                            <ul className="dropdown-menu"> 
                             <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-facebook"></i></span> FaceBook</a></li>
-
 <li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
                                     className="icofont-twitter"></i></span> Twitter</a></li>
-
-
 <li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-linkedin"></i></span>Linkedin</a></li>
-
-
                             </ul>
                         </div>
                     </div>
@@ -88,7 +75,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                         <img src='/assets/images/currency/currency-1.png'
                                         alt="currency img" />
                                 </span>
-                               
                             </div>
                             <Link href="/portal">
                             <a className="nft-bid">SELL</a>

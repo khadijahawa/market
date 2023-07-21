@@ -1,16 +1,13 @@
 import HelpPageHeader from "../components/HelpPageHeader";
-
 import SellCard from "../components/SellCard";
 
 const HelpPost = {
     "id":1,
     "title":"What is NFT?"
 }
-
 const HelpSingle = () => {
     return(
         <div>
-
         <HelpPageHeader />
         <div className="help-text padding-top padding-bottom">
             <div className=" container">
@@ -94,18 +91,11 @@ const HelpSingle = () => {
                             </ul>
                         </aside>
                     </div>
-
                 </div>
             </div>
         </div>
-
-        <div className="padding-top"><SellCard /></div>
-      
-        
-        
+        <div className="padding-top"><SellCard /></div> 
        </div>
-
-
     )
 }
 

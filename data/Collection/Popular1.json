@@ -3,8 +3,7 @@
         "id":"1",
         "title":"The COWS",
         "items":1111,
-        "link": "https://polygon-minter.bullsclub.space/",
-        
+        "link": "https://polygon-minter.bullsclub.space/",      
         "users": [
             {
                 "id":"1",
@@ -37,7 +36,6 @@
         "id":"2",
         "title":"POLAR-BEARS",
         "items":777,
-        
         "link": "https://polygon-minter.bullsclub.space/polarbears",
         "users": [
             {
@@ -45,7 +43,6 @@
                 "name":"",
                 "image":"assets/images/seller/collector-2.png",
                 "verified": false
-                
             }
         ],
         "products":[
@@ -67,7 +64,6 @@
         "id":"3",
         "title":"YELLOW-COWS",
         "items":777,
-  
         "link": "https://polygon-minter.bullsclub.space/yellowcow",
         "users": [
             {
@@ -101,7 +97,6 @@
         "title":"BULLS",
         "items":1111,
         "link": "https://polygon-minter.bullsclub.space/bulls",
-       
         "users": [
             {
                 "id":"4",
@@ -129,7 +124,6 @@
         "id":"6",
         "title":"BEARS",
         "items":1111,
-        
         "link": "https://polygon-minter.bullsclub.space/bears",
         "users": [
             {

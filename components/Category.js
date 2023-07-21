@@ -25,7 +25,7 @@ const Category = () => {
                         CategoryGetList.map((item) =>(
                             <div className="col" key={item.id}>
                                 <div className="cat-item">
-                                    <Link href="/exploretwo">
+                                    <Link href="/explore">
                                     <div className="cat-inner">
                                         <div className="cat-thumb">
                                             <img src={`${item.image}`} alt="Category Image" />

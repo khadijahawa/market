@@ -4,7 +4,7 @@ const PageHeader = ({text,breadcrumb = true}) => {
     const authorSection = 
     <a className="col-author" href="author.html"><img src="assets/images/seller/collector-3.gif"
     alt="Author" />
-    <span>BULLSclub</span></a>;
+    <span>BULLSCLUB</span></a>;
 
     const breadcurmbSection = <ol className="breadcrumb">
         <li>
@@ -14,7 +14,6 @@ const PageHeader = ({text,breadcrumb = true}) => {
         </li>
         <li className="active">{`${text.heading}`}</li>
     </ol>;
-
     return (
         <section className="page-header-section style-1">
             <div className="container">
@@ -22,17 +21,13 @@ const PageHeader = ({text,breadcrumb = true}) => {
                     <div className="page-header-inner">
                         <div className="page-title">
                             <h2>{`${text.heading}`} </h2>
-
                             {text.author?authorSection:''}
                         </div>
-                        
                         {breadcrumb?breadcurmbSection:''}
-                        
                     </div>
                 </div>
             </div>
         </section>
     )
 }
-
 export default PageHeader;

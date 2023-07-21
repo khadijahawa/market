@@ -21,7 +21,6 @@ const AuthorCard = ({item}) => {
                                 <a>{`${item.name}`}</a>
                             </Link>
                             </h5>
-                           
                         </div>
                     </div>
                 </div>

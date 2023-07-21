@@ -3,8 +3,7 @@ import SwiperCore, { Autoplay } from 'swiper';
 import Link from 'next/link';
 
 SwiperCore.use([Autoplay]);
-
-const Collection = ({item}) => {
+const CollectionSingle = ({item}) => {
     return (
         <div className="col-lg-4 col-md-6">
             <div className="nft-item collection-item">
@@ -46,11 +45,11 @@ const Collection = ({item}) => {
                 </a>
               </Link>
               <spacer></spacer>
-              <Link href={`${item.idd}`}>
+              <a href={`${item.idd}`} target='blank'>
                 <a className="default-btn move-right small-btn">
-                  <span> Check on Opensea</span>
+                  <span> Check @Opensea</span>
                 </a>
-              </Link>
+              </a>
                     </div>
                 </div>
             </div>
@@ -58,4 +57,4 @@ const Collection = ({item}) => {
     )
 }
 
-export default Collection;
+export default CollectionSingle;

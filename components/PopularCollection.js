@@ -1,10 +1,7 @@
 import CollectionSingle from "./common/Collection1";
 import PopularList from '../data/Collection/Popular1.json';
 import Link from 'next/link';
-
 var GetPopularList = PopularList.slice(0,3);
-
-
 const PopularCollection = () => {
     return(
         <section className="collection-section padding-top padding-bottom">

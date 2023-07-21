@@ -15,13 +15,13 @@ const Banner = () => {
                             <div className="banner-content text-center">          
                             <h2>Discover, Collect
                                     And Sell Extraordinary NFTs </h2>
-                                <h4>Multi-chain NFT Marketplace </h4>
-                                <h4>Choose Network First</h4>
-                                <h4>Connect to Binance or Polygon </h4>
+                                <h4>NFT Marketplace </h4>
+                                <h4>Connect to Network First</h4>
+                                <h4>Create and Sell NFTs on Polygon chain</h4>
                                 <p></p>
                                 <div className="banner-btns d-flex flex-wrap justify-content-center">
                                     <Link href="/wallet">
-                                    <a className="default-btn move-top"><span>WEB3 LOGIN</span> 
+                                    <a className="default-btn move-top"><span>W3B LOGIN</span> 
                                     </a>
                                     </Link>
                                     <Link href="/createnft">

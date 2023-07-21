@@ -3,7 +3,6 @@ import SwiperCore, { Autoplay } from 'swiper';
 import Link from 'next/link';
 
 SwiperCore.use([Autoplay]);
-
 const Collection = ({item}) => {
     return (
         <div className="col-lg-4 col-md-6">
@@ -46,7 +45,6 @@ const Collection = ({item}) => {
                 </a>
               </Link>
               <spacer></spacer>
-              
                     </div>
                 </div>
             </div>

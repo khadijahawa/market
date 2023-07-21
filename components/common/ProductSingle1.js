@@ -3,9 +3,6 @@ import Timer from './TimerTwo';
 import Link from 'next/link';
 import { useState } from "react";
 
-
-
-
 const ProductSingle = ({data,countdown=false,style}) => {
     console.log(data)
     const [da,setDA] = useState(data);
@@ -24,7 +21,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 data-bs-offset="25,0">
                                 <i className="icofont-flikr"></i>
                             </a>
-
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" href="#"><span>
                                     <i className="icofont-warning"></i>
@@ -32,30 +28,21 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 </li>
                                 <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-facebook"></i></span> FaceBook</a></li>
-
 <li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
                                     className="icofont-twitter"></i></span> Twitter</a></li>
-
-
 <li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-linkedin"></i></span>Linkedin</a></li>
-
-
                             </ul>
                         </div>
                     </div>
-                </div>
-                
+                </div>  
                 <div className="nft-item-bottom">
-                    
                     <div className="nft-thumb">
-                        <img src={`${da.image}`} alt="nft-img" />
-
-                            
+                        <img src={`${da.image}`} alt="nft-img" />      
                             {countdown == true ? (<Timer data={da}/>): '' }
                             <span className="badge rounded-pill position-absolute"><i
                                 className="icofont-heart"></i>
-                                {`${da.wishlist}`}k</span>
+                                {`${da.wishlist}`}</span>
                     </div>
                     <div className="nft-content">
                         <div className="content-title">
@@ -73,11 +60,10 @@ const ProductSingle = ({data,countdown=false,style}) => {
                         <div
                             className="nft-status d-flex flex-wrap justify-content-between align-items-center ">
                             <span className="nft-view">
-                                <Link href="/activity">
+                                
                                 <a><i
-                                className="icofont-eye-alt"></i> View
-                                History</a> 
-                                </Link>
+                                className="icofont-eye-alt"></i> </a> 
+                               
                                 
                                 </span>
                             <div className="nft-stock"> {`${da.stock}`} in Stock</div>

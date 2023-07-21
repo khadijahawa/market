@@ -12,8 +12,7 @@ const TopCollectors = () => {
                 <h3 className="header-title">Club Collectors</h3>
                 <div className="header-content">
                     <ul className="filter-group d-flex flex-wrap align-items-center">       
-                        <li className="li day-filter">
-                            
+                        <li className="li day-filter">      
                         </li>
                     </ul>
                 </div>

@@ -1,6 +1,5 @@
 import ArticleCard from "../components/common/ArticleCard";
 import HelpCategoryCard from "../components/common/HelpCategoryCard";
-
 import HelpPageHeader from "../components/HelpPageHeader";
 
 const Articles = [
@@ -92,14 +91,10 @@ const HelpCategory = [
         "link":""
     }
 ];
-
-
 const Help = () => {
     return(
         <div>
-
         <HelpPageHeader />
-
         <section className="fra-section padding-top padding-bottom">
             <div className="container">
                 <div className="section-header justify-content-center">
@@ -118,7 +113,6 @@ const Help = () => {
                 </div>
             </div>
         </section>
-
         <section className="help-section padding-bottom">
             <div className="container">
                 <div className="section-header justify-content-center mb-70">
@@ -133,16 +127,11 @@ const Help = () => {
                                 <HelpCategoryCard item={item} key={item.id} />
                             ))
                         }
-
                     </div>
                 </div>
             </div>
-        </section>
-
-       
+        </section>  
     </div>
-
-
     )
 }
 

@@ -59,7 +59,7 @@ const Wallet = () => {
   };
   useEffect(() => {
     if (window.ethereum && window.ethereum?.selectedAddress) {
-      router.push("/");
+     router.push("/");
     }
   }, []);
   return (
@@ -67,7 +67,7 @@ const Wallet = () => {
       <div className="container">
         <div className="wallet-inner">
           <div className="wallet-title text-center">
-            <h3 className="mb-3">Connect your WEB3 wallet</h3>
+            <h3 className="mb-3">Connect your crypto wallet</h3>
             <p className="m-auto mb-5">
               Connect with one of available wallet providers
             </p>
@@ -141,7 +141,7 @@ const Wallet = () => {
                     Learn how to use Metamask wallet
                   </a>
                   <h6>
-                    If you wish disconnect after connecting, must do from
+                    If you wish to disconnect after connecting, you must do from
                     metamask for security
                   </h6>
                 </div>

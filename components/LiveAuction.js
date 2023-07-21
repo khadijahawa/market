@@ -13,11 +13,7 @@ const TrendingNow = () => {
                     <div className="header-content">
                         <ul className="filter-group d-flex flex-wrap align-items-center">
                             <li className="li collection-filter">
-                                <div className="select-wrapper arrow-blue" data-icon="&#xef29;">
-                                    <select className="form-select " aria-label="Collection select">
-                                        <option>Recently Added</option>  
-                                    </select>
-                                </div>
+                                
                             </li> 
                         </ul>
                     </div>

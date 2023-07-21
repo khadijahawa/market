@@ -5,8 +5,8 @@ import BullscMarket from '../engine/BullscMarket.json';
 import NFTCollection from '../engine/NFT.json';
 import NFT from '../engine/NFT.json';
 import { useRouter } from 'next/router'
-import { BearNFT, CowsNFT, BearBSCNFT, BulBSCNFT, BullsNFT, PolarBearNFT, YellowCowsNFT } from '../engine/configuration';
-import { polyChain, ethTest, bscTest } from '../engine/chainchange';
+import { CowsNFT, BearBSCNFT, BulBSCNFT, BullsNFT, BearNFT, PolarBearNFT, YellowCowsNFT } from '../engine/configuration';
+import { polyChain } from '../engine/chainchange';
 import { Card, Button, Input, Col, Row, Spacer, Container, Text, Grid } from '@nextui-org/react';
 import axios from 'axios';
 import 'sf-font';
@@ -14,18 +14,19 @@ import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { mmnft, mmresell, mmnftcol, mmrpc } from '../engine/configuration';
 import { goenft, goeresell, goenftcol, goerpc } from '../engine/configuration';
-import { hhnft, hhresell, hhnftcol, hhrpc ,marketplaceAddress,bsctmarket } from '../engine/configuration';
+import { hhnft, hhresell, hhnftcol, hhrpc,  marketplaceAddress,bsctmarket } from '../engine/configuration';
 import { bsctnft, bsctresell, bsctnftcol, bsctrpc } from '../engine/configuration';
 import { cipherEth, simpleCrypto  } from '../engine/configuration';
 import Select, { components } from "react-select";
 
-
-
 export default function Sell() {
   const options = [
-    
+    { value: "-", label: "Choose", icon: "" },
     { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-    
+    { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
+    { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
+    { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "" },
+
     
   ];
   const { Option } = components;
@@ -66,7 +67,7 @@ export default function Sell() {
       headers: {accept: 'application/json', 'X-API-KEY': 'bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7'}
     };
     
-    const rest= await axios.get('https://api.simplehash.com/api/v0/nfts/owners?chains=polygon,bsc&wallet_addresses='+owner+'&limit=50', options);
+    const rest= await axios.get('https://api.simplehash.com/api/v0/nfts/owners?chains=polygon&wallet_addresses='+owner+'&limit=50', options);
     console.log(rest.data.nfts);
     const simpleHashNFTs = rest.data.nfts.map((item) => {
       console.log(item);
@@ -256,7 +257,7 @@ export default function Sell() {
       }
       if(connected.chainId == polyChain)
       {
-        var nft = [ BearNFT, CowsNFT, BullsNFT, PolarBearNFT, YellowCowsNFT ];
+        var nft = [BearNFT, CowsNFT, BullsNFT, PolarBearNFT, YellowCowsNFT];
       }
       getNftCustom(nft);
       console.log(nft)
@@ -360,9 +361,17 @@ export default function Sell() {
                 desc,
                 address:nftcustom[t]
               }])
+             
+
+
         }
+      
+
       }
       console.log(itemArray);
+
+    
+
     }
 
     async function SellNFT(address,tokenID,price,Token) {
@@ -509,8 +518,6 @@ const nftContract = await new web3.eth.Contract(NFT, address);
         setNfts(itemArray)
         setLoadingState('loaded');
       }
-
-
       async function getCreatedNFTs() {
         var address = nftcustom
         var network = rpc
@@ -560,7 +567,6 @@ const nftContract = await new web3.eth.Contract(NFT, address);
         getCreated(itemArray)
         setLoadingState('loaded');
       }
-
       async function refreshNFTs(){
         setRpc();
         getWalletNFTs();
@@ -572,9 +578,6 @@ const nftContract = await new web3.eth.Contract(NFT, address);
         setRpc();
         getChain();
       }
-
-
-
       if (loadingState  && !prod.length) 
       return (
         <Container >
@@ -603,21 +606,21 @@ return (
           <Card css={{ p: "$9", backgroundColor: "$blue200" }}>
           <Row>
           <Text h4 css={{marginRight:'$3'}}>
-              Switch To
+              Switch Blockchain
             </Text>
-          <Button size="sm" onPress={polyChain} css={{ marginRight: "$2" }}>
+          <Button size="sm" color="white" onPress={polyChain} css={{ marginRight: "$2" }}>
                 <img src="polygonwhite.png" width={"100px"} />
               </Button>
               
               </Row>
               <Card css={{ p: "$4", marginTop:'$3'}}>
             <Text h3>
-              Wallet
+              Wallet:
               <Text h5 css={{ color: "#39FF14" }}>
                 {user}
               </Text>
             </Text>
-            <Text h6>Must Approve 1st, sign the transaction</Text>
+            <Text h6>Must Approve 1st, sign the transaction and wait for network to process</Text>
             <Text h6>Add your price,Then list for sale</Text>
             <Row>
             <Button
@@ -651,7 +654,7 @@ return (
                     <Card
                       isHoverable
                       key={i}
-                      css={{ mw: "250px", marginRight: "$1" }}
+                      css={{ mw: "200px", marginRight: "$1" }}
                       variant="bordered"
                     >
                       <Card.Image src={nft.image} />
@@ -696,7 +699,7 @@ return (
                          styles={{zIndex:10000}}
         defaultValue={options[0]}
         options={options}
-        
+        components={{ Option: IconOption }}
         onChange={(e) => {
           let s = resaleToken
           s[i] = e.value
@@ -708,7 +711,7 @@ return (
       <Button
                           size="sm"
                           color="gradient"
-                          style={{ fontSize: "15px" }}
+                          style={{ fontSize: "20px" }}
                           onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
                         >
                           Approve
@@ -717,13 +720,12 @@ return (
                         <Button
                           size="sm"
                           color="gradient"
-                          style={{ fontSize: "15px" }}
+                          style={{ fontSize: "20px" }}
                           onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
                         >
 
                           List for Sale
                         </Button>
-                        
                       </Card.Body>
                     </Card>
                   </a>

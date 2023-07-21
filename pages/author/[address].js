@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 // import Products from '../data/Product/Products.json';
+import CollectionSingle from "../collectionsingle";
 import copy from "copy-to-clipboard";
 import ProductSingle from "../../components/common/ProductSingle2";
 import User from "../../data/User/Users.json";
@@ -12,7 +13,6 @@ import { supabase } from "../../engine/Supabase";
 import ActivitySingle from "../../components/common/ActivitySingle";
 import PopularList from "../../data/Collection/Popular.json";
 import FollowerSingle from "../../components/common/Collector";
-
 
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
@@ -37,7 +37,7 @@ const PageHeaderText = {
 
 const AuthorInfo = {
   name: "Tamer",
-  profileImage: "/assets/images/nft-item/style-3/02.jpg",
+  profileImage: "/assets/images/profile/1.gif",
   cover: "/assets/images/profile/cover.jpg",
   userName: "@Tamer11",
   about:
@@ -65,7 +65,24 @@ const AuthorInfo = {
       image: "/assets/images/activity/02.gif",
       by: "@technonazmul",
       createdAt: "10/07/2022, 08:23 am"
-    } 
+    },
+    {
+      id: 3,
+      title: "Trust In meh",
+      description: "The Shopping Cart #54/65 was put up for sale for 0.021 ETH",
+      image: "/assets/images/activity/03.gif",
+      by: "@reo2lxsr",
+      createdAt: "10/07/2022, 12:03 am"
+    },
+    {
+      id: 4,
+      title: "Sysytan #0le",
+      description:
+        "A offer of $200.00 was placed for ÜNDERSTANDING (Sean Williams) #1/20",
+      image: "/assets/images/activity/04.gif",
+      by: "@reo2lxsr",
+      createdAt: "10/07/2022, 12:03 am"
+    }
   ]
 };
 
@@ -98,7 +115,7 @@ const Author = () => {
     };
 
     const rest = await axios.get(
-      "https://api.simplehash.com/api/v0/nfts/owners?chains=polygon,bsc&wallet_addresses=" +
+      "https://api.simplehash.com/api/v0/nfts/owners?chains=polygon&wallet_addresses=" +
         owner +
         "&limit=50",
       options
@@ -126,7 +143,7 @@ const Author = () => {
           {
             id: "1",
             name: "",
-            image: "/assets/images/seller/collector-2.png",
+            image: "/assets/images/seller/collector-1.png",
             verified: false,
             prfileLink: "/"
           }
@@ -192,8 +209,7 @@ const Author = () => {
                       </div>
                       <div className="profile-information">
                         <div className="profile-pic">
-                          <img src={avatar} alt="avatar" />
-
+                          <img src={avatar} alt="Avatar" />
                           <div className="custom-upload">
                             <>
                               {userConnected.address == address && (
@@ -204,7 +220,8 @@ const Author = () => {
                                       <i className="icofont-camera"></i>
                                       Edit
                                     </span>
-                                    <span className="d-lg-none mr-0">
+
+                                    <span className="d-lg-none mr-2">
                                       <i className="icofont-plus"></i>
                                     </span>
                                   </div>
@@ -219,6 +236,8 @@ const Author = () => {
                             </>
                           </div>
                         </div>
+
+
 
                         <ul className="profile-contact">
                           <li className="crypto-copy">
@@ -248,6 +267,30 @@ const Author = () => {
                               </div>
                             </div>
                           </li>
+
+
+
+
+
+
+
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </ul>
                       </div>
                     </div>
@@ -284,28 +327,19 @@ const Author = () => {
                                   <p>Add Friends</p>
                                 </div>
                               </a>
-                            </li>
-                            {/* <li>
-                                        <a href="#">
-                                            <div className="icon"><i className="icofont-envelope"></i></div>
-                                            <div className="text">
-                                                <p>Publice Message</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div className="icon"><i className="icofont-envelope"></i></div>
-                                            <div className="text">
-                                                <p>Private Message</p>
-                                            </div>
-                                        </a>
-                                    </li> */}
+                            </li>                
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </div> 
                     <div className="profile-details">
+                    <nav className="profile-nav">
+                            <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button className="nav-link active" id="nav-allNft-tab" data-bs-toggle="tab"
+                                    data-bs-target="#allNft" type="button" role="tab" aria-controls="allNft"
+                                    aria-selected="true">All NFT</button>                            
+                            </div>
+                        </nav>
                       <div className="tab-content" id="nav-tabContent">
                         <div
                           className="tab-pane activity-page fade show active"
@@ -317,46 +351,17 @@ const Author = () => {
                               <div className="col-xl-9">
                                 <article>
                                   <div className="activity-tab">
-                                    {/* <ul className="nav nav-pills mb-30 px-2" id="pills-tab" role="tablist">
+                                  <ul className="nav nav-pills mb-30 px-2" id="pills-tab" role="tablist">
 
-                                                        <li className="nav-item" role="presentation">
-                                                            <button className="nav-link active" id="pills-mentions-tab"
-                                                                data-bs-toggle="pill" data-bs-target="#pills-mentions"
-                                                                type="button" role="tab" aria-controls="pills-mentions"
-                                                                aria-selected="true"><i className="icofont-flash"></i>
-                                                                On Sale</button>
-                                                        </li>
-                                                        <li className="nav-item" role="presentation">
-                                                            <button className="nav-link" id="pills-favorites-tab"
-                                                                data-bs-toggle="pill" data-bs-target="#pills-favorites"
-                                                                type="button" role="tab" aria-controls="pills-favorites"
-                                                                aria-selected="false"><i className="icofont-license"></i>
-                                                                owned</button>
-                                                        </li>
-                                                        <li className="nav-item" role="presentation">
-                                                            <button className="nav-link" id="pills-groups-tab"
-                                                                data-bs-toggle="pill" data-bs-target="#pills-groups"
-                                                                type="button" role="tab" aria-controls="pills-groups"
-                                                                aria-selected="false"><i className="icofont-puzzle"></i>
-                                                                Created</button>
-                                                        </li>
-                                                        <li className="nav-item" role="presentation">
-                                                            <button className="nav-link" id="pills-friends-tab"
-                                                                data-bs-toggle="pill" data-bs-target="#pills-friends"
-                                                                type="button" role="tab" aria-controls="pills-friends"
-                                                                aria-selected="false"><i className="icofont-library"></i>
-                                                                Collection</button>
-                                                        </li>
+<li className="nav-item" role="presentation">
+    <button className="nav-link" id="pills-favorites-tab"
+        data-bs-toggle="pill" data-bs-target="#pills-favorites"
+        type="button" role="tab" aria-controls="pills-favorites"
+        aria-selected="false"><i className="icofont-license"></i>
+        owned</button>
+</li>
+</ul>
 
-                                                        <li className="custom-select">
-                                                            <select>
-                                                                <option value="1">Everything</option>
-                                                                <option value="2">Recent</option>
-                                                                <option value="3">Relevant</option>
-                                                                <option value="4">Popular</option>
-                                                            </select>
-                                                        </li>
-                                                    </ul> */}
                                     <div
                                       className="tab-content activity-content"
                                       id="pills-tabContent"
@@ -431,15 +436,26 @@ const Author = () => {
                                 </article>
                               </div>
 
+
+
+
+
+
+
+
+
+
                               <div className="col-xl-3">
                                 <aside className="mt-5 mt-xl-0">
                                   <div className="profile-widget search-widget">
-                                    <div className="widget-inner"> 
+                                    <div className="widget-inner">
+                                      
+                                      
                                     </div>
                                   </div>
                                   <div className="widget widget-instagram">
                                     <div className="widget-header">
-                                      <h5 className="title">Featured NFTs</h5>
+                                      <h5 className="title">Owned NFT</h5>
                                     </div>
                                     <ul className="widget-wrapper d-flex flex-wrap justify-content-center">
                                       {Prods?.map((item) => (

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import Users from '../data/User/Authors.json';
 import AuthorCard from "../components/common/AuthorCard";
 import NFTS from "../engine/NFTS.json"
@@ -10,17 +9,11 @@ const PageHeaderText =
     "linkText":"Home",
     "heading":"All of our Authors"
 };
-
-
-
 const AllAuthorsTwo = () => {
     const [auth,setAuth] = useState([]);
-    const _author = ()=> {
-        
+    const _author = ()=> {    
         const key = 'owner';
-    
-        const NFT = [...new Map(NFTS.map(item => [item[key], item])).values()];
-        
+        const NFT = [...new Map(NFTS.map(item => [item[key], item])).values()];    
         const arr = [];
         NFT.map((nft,k)=>
         {
@@ -46,14 +39,7 @@ const AllAuthorsTwo = () => {
     }
     useEffect(() => {
         _author();
-      }, [])
-
-
-
-
-
-
-      
+      }, [])   
     return (
         <div>
         <section className="seller-section padding-bottom padding-top">
@@ -61,17 +47,14 @@ const AllAuthorsTwo = () => {
             <section className="explore-section padding-top padding-bottom">
                 <div className="container">
                 <div className="section-header">
-                    <div className="nft-filter d-flex flex-wrap justify-content-center">
-                       
+                    <div className="nft-filter d-flex flex-wrap justify-content-center">   
                         <div className="form-floating">
                             <select className="form-select" id="sortSelect" aria-label="Floating label select example">
-                                <option>Club Collectors</option>
-                               
+                                <option>Club Collectors</option>               
                             </select>
                             <label > Type</label>
                         </div>
                     </div>
-                    
                 </div>
                     <div className="section-wrapper">
                         <div className="explore-wrapper">
@@ -80,12 +63,8 @@ const AllAuthorsTwo = () => {
                                     auth.map((item) => (
                                         <AuthorCard item={item} key={item.id} address={item.address} />
                                     ))
-                                }
-                                
-                                
+                                }  
                             </div>
-                            
-
                         </div>
                     </div>
                 </div>
