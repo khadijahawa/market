@@ -8,7 +8,7 @@ import {
 } from "../engine/configuration";
 import NFTcreate from "../engine/NFTcreate";
 import Web3 from "web3";
-import Image from "next/image";
+// import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ export const createToken = async (baseURI) => {
   var goe = "0x5";
   var mm = "0x13881";
   var bsct = "0x61";
-  
+
   const connected = await detectEthereumProvider();
   let provider;
   let web3;
@@ -38,7 +38,7 @@ export const createToken = async (baseURI) => {
   const gasPrice = await provider.getFeeData();
 
   const nftContract = await new web3.eth.Contract(NFTcreate, DefaultNFTPolygon);
-  const val = (parseFloat(0.0175)* 1e18).toString(16);
+  const val = (parseFloat(0.0175) * 1e18).toString(16);
 
   console.log(baseURI);
   const transactionParameters = {
@@ -52,7 +52,7 @@ export const createToken = async (baseURI) => {
     // maxFeePerGas: null,
     gas: ethers.BigNumber.from(600000).toHexString(),
     data: nftContract.methods.createToken(baseURI).encodeABI(), //make call to NFT smart contract
-    value:val
+    value: val
     // 'data': nftContract.methods.transferFrom(amount).encodeABI()
     //make call to NFT smart contract
     //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
@@ -161,9 +161,11 @@ const CreateNft = () => {
                 <div className="create-nft py-5 px-4">
                   <div className="create-nft-form">
                     <h3>CONNECT to POLYGON</h3>
-                    <h5>Upload 3D items, Music, Video or Art and more</h5>              
+                    <h5>Upload 3D items, Music, Video or Art and more</h5>
                     <div className="upload-item mb-30">
-                      <p>PNG,JPG,JPEG,SVG,WEBP,AVI,HTML,Mp3 & Mp4 (Max-150mb)</p>
+                      <p>
+                        PNG,JPG,JPEG,SVG,WEBP,AVI,HTML,Mp3 & Mp4 (Max-150mb)
+                      </p>
                       <div className="custom-upload">
                         <div className="file-btn">
                           <i className="icofont-upload-alt"></i>
@@ -172,16 +174,14 @@ const CreateNft = () => {
                         <input type="file" onChange={changeHandler} />
                       </div>
                       <div>
-                      {selectedFile && (
-                        <Image
-                          src={URL.createObjectURL(selectedFile)}
-                          width={300}
-                          height={300}
-                          className=""
-                          alt="image"
-                        />
-                      )}
-                    </div>
+                        {selectedFile && (
+                          <img
+                            src={URL.createObjectURL(selectedFile)}
+                            className=""
+                            alt="image"
+                          />
+                        )}
+                      </div>
                     </div>
                     <div className="form-floating item-name-field mb-3">
                       <input
@@ -202,7 +202,7 @@ const CreateNft = () => {
                         value={descriptionNFT}
                         onChange={(ev) => setdescriptionNFT(ev.target.value)}
                       ></textarea>
-                       <label>Item Description</label>
+                      <label>Item Description</label>
                     </div>
                     <div className="item-category-field mb-30">
                       <h4>Upload for Catergories</h4>
@@ -223,7 +223,7 @@ const CreateNft = () => {
                           <span>
                             <i className="icofont-video-cam"></i>
                           </span>
-                         Video
+                          Video
                         </li>
                         <li className="item-cat-btn">
                           <span>
@@ -320,10 +320,19 @@ const CreateNft = () => {
                         </div>
                       </div>
                     </div>
-                    <h6>By Creating an Item, Your NFT will Mint on the Polygon Blockchain where it will live for ever. "Minting Fee 0.0175 Matic, plus network fee" </h6>
-                      <h6>The information added above for the metadata creation.</h6>
-                   <h6>List your Newely Minted NFT for Sale from your Profile, Or from your W3B Wallet at any 3rd party Marketplace</h6>
-                   <h6></h6>
+                    <h6>
+                      By Creating an Item, Your NFT will Mint on the Polygon
+                      Blockchain where it will live for ever. "Minting Fee
+                      0.0175 Matic, plus network fee"{" "}
+                    </h6>
+                    <h6>
+                      The information added above for the metadata creation.
+                    </h6>
+                    <h6>
+                      List your Newely Minted NFT for Sale from your Profile, Or
+                      from your W3B Wallet at any 3rd party Marketplace
+                    </h6>
+                    <h6></h6>
                     <div
                       className="submit-btn-field text-center"
                       onClick={() => handleSubmission()}
@@ -332,15 +341,15 @@ const CreateNft = () => {
                     </div>
                   </div>
                   <div className="text-center mt-5">
-              <a
-                href="https://opensea.io/collection/clubsnfts-2"
-                target="_blank"
-              >
-                <a className="default-btn move-right">
-                  <span>Minted NFTs @Opensea</span>
-                </a>
-              </a>
-            </div>
+                    <a
+                      href="https://opensea.io/collection/clubsnfts-2"
+                      target="_blank"
+                    >
+                      <a className="default-btn move-right">
+                        <span>Minted NFTs @Opensea</span>
+                      </a>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
