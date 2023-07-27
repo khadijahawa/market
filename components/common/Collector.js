@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const Collector = ({data,count,countShow=true,columnSize = "col-xl-4 col-lg-6"}) => {
-    return(
+    return (
         <div className={columnSize}>
             <div className="seller-item">
                 <div className="seller-inner">
@@ -9,15 +9,15 @@ const Collector = ({data,count,countShow=true,columnSize = "col-xl-4 col-lg-6"})
                         <p className="assets-number">{countShow?count+1:''}</p>
                         <div className="assets-owner">
                             <div className="owner-thumb veryfied">
-                                <Link href="">
-                                <a className=""><img
-                                        src={`${data.image}`} alt="seller-img" /></a>
+                                <Link href="" className="">
+                                <img
+                                        src={`${data.image}`} alt="seller-img" />
                                 </Link>
                             </div>
                             <div className="owner-content">
                                 <h6>
                                 <Link href="">
-                                    <a>{`${data.name}`}</a>
+                                    {`${data.name}`}
                                 </Link> 
                                 </h6> 
                             </div>
@@ -27,7 +27,7 @@ const Collector = ({data,count,countShow=true,columnSize = "col-xl-4 col-lg-6"})
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Collector

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const ActivitySingle = ({item}) => {
-    return(
+    return (
         <div className="activity-item">
             <div
                 className="lab-inner d-flex flex-wrap align-items-center p-3 p-md-4">
@@ -11,21 +11,21 @@ const ActivitySingle = ({item}) => {
                 <div className="lab-content">
                     <h4>
                         <Link href="/itemdetails">
-                        <a>{`${item.title}`}</a>
+                        {`${item.title}`}
                         </Link>
                     </h4>
                     <p className="mb-2">{`${item.description}`}
                     </p>
                     <p className="user-id">By: 
                     <Link href="/author">
-                    <a >{`${item.by}`}</a>
+                    {`${item.by}`}
                     </Link>
                     </p>
                     <p>At: {`${item.createdAt}`}</p>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ActivitySingle;

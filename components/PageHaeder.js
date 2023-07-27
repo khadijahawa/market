@@ -9,7 +9,7 @@ const PageHeader = ({text,breadcrumb = true}) => {
     const breadcurmbSection = <ol className="breadcrumb">
         <li>
         <Link href="/">
-            <a>{`${text.linkText}`}</a>
+            {`${text.linkText}`}
         </Link> 
         </li>
         <li className="active">{`${text.heading}`}</li>

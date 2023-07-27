@@ -28,8 +28,8 @@ const TopCollectors = () => {
                         }  
                     </div>
                     <div className="text-center mt-5">
-                        <Link href="/allauthorstwo">
-                        <a className="default-btn move-right"><span>All Collectors</span></a>
+                        <Link href="/allauthorstwo" className="default-btn move-right">
+                        <span>All Collectors</span>
                         </Link>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ const TopCollectors = () => {
         </div>
     </section>
         </div>
-    )
+    );
 }
 
 export default TopCollectors;

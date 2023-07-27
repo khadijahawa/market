@@ -39,22 +39,23 @@ const CollectionSingle = ({item}) => {
                             <p>Collection has {`${item.items}`} items</p>
                         </div>
                         <div className="meta-info"></div>
-              <Link href={`${item.link}`}>
-                <a className="default-btn move-left small-btn">
+              <Link href={`${item.link}`} className="default-btn move-left small-btn">
+
                   <span>MINT</span>
-                </a>
+
               </Link>
               <spacer></spacer>
+              <div>
               <a href={`${item.idd}`} target='blank'>
                 <a className="default-btn move-right small-btn">
                   <span> Check @Opensea</span>
                 </a>
-              </a>
+              </a></div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default CollectionSingle;

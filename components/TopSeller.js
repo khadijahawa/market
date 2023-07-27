@@ -50,8 +50,8 @@ const TopSeller = () => {
                         
                     </div>
                     <div className="text-center mt-5">
-                        <Link href="/rank">
-                        <a className="default-btn move-right"><span>Go To Rank</span></a>
+                        <Link href="/rank" className="default-btn move-right">
+                        <span>Go To Rank</span>
                         </Link>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ const TopSeller = () => {
         </div>
     </section>
         </div>
-    )
+    );
 }
 
 export default TopSeller;

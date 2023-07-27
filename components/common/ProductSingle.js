@@ -60,7 +60,7 @@ const ProductSingle = ({data,countdown=false,style}) => {
                     },
                   }}
                 >
-                  <a>{`${data.title}`}</a>
+                  {`${data.title}`}
                 </Link>
                             </h5>
                         </div>
@@ -68,8 +68,8 @@ const ProductSingle = ({data,countdown=false,style}) => {
                             className="nft-status d-flex flex-wrap justify-content-between align-items-center ">
                             <span className="nft-view">
                                 <Link href="">
-                                <a><i
-                                className="icofont-eye-alt"></i> </a> 
+                                    <i
+                                    className="icofont-eye-alt"></i> 
                                 </Link>
                                 </span>
                             <div className="nft-stock"> {`${data.stock}`} in Stock</div>
@@ -83,15 +83,15 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 <p>{`${data.price}`} MATIC
                                 </p>
                             </div>
-                            <Link href="/explore">
-                            <a className="nft-bid">BUY</a>
+                            <Link href="/explore" className="nft-bid">
+                            BUY
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ProductSingle;

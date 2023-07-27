@@ -172,8 +172,8 @@ const Footer = () => {
                     <h4>Policy</h4>
                     <ul className="footer-link-list">
                       <li>
-                        <Link href="/terms">
-                          <a className="footer-link">Terms</a>
+                        <Link href="/terms" className="footer-link">
+                          Terms
                         </Link>{" "}
                       </li>
                       <li>
@@ -185,8 +185,8 @@ const Footer = () => {
                         </a>
                       </li>
                       <li>
-                        <Link href="/help">
-                          <a className="footer-link">FAQ </a>
+                        <Link href="/help" className="footer-link">
+                          FAQ 
                         </Link>
                       </li>
                       <li>

@@ -96,6 +96,7 @@ const Author = () => {
   const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState(AuthorInfo.profileImage);
 
+  
   const getAvatar = async () => {
     const { data, error } = await supabase
       .from("User")
@@ -105,6 +106,8 @@ const Author = () => {
       setAvatar(URLsupa + data[0].photo);
     }
   };
+
+
   const getSimpleHash = async (owner) => {
     const options = {
       headers: {

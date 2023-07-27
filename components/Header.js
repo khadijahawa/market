@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, React } from "react";
 import { useRouter } from "next/router";
 import ConnectChain from "../engine/connectchain";
 import { Button, Col, Row, Container } from "@nextui-org/react";
@@ -11,6 +11,9 @@ import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
 import AuthorCard from "./common/AuthorCard";
 import NFTS from "../engine/NFTS.json";
 import UDdis from "./UDdisconect";
+
+
+
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -100,12 +103,12 @@ const Header = () => {
           <div className="header__content">
             <div className="header__logo">
               <Link href="http://bullsclub.space/">
-                <a>
-                  <img
-                    /* eslint-disable-line */ src="/assets/images/logo/logo.png"
-                    alt="logo"
-                  ></img>
-                </a>
+
+                <img
+                  /* eslint-disable-line */ src="/assets/images/logo/logo.png"
+                  alt="logo"
+                ></img>
+
               </Link>
             </div>
             <div className="header__menu ms-auto">
@@ -130,56 +133,56 @@ const Header = () => {
                   </a>
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <Link href="/createnft">
-                        <a
-                          className={
-                            router.pathname == "/createnft"
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        >
+                      <Link
+                        href="/createnft"
+                        className={
+                          router.pathname == "/createnft"
+                            ? "drop-down-item active"
+                            : "drop-down-item"
+                        }>
+                        
                           Create NFT
-                        </a>
+                        
                       </Link>
                     </li>
                     <li>
-                      <Link href="/portal">
-                        <a
-                          className={
-                            router.pathname == "/portal"
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        >
+                      <Link
+                        href="/portal"
+                        className={
+                          router.pathname == "/portal"
+                            ? "drop-down-item active"
+                            : "drop-down-item"
+                        }>
+                        
                           Sell NFT
-                        </a>
+                        
                       </Link>
                     </li>
                     <li>
-                      <Link href="/explore">
-                        <a
-                          className={
-                            router.pathname == "/explore "
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        >
+                      <Link
+                        href="/explore"
+                        className={
+                          router.pathname == "/explore "
+                            ? "drop-down-item active"
+                            : "drop-down-item"
+                        }>
+                        
                           Market
-                        </a>
+                        
                       </Link>
                     </li>
                     
                     <li>
-                      <Link href="/collection">
-                        <a
-                          className={
-                            router.pathname == "/collection"
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        >
-                          Club Collections
-                        </a>
+                      <Link
+                        href="/collection"
+                        className={
+                          router.pathname == "/collection"
+                            ? "drop-down-item active"
+                            : "drop-down-item"
+                        }>
+                        
+                          Collections
+                        
                       </Link>
                     </li>
 
@@ -187,21 +190,21 @@ const Header = () => {
 
                     <li>
                       <Link href="https://explorer.bullsclub.space/">
-                        <a>Club Explorer</a>
+                        Explorer
                       </Link>
                     </li>
 
                     <li>
-                      <Link href="/allauthorstwo">
-                        <a
-                          className={
-                            router.pathname == "/collection"
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        >
+                      <Link
+                        href="/allauthors"
+                        className={
+                          router.pathname == "/collection"
+                            ? "drop-down-item active"
+                            : "drop-down-item"
+                        }>
+                        
                           Collectors
-                        </a>
+                        
                       </Link>
                     </li>
                     
@@ -236,7 +239,7 @@ const Header = () => {
 
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <Link
+                      <a
                         href="https://multisender.bullsclub.space"
                         target="blank"
                       >
@@ -249,10 +252,10 @@ const Header = () => {
                         >
                           BEB20 Multisender
                         </a>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link
+                      <a
                         href="mailto:support@bullsclub.space"
                         target="blank"
                       >
@@ -265,11 +268,11 @@ const Header = () => {
                         >
                           Contact
                         </a>
-                      </Link>
+                      </a>
                     </li>
                     <li>
                       <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/" target="blank">
-                        <a>BULLSCLUB</a>
+                        BULLSCLUB
                       </Link>
                     </li>
                   </ul>
@@ -304,19 +307,17 @@ const Header = () => {
                     </li>
                    
                     <li>
-                      <Link href="/portal">
-                        <a
-                          className={
-                            router.pathname == "/author"
-                              ? "dropdown-item active"
-                              : "dropdown-item"
-                          }
-                        >
-                          <span className="me-1">
-                            <i className="icofont-coins"></i>
-                          </span>
-                          Sell NFT
-                        </a>
+                      <Link
+                        href="/portal"
+                        className={
+                          router.pathname == "/author"
+                            ? "dropdown-item active"
+                            : "dropdown-item"
+                        }>
+
+                        <span className="me-1">
+                          <i className="icofont-coins"></i>
+                        </span>Sell NFT
                       </Link>
                     </li>
                          <li>
@@ -327,26 +328,47 @@ const Header = () => {
               </div>
               <div className="wallet-btn">
                 <Link href="/wallet">
-                  <a>
-                    <span>
-                      <i className="icofont-wallet" data-blast="color"></i>
-                    </span>
-                    <span className="d-none d-md-inline">
-                      {wallet != ""
-                        ? wallet.slice(0, 4) + "...." + wallet.slice(-2)
-                        : "🐻"}
-                    </span>
-                  </a>
+
+                  <span>
+                    <i className="icofont-wallet" data-blast="color"></i>
+                  </span>
+                  <span className="d-none d-md-inline">
+                    {wallet != ""
+                      ? wallet.slice(0, 4) + "...." + wallet.slice(-2)
+                      : "🐻"}
+                  </span>
                 </Link>
               </div>
-            </div>
-            <button className="menu-trigger header__btn" id="menu05">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
+            </div> 
+
+
+
+            <div>
+      <button className="menu-trigger header__btn" id="menu05">
+        <div className="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {/* Removed the <ul> element since it's not necessary */}
         </div>
+        <ul className="dropdown-menu dropdown-menu-light active" aria-labelledby="dropdownMenuButton1">
+          <li><Link className="dropdown-item" href="/">Home</Link></li>
+          <li><Link className="dropdown-item" href="/createnft">Create NFT</Link></li>
+          <li><Link className="dropdown-item" href="/portal">Sell NFT</Link></li>
+          <li><Link className="dropdown-item" href="/explore">Market</Link></li>
+          <li><Link className="dropdown-item" href="/collection">Collection</Link></li>
+        </ul>
+      </button>
+    </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+            
+          
+       
       </header>
     </div>
   );

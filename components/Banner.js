@@ -5,7 +5,7 @@ import Link from 'next/link';
 var BannerImageListOne = BannerImages.slice(0,12);
 var BannerImageListTwo = BannerImages.slice(11,24);
 const Banner = () => {
-    return(
+    return (
         <div>
         <section className="banner-section style-1"  style={{backgroundImage:"url('assets/images/banner/bg.jpg')"}}>
             <div className="container">
@@ -20,13 +20,13 @@ const Banner = () => {
                                 <h4>Create and Sell NFTs on Polygon chain</h4>
                                 <p></p>
                                 <div className="banner-btns d-flex flex-wrap justify-content-center">
-                                    <Link href="/wallet">
-                                    <a className="default-btn move-top"><span>W3B LOGIN</span> 
-                                    </a>
+                                    <Link href="/wallet" className="default-btn move-top">
+                                        <span>W3B LOGIN</span>
+
                                     </Link>
-                                    <Link href="/createnft">
-                                    <a className="default-btn style-2 move-right"><span>CREATE</span>
-                                    </a>
+                                    <Link href="/createnft" className="default-btn style-2 move-right">
+                                        <span>CREATE</span>
+
                                     </Link>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ const Banner = () => {
         </div>
         </section>
         </div>
-    )
+    );
 }
 
 export default Banner;

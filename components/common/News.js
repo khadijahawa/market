@@ -6,26 +6,26 @@ const News = ({ data }) => {
       <div className="nft-item blog-item">
         <div className="nft-inner">
           <div className="nft-thumb">
-            <Link
+            <a
               href=""
               target="blank"
             >
               <img src={`${data.image}`} alt="blog-img" />
-            </Link>
+            </a>
           </div>
           <div className="nft-content">
             <div className="author-details">
               <h4>
-                <Link href="https://ipfs.io/ipfs/QmbeW8LBF38QBSJjVGrUMA5znASZKHfX3QvgzvTJenvFUC/">
+                <a href="https://ipfs.io/ipfs/QmbeW8LBF38QBSJjVGrUMA5znASZKHfX3QvgzvTJenvFUC/">
                   <a>{`${data.title}`}</a>
-                </Link>
+                </a>
               </h4>
               <div className="meta-info"></div>
-              <Link href={`${data.link}`} target="blank" >
+              <a href={`${data.link}`} target="blank" >
                 <a className="default-btn move-right small-btn">
                   <span>SHOP NOW</span>
                 </a>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

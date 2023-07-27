@@ -41,7 +41,7 @@ const CollectionSingal = ({item}) => {
                         <div className="collection-title">
                             <h5>
                                 <Link href="/collectionsingle">
-                                <a>{`${item.title}`}</a>
+                                {`${item.title}`}
                                 </Link>
                             </h5>
                             <p>Collection has {`${item.items}`} items</p>
@@ -49,13 +49,15 @@ const CollectionSingal = ({item}) => {
                         <div
                             className="author-details d-flex flex-wrap justify-content-between align-items-center">
                             <div className="single-author d-flex align-items-center">
-                                <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/">
-                                <a className="veryfied"><img
-                                        src={`${item.users[0].image}`} alt="author-img" /></a>
+                                <Link
+                                    href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/"
+                                    className="veryfied">
+                                <img
+                                        src={`${item.users[0].image}`} alt="author-img" />
                                 </Link>
                                 <h6>
                                 <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/">
-                                    <a>{`${item.users[0].name}`} </a>
+                                    {`${item.users[0].name}`} 
                                 </Link>
                                 </h6>
                             </div>
@@ -65,7 +67,7 @@ const CollectionSingal = ({item}) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default CollectionSingal;

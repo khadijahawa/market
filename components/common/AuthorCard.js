@@ -10,15 +10,15 @@ const AuthorCard = ({item}) => {
                     </div>
                     <div className="nft-content">
                         <div className="author-thumb">
-                            <Link href="">
-                            <a className="veryfied"><img loading="lazy"
-                                    src={`${item.image}`} alt="author-img" /></a>
+                            <Link href="" className="veryfied">
+                            <img loading="lazy"
+                                    src={`${item.image}`} alt="author-img" />
                             </Link>
                         </div>
                         <div className="author-details">
                             <h5>
                             <Link href="">
-                                <a>{`${item.name}`}</a>
+                                {`${item.name}`}
                             </Link>
                             </h5>
                         </div>
@@ -26,7 +26,7 @@ const AuthorCard = ({item}) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default AuthorCard;

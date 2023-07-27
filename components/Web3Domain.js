@@ -23,14 +23,14 @@ const Web3Domain = () => {
               </div>
             </div>
             <div className="text-center mt-5">
-              <Link
+              <a
                 href="https://ipfs.io/ipfs/QmbeW8LBF38QBSJjVGrUMA5znASZKHfX3QvgzvTJenvFUC/"
                 target="blank"
               >
                 <a className="default-btn move-right">
                   <span>BUILD YOUR W3BSITE</span>
                 </a>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

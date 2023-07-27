@@ -39,17 +39,17 @@ const Collection = ({item}) => {
                             <p>Collection has {`${item.items}`} items</p>
                         </div>
                         <div className="meta-info"></div>
-              <Link href={`${item.link}`}>
-                <a className="default-btn move-left small-btn">
+              <Link href={`${item.link}`} className="default-btn move-left small-btn">
+
                   <span>MINT LIVE</span>
-                </a>
+
               </Link>
               <spacer></spacer>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Collection;

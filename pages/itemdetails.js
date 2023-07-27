@@ -220,7 +220,7 @@ const ItemDetails = () => {
     
     return (
         <div>
-        <PageHeader text={PageHeaderText} />
+       
         <div className="item-details-section padding-top padding-bottom">
         <div className="container">
             <div className="item-details-wrapper">
@@ -252,15 +252,15 @@ const ItemDetails = () => {
                                             <div className="author-profile d-flex flex-wrap align-items-center gap-15">
                                                 <div className="author-p-thumb">
                                                 <Link href={"/author/"+query.seller}>
-                                                    <a><img
+                                                    <img
                                                             src="assets/images/seller/collector-3.gif"
-                                                            alt="author-img " /></a>
+                                                            alt="author-img " />
                                                 </Link>
                                                 </div>
                                                 <div className="author-p-info">
                                                     <p className="mb-0">Owner</p>
                                                     <h6>
-                                                        <Link href={"/author/"+query.seller}><a>{`${query.seller}`}</a></Link>
+                                                        <Link href={"/author/"+query.seller}>{`${query.seller}`}</Link>
                                                         
                                                     </h6>
                                                 </div>
@@ -317,15 +317,15 @@ const ItemDetails = () => {
                                             aria-labelledby="nav-history-tab">
                                             <ul className="item-histo-list">
                                                 <li className="histo-item">
-                                                    <p>Created by <Link href="/author"><a>{`${ItemInfo.createdBy}`}</a></Link></p>
+                                                    <p>Created by <Link href="/author">{`${ItemInfo.createdBy}`}</Link></p>
                                                     <time>2022-08-04 23:05:07</time>
                                                 </li>
                                                 <li className="histo-item">
-                                                    <p>Listed by <Link href="/author"><a >{`${ItemInfo.listedBy}`}</a></Link></p>
+                                                    <p>Listed by <Link href="/author">{`${ItemInfo.listedBy}`}</Link></p>
                                                     <time>2022-08-04 20:05:07</time>
                                                 </li>
                                                 <li className="histo-item">
-                                                    <p>Owned by <Link href="/author"><a>{`${ItemInfo.owners[0].name}`}</a></Link></p>
+                                                    <p>Owned by <Link href="/author">{`${ItemInfo.owners[0].name}`}</Link></p>
                                                     <time>2022-08-04 22:05:07</time>
                                                 </li>
                                             </ul>
@@ -348,22 +348,21 @@ const ItemDetails = () => {
                                         </a>
 
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#"><span>
-                                                        <i className="icofont-twitter"></i>
-                                                    </span> Twitter </a>
-                                            </li>
-                                            <li><a className="dropdown-item" href="#"><span><i
-                                                            className="icofont-telegram"></i></span> Telegram</a></li>
-                                            <li><a className="dropdown-item" href="#"><span><i
-                                                            className="icofont-envelope"></i></span> Email</a></li>
-                                        </ul>
+                                <li><a className="dropdown-item" href="mailto:support@bullsclub.space" target="_blank"><span>
+                                    <i className="icofont-warning"></i>
+                                </span> Report </a>
+                                </li>
+                                <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
+                                    className="icofont-facebook"></i></span> FaceBook</a></li>
+<li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
+                                    className="icofont-twitter"></i></span> Twitter</a></li>
+<li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
+                                    className="icofont-linkedin"></i></span>Linkedin</a></li>
+                            </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div className="item-details-countdown">
-                                <h4>Ends In:</h4>
-                                <TimerTwo data={ItemInfo}/>
-                            </div>
+                           
                             <div className="item-price">
                                 <h4>Price</h4>
                                 
@@ -379,7 +378,7 @@ const ItemDetails = () => {
         </div>
     </div>
         </div>
-    )
+    );
 }
 
 export default ItemDetails;
