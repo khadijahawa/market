@@ -618,6 +618,7 @@ return (
             </Text>
             <Text h6>Must Approve 1st, sign the transaction and wait for network to process</Text>
             <Text h6>Add your price,Then list for sale</Text>
+            <Text h6>Listing Fee :0.025 MATIC</Text>
             <Row>
             <Button
                 size="sm"

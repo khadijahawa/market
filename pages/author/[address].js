@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 // import Products from '../data/Product/Products.json';
-import CollectionSingle from "../collectionsingle";
+import CollectionSingle from "../../components/common/CollectionSingal";
 import copy from "copy-to-clipboard";
 import ProductSingle from "../../components/common/ProductSingle2";
 import User from "../../data/User/Users.json";
@@ -13,6 +13,12 @@ import { supabase } from "../../engine/Supabase";
 import ActivitySingle from "../../components/common/ActivitySingle";
 import PopularList from "../../data/Collection/Popular.json";
 import FollowerSingle from "../../components/common/Collector";
+
+
+
+
+
+
 
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
@@ -341,6 +347,13 @@ const Author = () => {
                                 <button className="nav-link active" id="nav-allNft-tab" data-bs-toggle="tab"
                                     data-bs-target="#allNft" type="button" role="tab" aria-controls="allNft"
                                     aria-selected="true">All NFT</button>                            
+                            <button className="nav-link" id="nav-follower-tab" data-bs-toggle="tab"
+                                    data-bs-target="#follower" type="button" role="tab" aria-controls="follower"
+                                    aria-selected="false">UNSTOPPABLE<span>
+                                    
+                                    
+                                    
+                                    </span></button>
                             </div>
                         </nav>
                       <div className="tab-content" id="nav-tabContent">
@@ -677,17 +690,9 @@ const Author = () => {
                             <div className="row">
                               <div className="col-xl-9">
                                 <div className="follow-wrapper">
-                                  <h4 className="h4-title">All Followers</h4>
+                                  <img src="/assets/images/wallet/1.png"  ></img>
                                   <div className="row g-3">
-                                    {Follower.map((item, i = 1) => (
-                                      <FollowerSingle
-                                        key={item.id}
-                                        data={item}
-                                        count={i}
-                                        countShow={false}
-                                        columnSize="col-lg-6"
-                                      />
-                                    ))}
+                                   
                                   </div>
                                 </div>
                               </div>
@@ -695,29 +700,7 @@ const Author = () => {
                               <div className="col-xl-3">
                                 <aside className="mt-5 mt-xl-0">
                                   <div className="profile-widget search-widget">
-                                    <div className="widget-inner">
-                                      <div className="widget-title">
-                                        <h5>Search NFT</h5>
-                                      </div>
-                                      <div className="widget-content">
-                                        <p>
-                                          Search from best Rarest NFT
-                                          collections
-                                        </p>
-                                        <div className="form-floating nft-search-input">
-                                          <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Search NFT"
-                                          />
-                                          <label>Search NFT</label>
-                                          <button type="button">
-                                            {" "}
-                                            <i className="icofont-search-1"></i>
-                                          </button>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    
                                   </div>
                                   <div className="widget widget-instagram">
                                     <div className="widget-header">

@@ -128,7 +128,7 @@ const ItemDetails = () => {
         { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
         { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
         { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
-        { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "letter-f-initial-icon-logo-template_23987-54.avif" },
+
     
         
       ];
@@ -268,7 +268,7 @@ const ItemDetails = () => {
                                             <ul className="other-info-list">
                                                 <li className="item-other-info">
                                                     <div className="item-info-title">
-                                                        <h6>Contact Address</h6>
+                                                        <h6>Contract Address</h6>
                                                     </div>
                                                     <div className="item-info-details">
                                                         <div id="cryptoCode" className="crypto-page">
@@ -376,6 +376,20 @@ const ItemDetails = () => {
                 </div>
             </div>
         </div>
+
+
+        <div className="text-center mt-5">
+              <a href="/explore" >
+                <a className="default-btn move-right">
+                  <span>BACK TO MARKET</span>
+                </a>
+              </a>
+            </div>
+
+
+
+
+
     </div>
         </div>
     );
