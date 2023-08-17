@@ -24,7 +24,7 @@ const Web3Domain = () => {
             </div>
             <div className="text-center mt-5">
               <a
-                href="https://ipfs.io/ipfs/QmbeW8LBF38QBSJjVGrUMA5znASZKHfX3QvgzvTJenvFUC/"
+                href="https://eternaldigitalassets.io/quickbuild?ref=mmm0mjf"
                 target="blank"
               >
                 <a className="default-btn move-right">
