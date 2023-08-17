@@ -13,18 +13,21 @@ import 'sf-font';
 import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { mmnft, mmresell, mmnftcol, mmrpc } from '../engine/configuration';
-import { goenft, goeresell, goenftcol, goerpc } from '../engine/configuration';
-import { hhnft, hhresell, hhnftcol, hhrpc,  marketplaceAddress,bsctmarket } from '../engine/configuration';
+
+import {  marketplaceAddress,bsctmarket } from '../engine/configuration';
 import { bsctnft, bsctresell, bsctnftcol, bsctrpc } from '../engine/configuration';
 import { cipherEth, simpleCrypto  } from '../engine/configuration';
 import Select, { components } from "react-select";
 
+
+
 export default function Sell() {
   const options = [
-   
     { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-   
   ];
+
+
+
   const { Option } = components;
 
   const [user, getUser] = useState([])
@@ -70,7 +73,6 @@ export default function Sell() {
       return{
                  id: item.token_id,
                  image: item.extra_metadata.image_original_url ? item.extra_metadata.image_original_url.replace("ipfs://","https://ipfs.io/ipfs/") : null,
-                 wishlist: "0.352",
                  address:item.contract_address,
                  expiredate: "",
                  name: item.collection.name+" "+item.token_id,
@@ -96,22 +98,18 @@ export default function Sell() {
     setProds(simpleHashNFTs);
    }
    const setMarketAdd = async() => {
-    
       var bsct = "0x38";
       var poly = "0x89";
       const connected = await detectEthereumProvider();
-    
       if (connected.chainId == bsct) {
         setMarketplaceadd(bsctmarket);
       }
       if(connected.chainId == poly)
       {
         setMarketplaceadd(marketplaceAddress); 
-
       }
    }
     useEffect(() => {
-
 
       getChain();
       setMarketAdd();
@@ -128,49 +126,7 @@ export default function Sell() {
       {
         router.push("/wallet")
 
-      }
-
-  //     const getd =async()=>{
-      
-  //     // const ownersNFT = NFTS.filter(o => o.owner.toLowerCase() === ownerAddr.toLowerCase())
-  //     console.log(ownersNFT);
-  //     let s=[];
-  //     const k=ownersNFT.map(async(item) => {
-  //      let r = await getMetadata(item.baseURI);
-      
-  //     return(
-  //      {
-  //          id: item.tokenID,
-  //          image: r.image.replace("ipfs://","https://ipfs.io/ipfs/") ,
-  //          wishlist: "0.352",
-  //          address:item.addr,
-  //          expiredate: "",
-  //          name: r.name,
-  //          stock: "1",
-  //          price: 0.1,
-  //          category: "Art",
-  //          tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
-  //          desc: r.description,
-  //          owners: [
-  //              {
-  //                  id:"1",
-  //                  name:"",
-  //                  image:"assets/images/seller/collector-1.png",
-  //                  verified: false,
-  //                  prfileLink:"/"
-  //              }
-              
-  //          ]
-          
-  //      }
-
-  //     )
-  //  })
-  //  const x = await Promise.all(k)
-  //  setProds(x);
-
-  // }
-  // getd();
+      }  
   setLoading(true);
      }, [loading])
      console.log(prod)
@@ -178,23 +134,12 @@ export default function Sell() {
     const router = useRouter()
 
     async function setRpc(){
-      var hh = "0x7a69";
-      var goe = "0x5";
-      var mm = "0x13881";
+     
       var bsct = "0x38";
       var poly = "0x89";
       const connected = await detectEthereumProvider();
       console.log(connected.chainId);
-      if (connected.chainId == hh) {
-        var mainnet = hhrpc
-      }
-      else if (connected.chainId == goe) {
-        var mainnet = goerpc
-      }
-      else if (connected.chainId == mm) {
-        var mainnet = mmrpc
-      }
-      else if (connected.chainId == bsct) {
+       if (connected.chainId == bsct) {
         var mainnet = bsctrpc
       }
       if(connected.chainId == poly)
@@ -209,18 +154,10 @@ export default function Sell() {
     }
 
     async function setNftCol(){
-      var hh = "0x7a69";
-      var goe = "0x5";
       var mm = "0x13881";
       var bsct = "0x61";
       const connected = await detectEthereumProvider();
-      if (connected.chainId == hh) {
-        var nftcol = hhnftcol
-      }
-      else if (connected.chainId == goe) {
-        var nftcol = goenftcol
-      }
-      else if (connected.chainId == mm) {
+      if (connected.chainId == mm) {
         var nftcol = mmnftcol
       }
       else if (connected.chainId == bsct) {
@@ -232,23 +169,12 @@ export default function Sell() {
     }
 
     async function setNftCustom(){
-      var hh = "0x7a69";
-      var goe = "0x5";
-      var mm = "0x13881";
+     
       var bsct = "0x38";
       var polyChain = 137;
       const connected = await detectEthereumProvider();
       console.log(connected);
-      if (connected.chainId == hh) {
-        var nft = hhnft
-      }
-      else if (connected.chainId == goe) {
-        var nft = goenft
-      }
-      else if (connected.chainId == mm) {
-        var nft = mmnft
-      }
-      else if (connected.chainId == bsct) {
+       if (connected.chainId == bsct) {
         var nft = [BearBSCNFT, BulBSCNFT];
       }
       if(connected.chainId == polyChain)
@@ -261,18 +187,11 @@ export default function Sell() {
     }
 
     async function setNftResell(){
-      var hh = "0x7a69";
-      var goe = "0x5";
+
       var mm = "0x13881";
       var bsct = "0x61";
       const connected = await detectEthereumProvider();
-      if (connected.chainId == hh) {
-        var nftresell = hhresell
-      }
-      else if (connected.chainId == goe) {
-        var nftresell = goeresell
-      }
-      else if (connected.chainId == mm) {
+     if (connected.chainId == mm) {
         var nftresell = mmresell
       }
       else if (connected.chainId == bsct) {
@@ -285,18 +204,11 @@ export default function Sell() {
       resolve => setTimeout(resolve, ms)
     );
     async function getChain(){
-      var hh = "0x7a69";
-      var goe = "0x5";
+     
       var mm = "0x13881";
       var bsct = "0x61";
       const connected = await detectEthereumProvider();
-      if (connected.chainId == hh) {
-        var chainname = "HardHat"
-      }
-      else if (connected.chainId == goe) {
-        var chainname = "Goerli Testnet"
-      }
-      else if (connected.chainId == mm) {
+      if (connected.chainId == mm) {
         var chainname = "Mumbai Testnet"
       }
       else if (connected.chainId == bsct) {
@@ -357,34 +269,30 @@ export default function Sell() {
                 desc,
                 address:nftcustom[t]
               }])
-             
-
-
         }
-      
-
       }
       console.log(itemArray);
-
-    
-
     }
+
+
+
+
 
     async function SellNFT(address,tokenID,price,Token) {
       console.log(rpc);
       const provider= new ethers.providers.JsonRpcProvider(rpc);
       var web3 = new Web3(new Web3.providers.HttpProvider(rpc));
-      const val= Number(0.0250 * 1e18).toString(16);
+      const val= Number(0.025 * 1e18).toString(16);
       const pricing = Token == "0" ? (parseFloat(price)* 1e18).toString(16) : (parseFloat(price)* 10**18).toString()   ;
 console.log(pricing)
-      const fee = Number(0.0250 * 1e18).toString(16);
+      const fee = Number(0.025 * 1e18).toString(16);
       const gazfees= await provider.getFeeData();
       console.log(gazfees.maxPriorityFeePerGas.toString())
       console.log(gazfees.maxFeePerGas.toString())
 
       console.log(address,tokenID.toString(),"0x"+pricing,Token == "0" ? true: false,Token == "0" ? "0x0000000000000000000000000000000000000000":Token)
 const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceadd);
- //set up your Ethereum transaction
+ 
   const transactionParameters = {
       to: marketplaceadd, // Required except during contract publications.
       from: window.ethereum.selectedAddress, // must match user's active address.
