@@ -164,7 +164,7 @@ const CreateNft = () => {
                     <h5>Upload 3D items, Music, Video or Art and more</h5>
                     <div className="upload-item mb-30">
                       <p>
-                        PNG,JPG,JPEG,SVG,WEBP,AVI,HTML,Mp3 & Mp4 (Max-150mb)
+                        PNG,JPG,JPEG,SVG,WEBP,AVI,HTML,GLP,Mp3 & Mp4 (Max-150mb)
                       </p>
                       <div className="custom-upload">
                         <div className="file-btn">
