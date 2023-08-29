@@ -5150,3 +5150,83 @@ Home page css start here
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* QRCodeModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Additional styles for buttons and QR code appearance */
+/* You can style the buttons and QR code as per your design */
+
+
+.qr-container {
+  position: relative;
+  display: inline-block;
+
+}
+
+.qr-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50%;
+  max-height: 50%;
+  z-index: 1;
+}
+
+.overlay-container {
+  display: inline-block;
+  margin-left: 20px; /* Adjust spacing as needed */
+}
+
+.overlay-image {
+  max-width: 50px; /* Adjust the width as needed */
+  max-height: 50px; /* Adjust the height as needed */
+}

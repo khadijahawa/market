@@ -1,9 +1,8 @@
 import News from "./common/News";
 import NewsList from "../data/Domains/Domains.json";
 import Link from "next/link";
-
+import QRCodeDisplay from './Qrcodegenerator/QRCodeDisplay';
 var LatestNewsList = NewsList.slice(0, 3);
-
 const Web3Domain = () => {
   return (
     <div>
@@ -28,9 +27,13 @@ const Web3Domain = () => {
                 target="blank"
               >
                 <a className="default-btn move-right">
-                  <span>BUILD YOUR W3BSITE</span>
-                </a>
+                  <span>BUILD YOUR W3BSITE</span> 
+                </a> 
               </a>
+              <div>
+              <h5> Get your W3B site as a sharable QR code</h5>
+                <QRCodeDisplay />
+              </div>
             </div>
           </div>
         </div>

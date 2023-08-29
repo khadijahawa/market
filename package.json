@@ -33,6 +33,7 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "^4.0.3",
     "react-select": "^5.7.2",
+    "react-share": "^4.4.1",
     "react-timer-hook": "^3.0.5",
     "sf-font": "^1.0.0",
     "simple-crypto-js": "^3.0.1",
