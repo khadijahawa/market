@@ -7,6 +7,14 @@ import LoginUD from "../components/LoginUD";
 import Web3 from "web3";
 import UDdis from "../components/UDdisconect";
 import { Spacer } from "@nextui-org/react";
+import ConnectPaper from "../components/ConnectPaper";
+
+
+
+
+
+
+
 
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
@@ -23,7 +31,6 @@ const Wallet = () => {
   const router = useRouter();
   const [web3, setWeb3] = useState(null);
   const [userWalletAddress, setUserWalletAddress] = useState("");
-
   const connectMetamask = async () => {
     if (window.ethereum) {
       console.log(window.ethereum);
@@ -72,7 +79,6 @@ const Wallet = () => {
               Connect with one of available wallet providers
             </p>
           </div>
-
           <ul
             className="nav justify-content-center nav-pills wallet-tab-list"
             id="pills-tab"
@@ -92,7 +98,6 @@ const Wallet = () => {
                 <span>Metamask</span>
               </div>
             </li>
-
             <li className="nav-item" role="presentation">
               <div
                 className="nav-link wallet-tab"
@@ -107,9 +112,22 @@ const Wallet = () => {
                 <span>Unstoppable</span>
               </div>
             </li>
+            <li className="nav-item" role="presentation">
+              <div
+                className="nav-link wallet-tab"
+                id="wallet-tab-3"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-wallet-3"
+                role="tab"
+                aria-controls="pills-wallet-3"
+                aria-selected="false"
+              >
+                <img src="assets/images/wallet/255.png" alt="ud" />
+                <span>PaperWallet</span>
+              </div>
+            </li>
           </ul>
-
-          <div className="tab-content" id="pills-tabContent">
+          <div className="tab-content" id="pills-tabContent">            
             <div
               className="tab-pane fade show active"
               id="pills-wallet-1"
@@ -147,7 +165,6 @@ const Wallet = () => {
                 </div>
               </div>
             </div>
-
             <div
               className="tab-pane fade"
               id="pills-wallet-2"
@@ -173,11 +190,39 @@ const Wallet = () => {
                   >
                     Learn more about Unstoppable Domains
                   </a>
-                </div>
-              </div>
+                </div>               
+              </div>    
             </div>
-          </div>
-        </div>
+            <div
+              className="tab-pane fade"
+              id="pills-wallet-3"
+              role="tabpanel"
+              aria-labelledby="wallet-tab-3"
+            >
+              <div className="wallet-content">
+                <div className="wallet-img">
+                  <img
+                    src="assets/images/wallet/255.png"
+                    alt="Wallet Name"
+                  />
+                </div>
+                <div className="wallet-desc">
+                  <h5>Connect With Email Paper wallet</h5>
+                  
+                  <ConnectPaper />
+                  <Spacer></Spacer>
+                  <a
+                    href="https://withpaper.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more about PaperWallet
+                  </a>
+                </div>              
+              </div>    
+            </div>      
+          </div>   
+        </div> 
       </div>
     </section>
   );
