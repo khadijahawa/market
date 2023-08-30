@@ -77,7 +77,7 @@ const Header = () => {
             <div className="header__menu ms-auto">
               <ul className="header__nav mb-0">
                 <li className="header__nav-item">
-                  <Link className={router.pathname == "/"} href="/">
+                  <Link href="/">
                     HOME
                   </Link>
                   <ul className="dropdown-menu header__nav-menu"></ul>
@@ -96,46 +96,24 @@ const Header = () => {
                   </a>
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <Link
-                        href="/createnft"
-                        className={
-                          router.pathname == "/createnft"
-                            ? "drop-down-item active"
-                            : "drop-down-item"
-                        }>                        
+                      <Link  href="/createnft" >                        
                           Create NFT                       
                       </Link>
                     </li>
                     <li>
                       <Link
-                        href="/portal"
-                        className={
-                          router.pathname == "/portal"
-                            ? "drop-down-item active"
-                            : "drop-down-item"
-                        }>                       
+                        href="/portal" >                       
                           Sell NFT                       
                       </Link>
                     </li>
                     <li>
                       <Link
-                        href="/explore"
-                        className={
-                          router.pathname == "/explore "
-                            ? "drop-down-item active"
-                            : "drop-down-item"
-                        }> 
-                          Market                        
+                        href="/explore">  Market                        
                       </Link>
                     </li>                
                     <li>
                       <Link
-                        href="/collection"
-                        className={
-                          router.pathname == "/collection"
-                            ? "drop-down-item active"
-                            : "drop-down-item"
-                        }>                     
+                        href="/collection">                     
                           Collections           
                       </Link>
                     </li>
@@ -146,12 +124,7 @@ const Header = () => {
                     </li>
                     <li>
                       <Link
-                        href="/allauthors"
-                        className={
-                          router.pathname == "/collection"
-                            ? "drop-down-item active"
-                            : "drop-down-item"
-                        }>                        
+                        href="/allauthors" >                        
                           Collectors                       
                       </Link>
                     </li>                   
@@ -164,8 +137,7 @@ const Header = () => {
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    data-bs-offset="0,10"
-                  >
+                    data-bs-offset="0,10" >
                     BLOG
                   </a>
                 </li>
@@ -177,45 +149,28 @@ const Header = () => {
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    data-bs-offset="0,10"
-                  >
+                    data-bs-offset="0,10"   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z" />
                     </svg>
                   </a>
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <Link className={
-                            router.pathname == ""
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        href="https://multisender.bullsclub.space"
-                        target="blank"
-                      >
+                      <Link  href="https://multisender.bullsclub.space"
+                        target="blank">
                           BEB20 Multisender                        
                       </Link>
                     </li>
                     <li>
-                      <Link  className={
-                            router.pathname == ""
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
+                      <Link 
                         href="mailto:support@bullsclub.space"
-                        target="blank"
-                      >                     
+                        target="blank" >                     
                       </Link>
                     </li>
                     <li>
-                      <Link   className={
-                            router.pathname == ""
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
+                      <Link   
                         href="https://airdrop.bullsclub.space"
-                        target="blank"
-                      >
+                        target="blank" >
                           Airdrop                     
                       </Link>
                     </li>
@@ -243,8 +198,7 @@ const Header = () => {
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                    data-bs-offset="-100,10"
-                  >
+                    data-bs-offset="-100,10"  >
                     <span>
                       <i className="icofont-user"></i>
                     </span>{" "}
@@ -257,11 +211,7 @@ const Header = () => {
                     <li>
                       <Link
                         href="/portal"
-                        className={
-                          router.pathname == "/author"
-                            ? "dropdown-item active"
-                            : "dropdown-item"
-                        }>
+                        >
                         <span className="me-1">
                           <i className="icofont-coins"></i>
                         </span>Sell NFT
@@ -289,7 +239,6 @@ const Header = () => {
             <div>
       <button className="menu-trigger header__btn" id="menu05">
         <div className="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          {/* Removed the <ul> element since it's not necessary */}
         </div>
         <ul className="dropdown-menu dropdown-menu-light active" aria-labelledby="dropdownMenuButton1">
           <li><Link className="dropdown-item" href="/">Home</Link></li>
