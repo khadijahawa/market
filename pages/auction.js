@@ -1,15 +1,10 @@
 import { useState } from "react";
-import PageHeader from '../components/PageHaeder';
+
 import Products from '../data/Product/Products.json';
 import ProductSingle from "../components/common/ProductSingle";
 
 var productList = Products.slice(0,12);
 
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"NFT's Live Auction"
-};
 
 const Auction = () => {
     const [showProducts,setshowProducts] = useState(productList);

@@ -3,11 +3,6 @@ import CollectionSingle from '../components/common/Collection';
 import { Row } from 'react-bootstrap';
 var GetPopularList = PopularList;
 
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"All NFT Collection"
-};
 const Collection = () => {
     return (
         <div>

@@ -29,11 +29,6 @@ var GetPopularList = PopularList.slice(0, 3);
 
 // var featuredProduct = Products.slice(0,9);
 
-const PageHeaderText = {
-  linkText: "Home",
-  heading: "Author Profile",
-};
-
 
 
 

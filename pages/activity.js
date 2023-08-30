@@ -1,13 +1,4 @@
 import ActivitySingle from '../components/common/ActivitySingle';
-import PageHeader from '../components/PageHaeder';
-
-
-
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"All Activities"
-};
 
 const Activities = [
     {

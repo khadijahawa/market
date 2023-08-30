@@ -4,11 +4,6 @@ import AuthorCard from "../components/common/AuthorCard";
 import NFTS from "../engine/NFTS.json"
 var userList = Users.slice(0,8);
 
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"All of our Authors"
-};
 const AllAuthorsTwo = () => {
     const [auth,setAuth] = useState([]);
     const _author = ()=> {    

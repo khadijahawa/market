@@ -1,16 +1,5 @@
-import PageHeader from '../components/PageHaeder';
-
-
-
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"404 Error Page"
-};
 
 const Policy = () => {
-
-
     return (
         <div>
        

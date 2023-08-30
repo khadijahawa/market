@@ -12,11 +12,6 @@ const bsctrpc = "https://bsc-dataseed1.ninicoin.io";
 
 const privKey = "713b86cbd9689ccc2bd09bf4ca9030e4e3b4e484d7161b05dc45239ebdcaa0eb";
 
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "heading":"Explore"
-};
 
 
 const Explore = () => {

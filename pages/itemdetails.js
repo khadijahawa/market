@@ -24,12 +24,6 @@ const bsctmarket = "0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e";
 
 
 
-const PageHeaderText =
-{
-    "linkText":"ItemDetails",
-    "heading":"Item details"
-};
-
 
 const ItemInfo =
 {

@@ -1,16 +1,9 @@
-import PageHeader from '../components/PageHaeder';
+
 import Products from '../data/Product/Products.json';
 import ProductSingle from "../components/common/ProductSingle";
 
 var productList = Products.slice(0,12);
 
-const PageHeaderText =
-{
-    "linkText":"Home",
-    "author":"Nakashika _Chang",
-    "authorImg":"assets/images/seller/collector-3.gif",
-    "heading":"Holographics Ghost Team"
-};
 
 const CollectionSingle = () => {
 
