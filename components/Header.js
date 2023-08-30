@@ -8,47 +8,16 @@ import Web3 from "web3";
 import Web3Modal from "web3modal";
 import Profil from "../engine/Profil";
 import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
-import AuthorCard from "./common/AuthorCard";
 import NFTS from "../engine/NFTS.json";
 import UDdis from "./UDdisconect";
-
+import Image from 'next/image'
 
 
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  
   const [wallet, setWallet] = useState("");
-
-  // const key = "owner";
-  // const owner = [...new Map(NFTS.map((item) => [item[key], item])).values()];
   console.log("NFT", NFTS);
-
-  const handleSearchChange = (event) => {
-    const value = event.target.value.toLowerCase();
-    setSearchTerm(value);
-    const results = NFTS.filter((nft) => {
-      return (
-        nft.addr.toLowerCase().includes(value) ||
-        nft.baseURI.toLowerCase().includes(value) ||
-        nft.owner.toLowerCase().includes(value) ||
-        nft.tokenID.toString().includes(value)
-      );
-    });
-    setSearchResults(results);
-  };
-  const renderSearchResults = () => {
-    if (searchResults.length === 0 && searchTerm !== "") {
-      return <div>No search results</div>;
-    }
-    return (
-      <ul>
-        {searchResults.map((nft) => (
-          <AuthorCard key={nft.address} address={nft.address} item={nft} />
-        ))}
-      </ul>
-    );
-  };
 
   async function connectUser() {
     const web3Modal = new Web3Modal();
@@ -63,7 +32,6 @@ const Header = () => {
     }
     getUser(account);
   }
-
   useEffect(() => {
     if (typeof document !== undefined) {
       require("bootstrap/dist/js/bootstrap");
@@ -72,20 +40,15 @@ const Header = () => {
       window.ethereum.selectedAddress ? window.ethereum.selectedAddress : ""
     );
   }, []);
+
   async function onDisconnect() {
     console.log("Killing the wallet connection", provider);
-    // TODO: Which providers have close method?
     if (provider.close) {
       await provider.close();
-      // If the cached provider is not cleared,
-      // WalletConnect will default to the existing session
-      // and does not allow to re-scan the QR code with a new wallet.
-      // Depending on your use case you may want or want not his behavir.
       await web3Modal.clearCachedProvider();
       provider = null;
     }
     selectedAccount = null;
-    // Set the UI back to the initial state
     document.querySelector("#prepare").style.display = "block";
     document.querySelector("#connected").style.display = "none";
   }
@@ -94,8 +57,8 @@ const Header = () => {
       require("bootstrap/dist/js/bootstrap");
     }
   }, []);
-  const router = useRouter();
 
+  const router = useRouter();
   return (
     <div className="test">
       <header className="header">
@@ -103,12 +66,12 @@ const Header = () => {
           <div className="header__content">
             <div className="header__logo">
               <Link href="http://bullsclub.space/">
-
-                <img
-                  /* eslint-disable-line */ src="/assets/images/logo/logo.png"
-                  alt="logo"
-                ></img>
-
+                <Image
+                   src="/assets/images/logo/logo.png"
+                    width={170}
+                     height={170}
+                    alt="logo"
+                ></Image>
               </Link>
             </div>
             <div className="header__menu ms-auto">
@@ -139,10 +102,8 @@ const Header = () => {
                           router.pathname == "/createnft"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Create NFT
-                        
+                        }>                        
+                          Create NFT                       
                       </Link>
                     </li>
                     <li>
@@ -152,10 +113,8 @@ const Header = () => {
                           router.pathname == "/portal"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Sell NFT
-                        
+                        }>                       
+                          Sell NFT                       
                       </Link>
                     </li>
                     <li>
@@ -165,13 +124,10 @@ const Header = () => {
                           router.pathname == "/explore "
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Market
-                        
+                        }> 
+                          Market                        
                       </Link>
-                    </li>
-                    
+                    </li>                
                     <li>
                       <Link
                         href="/collection"
@@ -179,21 +135,15 @@ const Header = () => {
                           router.pathname == "/collection"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Collections
-                        
+                        }>                     
+                          Collections           
                       </Link>
                     </li>
-
-                    
-
                     <li>
                       <Link href="https://explorer.bullsclub.space/">
                         Explorer
                       </Link>
                     </li>
-
                     <li>
                       <Link
                         href="/allauthors"
@@ -201,13 +151,10 @@ const Header = () => {
                           router.pathname == "/collection"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Collectors
-                        
+                        }>                        
+                          Collectors                       
                       </Link>
-                    </li>
-                    
+                    </li>                   
                   </ul>
                 </li>
                 <li className="header__nav-item">
@@ -236,57 +183,41 @@ const Header = () => {
                       <path d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z" />
                     </svg>
                   </a>
-
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <a
+                      <Link className={
+                            router.pathname == ""
+                              ? "drop-down-item active"
+                              : "drop-down-item"
+                          }
                         href="https://multisender.bullsclub.space"
                         target="blank"
                       >
-                        <a
-                          className={
+                          BEB20 Multisender                        
+                      </Link>
+                    </li>
+                    <li>
+                      <Link  className={
                             router.pathname == ""
                               ? "drop-down-item active"
                               : "drop-down-item"
                           }
-                        >
-                          BEB20 Multisender
-                        </a>
-                      </a>
-                    </li>
-                    <li>
-                      <a
                         href="mailto:support@bullsclub.space"
                         target="blank"
-                      >
-                        <a
-                          className={
+                      >                     
+                      </Link>
+                    </li>
+                    <li>
+                      <Link   className={
                             router.pathname == ""
                               ? "drop-down-item active"
                               : "drop-down-item"
                           }
-                        >
-                          Contact
-                        </a>
-                      </a>
-                    </li>
-
-
-                    <li>
-                      <a
                         href="https://airdrop.bullsclub.space"
                         target="blank"
                       >
-                        <a
-                          className={
-                            router.pathname == ""
-                              ? "drop-down-item active"
-                              : "drop-down-item"
-                          }
-                        >
-                          Airdrop
-                        </a>
-                      </a>
+                          Airdrop                     
+                      </Link>
                     </li>
                     <li>
                       <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/" target="blank">
@@ -322,8 +253,7 @@ const Header = () => {
                   <ul className="dropdown-menu">
                     <li>
                       <Profil wallet={wallet} />
-                    </li>
-                   
+                    </li>    
                     <li>
                       <Link
                         href="/portal"
@@ -332,7 +262,6 @@ const Header = () => {
                             ? "dropdown-item active"
                             : "dropdown-item"
                         }>
-
                         <span className="me-1">
                           <i className="icofont-coins"></i>
                         </span>Sell NFT
@@ -346,7 +275,6 @@ const Header = () => {
               </div>
               <div className="wallet-btn">
                 <Link href="/wallet">
-
                   <span>
                     <i className="icofont-wallet" data-blast="color"></i>
                   </span>
@@ -358,9 +286,6 @@ const Header = () => {
                 </Link>
               </div>
             </div> 
-
-
-
             <div>
       <button className="menu-trigger header__btn" id="menu05">
         <div className="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -376,17 +301,7 @@ const Header = () => {
       </button>
     </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-            
-          
-       
+    </div>    
       </header>
     </div>
   );
