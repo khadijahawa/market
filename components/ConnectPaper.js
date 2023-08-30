@@ -3,8 +3,7 @@ import {
     ConnectWallet,
     localWallet,
     paperWallet,
-  } from "@thirdweb-dev/react";
-  
+  } from "@thirdweb-dev/react"; 
   export default function ConnectPaper() {
     return (
       <ThirdwebProvider

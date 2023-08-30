@@ -1,7 +1,7 @@
 import News from "./common/News";
 import NewsList from "../data/Domains/Domains.json";
-import Link from "next/link";
 import QRCodeDisplay from './Qrcodegenerator/QRCodeDisplay';
+
 var LatestNewsList = NewsList.slice(0, 3);
 const Web3Domain = () => {
   return (
@@ -24,8 +24,7 @@ const Web3Domain = () => {
             <div className="text-center mt-5">
               <a
                 href="https://eternaldigitalassets.io/quickbuild?ref=mmm0mjf"
-                target="blank"
-              >
+                target="blank"   >
                 <a className="default-btn move-right">
                   <span>BUILD YOUR W3BSITE</span> 
                 </a> 

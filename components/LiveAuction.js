@@ -2,7 +2,6 @@ import Products from '../data/Product/Trending.json';
 import ProductSingle from "./common/ProductSingle";
 
 var productList = Products;
-
 const TrendingNow = () => {
     return(
         <div>
@@ -12,8 +11,7 @@ const TrendingNow = () => {
                     <h3 className="header-title">Live Now</h3>
                     <div className="header-content">
                         <ul className="filter-group d-flex flex-wrap align-items-center">
-                            <li className="li collection-filter">
-                                
+                            <li className="li collection-filter">             
                             </li> 
                         </ul>
                     </div>

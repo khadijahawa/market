@@ -77,42 +77,21 @@ const Footer = () => {
                         <a
                           href="https://bullsclub.space/"
                           target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Explore
                         </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://game.bullsclub.space/"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          Game
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://bullsverse.bullsclub.space/"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          Bullsverse
-                        </a>
-                      </li>
+                      </li> 
                       <li>
                         <a
                           href="https://tokenomics.bullsclub.space/" target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link" >
                           Token
                         </a>
                       </li>
                       <li>
                         <a
                           href="https://radio.bullsclub.space/" target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Radio
                         </a>
                       </li>
@@ -126,32 +105,14 @@ const Footer = () => {
                       <li>
                         <a
                           href="https://bullsclub.space/cryptobullsclub-space-team/" target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Team
                         </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://roadmap.bullsclub.space/" target="blank"
-                          className="footer-link"
-                        >
-                          Roadmap
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://bullsclub.space/bullsclub-space/faq/whitepaper/" target="blank"
-                          className="footer-link"
-                        >
-                          BULLSPaper
-                        </a>
-                      </li>
+                      </li> 
                       <li>
                         <a
                           href="https://bullsclub.space/crypto-blog/" target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           WEB3 Blog
                         </a>
                       </li>
@@ -159,8 +120,7 @@ const Footer = () => {
                         <a
                           href="https://travel-blog.bullsclub.space/" 
                           target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"   >
                           Travel Blog
                         </a>
                       </li>
@@ -174,13 +134,12 @@ const Footer = () => {
                       <li>
                         <Link href="/terms" className="footer-link">
                           Terms
-                        </Link>{" "}
+                        </Link> 
                       </li>
                       <li>
                         <a
                           href="https://bullsclub.space/bullsclub-space/faq/privacy-policy/"
-                          className="footer-link"
-                        >
+                          className="footer-link"   >
                           Privacy Policy
                         </a>
                       </li>
@@ -192,16 +151,14 @@ const Footer = () => {
                       <li>
                         <a
                           href="https://bullsclub.space/bullsclub-space/faq/bullsc-nft-agreement/" target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Agreement
                         </a>
                       </li>
                       <li>
                         <a
                           href="https://bullsclub.space/presentation/" target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Learn
                         </a>
                       </li>
@@ -216,8 +173,7 @@ const Footer = () => {
                         <a
                           href="https://spotvirtual.com/@bullsclub-93f62e312e392bb1/@bulls-conference/@patio"
                           target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Spot
                         </a>
                       </li>
@@ -225,8 +181,7 @@ const Footer = () => {
                         <a
                           href="mailto:info@bullsclub.space"
                           target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"    >
                           Suggest Feature
                         </a>
                       </li>
@@ -234,8 +189,7 @@ const Footer = () => {
                         <a
                           href="mailto:hr@bullsclub.space"
                           target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Join the team
                         </a>
                       </li>
@@ -243,18 +197,14 @@ const Footer = () => {
                         <a
                           href="mailto:support@bullsclub.space"
                           target="blank"
-                          className="footer-link"
-                        >
+                          className="footer-link"  >
                           Support
                         </a>
-                      </li>
-
+                      </li> 
                       <li>
                         <a
-                          href="https://airdrop.bullsclub.space"
-                           
-                          className="footer-link"
-                        >
+                          href="https://airdrop.bullsclub.space" 
+                          className="footer-link"  >
                           Airdrop
                         </a>
                       </li>

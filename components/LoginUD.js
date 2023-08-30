@@ -1,5 +1,4 @@
 import UAuth from "@uauth/js";
-import Callback from "./callback";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -38,9 +37,6 @@ function LoginUD() {
       setIsLoggedIn(true);
       router.push("/");
     }
-    // else {
-    //   setIsLoggedIn(false);
-    // }
   }, []);
 
   const router = useRouter();
@@ -50,8 +46,7 @@ function LoginUD() {
         <button
           className="default-btn small-btn move-right"
           onClick={login}
-          style={{ width: "100px", height: "50px" }}
-        >
+          style={{ width: "100px", height: "50px" }}  >
           Sign in
         </button>
       )}
