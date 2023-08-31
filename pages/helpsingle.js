@@ -1,5 +1,5 @@
 import HelpPageHeader from "../components/HelpPageHeader";
-import SellCard from "../components/SellCard";
+
 
 const HelpPost = {
     "id":1,
@@ -85,7 +85,7 @@ const HelpSingle = () => {
                             <h5>Related Links</h5>
                             <ul className="related-linklist">
                                 <li><a className="related-link">How to link your wallet to an NFT Marketplace?</a></li>
-                                <li><a className="related-link">How to buy an NFT from an NFT Marketplace?</a></li>
+                                <li><a href="/helpsingle1" className="related-link">How to buy an NFT from BULLSCLUB NFT Marketplace?</a></li>
                                 <li><a className="related-link">How To Create a Store In Bullsclub</a></li>
                                 <li><a className="related-link">Set Up Your Crypto Wallet</a></li>
                             </ul>
@@ -94,7 +94,7 @@ const HelpSingle = () => {
                 </div>
             </div>
         </div>
-        <div className="padding-top"><SellCard /></div> 
+       
        </div>
     )
 }
