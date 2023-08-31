@@ -7,6 +7,7 @@ import NFT from "../engine/NFT.json"
 import axios from "axios"
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from "web3"
+
 const Provider = "https://polygon-rpc.com/";
 const bsctrpc = "https://bsc-dataseed1.ninicoin.io";
 

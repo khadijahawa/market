@@ -31,8 +31,7 @@ export default function ConnectChain() {
           return(
             <img src='./polygonwhite.png' width={"110px"}/>
           )
-        }
-        
+        } 
         else if (selectedValue == init) {
             return(
                 <div className='mt'>
@@ -40,8 +39,7 @@ export default function ConnectChain() {
                 </div>
             )
           }
-      })
-
+      }) 
     async function enableChain() {
         var bsc = "Binance Smart Chain";
         var poly = "Polygon";
@@ -57,9 +55,7 @@ export default function ConnectChain() {
       }
       useEffect(() => {
         enableChain();
-      }, [selected]);
-
-
+      }, [selected]); 
     return (
         <Col css={{ marginTop: "$2" }}>
           <Dropdown>
@@ -89,8 +85,7 @@ export default function ConnectChain() {
               selectedKeys={selected}
               onSelectionChange={setSelected}
               textValue={selected}
-            > 
-             
+            >     
               <Dropdown.Item textValue="Polygon" key="Polygon">
                 <img src="polygonwhite.png" width={"90px"} />
               </Dropdown.Item>
@@ -99,9 +94,7 @@ export default function ConnectChain() {
                 key="Binance Smart Chain"
               >
                 <img src="bsc.png" width={"90px"} />
-              </Dropdown.Item>
-              
-              
+              </Dropdown.Item> 
             </Dropdown.Menu>
           </Dropdown>
         </Col>

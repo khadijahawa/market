@@ -40,9 +40,7 @@ const Collection = ({item}) => {
                         </div>
                         <div className="meta-info"></div>
               <Link href={`${item.link}`} className="default-btn move-left small-btn">
-
                   <span>MINT LIVE</span>
-
               </Link>
               <spacer></spacer>
                     </div>

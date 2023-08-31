@@ -9,13 +9,6 @@ import UDdis from "../components/UDdisconect";
 import { Spacer } from "@nextui-org/react";
 import ConnectPaper from "../components/ConnectPaper";
 
-
-
-
-
-
-
-
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
     {
@@ -34,7 +27,6 @@ const Wallet = () => {
   const connectMetamask = async () => {
     if (window.ethereum) {
       console.log(window.ethereum);
-
       const addressArray = await window.ethereum.request({
         method: "eth_requestAccounts",
       });

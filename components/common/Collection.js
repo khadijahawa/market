@@ -15,18 +15,15 @@ const CollectionSingle = ({item}) => {
                             spaceBetween={10}
                             slidesPerView={3}
                             autoplay={true}
-                            className="thumb-list swiper-wrapper"
-                            >
-                            {
-                                item.products.map((product) => (
+                            className="thumb-list swiper-wrapper" >
+                            { item.products.map((product) => (
                                     <SwiperSlide key={product.id}>
                                         <div className="single-thumb"><img
                                                 src={`${product.image}`}
                                                 alt="cat-image" />
                                         </div>
                                     </SwiperSlide>
-                                ))
-                            }
+                                )) }
                             </Swiper>      
                             </div>
                         </div>
@@ -40,9 +37,7 @@ const CollectionSingle = ({item}) => {
                         </div>
                         <div className="meta-info"></div>
               <Link href={`${item.link}`} className="default-btn move-left small-btn">
-
                   <span>MINT</span>
-
               </Link>
               <spacer></spacer>
               <div>

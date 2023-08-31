@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TimerTwo from "../components/common/TimerTwo";
+
 import { useRouter } from "next/router";
 import { useState, useEffect } from 'react';
 import {ethers} from "ethers";

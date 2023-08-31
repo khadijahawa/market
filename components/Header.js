@@ -14,6 +14,9 @@ import Image from 'next/image'
 
 
 
+
+
+
 const Header = () => {
   
   const [wallet, setWallet] = useState("");
@@ -164,7 +167,7 @@ const Header = () => {
                     <li>
                       <Link 
                         href="mailto:support@bullsclub.space"
-                        target="blank" >                     
+                        target="blank" > Support                     
                       </Link>
                     </li>
                     <li>

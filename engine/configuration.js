@@ -10,36 +10,13 @@ export const cipherHH = simpleCrypto.encrypt(hhraw)
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 export const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 
-export var hhresell = "YOUR CONTRACT ADDRESS";
-export var hhnftcol = "YOUR CONTRACT ADDRESS";
-export var hhnft = "YOUR CONTRACT ADDRESS";
-export var hhmarket = "YOUR CONTRACT ADDRESS";
-export var hhrpc = "http://localhost:8545";
-
-export var goeresell = "YOUR CONTRACT ADDRESS";
-export var goenftcol = "YOUR CONTRACT ADDRESS";
-export var goenft = "YOUR CONTRACT ADDRESS";
-export var goemarket = "YOUR CONTRACT ADDRESS";
-export var goerpc = "https://rpc.ankr.com/eth_goerli";
-
 
 export var bsctresell = "YOUR CONTRACT ADDRESS";
 export var bsctnftcol = "YOUR CONTRACT ADDRESS";
 export var bsctnft = "YOUR CONTRACT ADDRESS";
 
-export var mmresell = "YOUR CONTRACT ADDRESS";
-export var mmnftcol = "YOUR CONTRACT ADDRESS";
-export var mmnft = "YOUR CONTRACT ADDRESS";
-export var mmmarket = "YOUR CONTRACT ADDRESS";
-export var mmrpc = "https://matic-testnet-archive-rpc.bwarelabs.com";
-
-
-
 export var bsctrpc = "https://bsc-dataseed1.ninicoin.io";
 export var polygonRpc = "https://polygon-rpc.com/";
-
-
-
 
 export var BearNFT = "0x4C52548145a99EAcDe86561ef30Cd01c103cB579";
 export var  CowsNFT = "0xFc6D74b6c444b00f39544152553b306C24542d94";

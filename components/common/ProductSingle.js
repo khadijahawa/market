@@ -1,9 +1,5 @@
 import OwnerList from "./OwnerList";
-import Timer from './TimerTwo';
 import Link from 'next/link';
-
-
-
 
 const ProductSingle = ({data,countdown=false,style}) => {
     console.log("🚀 ~ file: ProductSingle.js:6 ~ ProductSingle ~ data:", data);
@@ -13,11 +9,9 @@ const ProductSingle = ({data,countdown=false,style}) => {
                 <div className="nft-item-top d-flex justify-content-between align-items-center">
                     <div className="author-part">
                         <ul className="author-list d-flex">
-                            {
-                                data.owners.map((item) =>(
-                                    <OwnerList data={item} key={item.id} />
-                                ))
-                            }
+                            {  data.owners.map((item) =>(
+                                    <OwnerList data={item} key={item.id} />  
+                                    ))}
                         </ul>
                     </div>
                     <div className="more-part">
@@ -34,9 +28,9 @@ const ProductSingle = ({data,countdown=false,style}) => {
                                 </li>
                                 <li><a className="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-facebook"></i></span> FaceBook</a></li>
-<li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
+                                  <li><a className="dropdown-item" href="https://twitter.com/intent/tweet?url=https://marketplace.bullsclub.space/ " target="_blank"><span><i
                                     className="icofont-twitter"></i></span> Twitter</a></li>
-<li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
+                                <li><a className="dropdown-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://marketplace.bullsclub.space/" target="_blank"><span><i
                                     className="icofont-linkedin"></i></span>Linkedin</a></li>
                             </ul>
                         </div>

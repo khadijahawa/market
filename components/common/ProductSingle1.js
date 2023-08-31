@@ -1,5 +1,4 @@
 import OwnerList from "./OwnerList";
-import Timer from './TimerTwo';
 import Link from 'next/link';
 import { useState } from "react";
 
@@ -9,10 +8,8 @@ const ProductSingle = ({data,countdown=false,style}) => {
     return <>
      {da &&
     <div className="nft-item" style={style}>
-        <div className="nft-inner">
-            
-            <div className="nft-item-top d-flex justify-content-between align-items-center">
-                
+        <div className="nft-inner"> 
+            <div className="nft-item-top d-flex justify-content-between align-items-center">    
                 <div className="more-part">
                     <div className=" dropstart">
                         <a className=" dropdown-toggle" href="#" role="button"
@@ -38,7 +35,7 @@ const ProductSingle = ({data,countdown=false,style}) => {
             <div className="nft-item-bottom">
                 <div className="nft-thumb">
                     <img src={`${da.image}`} alt="nft-img" />      
-                        {countdown == true ? (<Timer data={da}/>): '' }
+                       
                         <span className="badge rounded-pill position-absolute"><i
                             className="icofont-heart"></i>
                             {`${da.wishlist}`}</span>
@@ -55,15 +52,11 @@ const ProductSingle = ({data,countdown=false,style}) => {
                             </Link>
                         </h5>
                     </div>
-
                     <div
                         className="nft-status d-flex flex-wrap justify-content-between align-items-center ">
-                        <span className="nft-view">
-                            
+                        <span className="nft-view">  
                             <a><i
-                            className="icofont-eye-alt"></i> </a> 
-                           
-                            
+                            className="icofont-eye-alt"></i> </a>  
                             </span>
                         <div className="nft-stock"> {`${da.stock}`} in Stock</div>
                     </div>
@@ -82,7 +75,6 @@ const ProductSingle = ({data,countdown=false,style}) => {
             query: da // the data
           }}
                             className="nft-bid">
-             
                         Buy
                         </Link>
                     </div>

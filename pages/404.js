@@ -2,7 +2,6 @@
 const Policy = () => {
     return (
         <div>
-       
         <section className="error-section padding-top padding-bottom">
         <div className="container">
             <div className="section-wrapper">
@@ -19,7 +18,6 @@ const Policy = () => {
             </div>
         </div>
     </section>
-        
         </div>
     )
 }

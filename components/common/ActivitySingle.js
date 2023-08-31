@@ -15,12 +15,7 @@ const ActivitySingle = ({item}) => {
                         </Link>
                     </h4>
                     <p className="mb-2">{`${item.description}`}
-                    </p>
-                    <p className="user-id">By: 
-                    <Link href="/author">
-                    {`${item.by}`}
-                    </Link>
-                    </p>
+                    </p>     
                     <p>At: {`${item.createdAt}`}</p>
                 </div>
             </div>
