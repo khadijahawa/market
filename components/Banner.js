@@ -22,11 +22,9 @@ const Banner = () => {
                                 <div className="banner-btns d-flex flex-wrap justify-content-center">
                                     <Link href="/wallet" className="default-btn move-top">
                                         <span>W3B LOGIN</span>
-
                                     </Link>
                                     <Link href="/createnft" className="default-btn style-2 move-right">
                                         <span>CREATE</span>
-
                                     </Link>
                                 </div>
                             </div>

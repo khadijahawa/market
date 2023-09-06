@@ -1,5 +1,4 @@
 import UAuth from "@uauth/js";
-import Callback from "./callback";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -10,16 +9,23 @@ function LoginUD() {
     redirectUri: "http://localhost:3000",
     scope: "openid wallet email profile:optional social:optional"
   });
-
   const login = () => {
-    uauth.loginWithPopup().then((authorization) => {
-      console.log(authorization);
-      alert("Signed in successfully");
-      setIsLoggedIn(true);
-      localStorage.setItem("isLoggedIn", "true");
-    });
+    uauth
+      .loginWithPopup()
+      .then((authorization) => {
+        console.log(authorization);
+        alert("Signed in successfully");
+        setIsLoggedIn(true);
+        localStorage.setItem("isLoggedIn", "true");
+      })
+      .catch((error) => {
+        if (error.name === "PopupClosedError") {
+          console.log("Popup was closed before authentication.");
+        } else {
+          console.error("An error occurred during authentication:", error);
+        }
+      });
   };
-
   const logout = () => {
     uauth.logout();
     setIsLoggedIn(false);
@@ -38,9 +44,6 @@ function LoginUD() {
       setIsLoggedIn(true);
       router.push("/");
     }
-    // else {
-    //   setIsLoggedIn(false);
-    // }
   }, []);
 
   const router = useRouter();

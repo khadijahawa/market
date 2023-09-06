@@ -27,7 +27,6 @@ const Wallet = () => {
   const connectMetamask = async () => {
     if (window.ethereum) {
       console.log(window.ethereum);
-
       const addressArray = await window.ethereum.request({
         method: "eth_requestAccounts"
       });

@@ -3,13 +3,12 @@ import {
     ConnectWallet,
     localWallet,
     paperWallet,
-  } from "@thirdweb-dev/react";
-  
+  } from "@thirdweb-dev/react"; 
   export default function ConnectPaper() {
     return (
       <ThirdwebProvider
         activeChain="polygon"
-        clientId="952a3d5f52dc045254f59942a71c2b02"
+        clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
         supportedWallets={[
           localWallet(),
           paperWallet({

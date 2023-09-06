@@ -3,7 +3,6 @@ import SwiperCore, { Autoplay } from 'swiper';
 import Link from 'next/link';
 
 SwiperCore.use([Autoplay]);
-
 const CollectionSingal = ({item}) => {
     return (
         <div className="col-lg-4 col-md-6">
@@ -16,27 +15,19 @@ const CollectionSingal = ({item}) => {
                             spaceBetween={10}
                             slidesPerView={3}
                             autoplay={true}
-                            
-                            className="thumb-list swiper-wrapper"
-                            >
-                            {
-                                item.products.map((product) => (
+                            className="thumb-list swiper-wrapper" >
+                            { item.products.map((product) => (
                                     <SwiperSlide key={product.id}>
                                         <div className="single-thumb"><img
                                                 src={`${product.image}`}
                                                 alt="cat-image" />
                                         </div>
                                     </SwiperSlide>
-                                ))
-                            }
-                            
-                            
+                                )) }  
                             </Swiper>
-                                
                             </div>
                         </div>
                     </div>
-
                     <div className="nft-content">
                         <div className="collection-title">
                             <h5>
@@ -61,7 +52,6 @@ const CollectionSingal = ({item}) => {
                                 </Link>
                                 </h6>
                             </div>
-                            
                         </div>
                     </div>
                 </div>

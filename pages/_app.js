@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <ThirdwebProvider
     activeChain={activeChain}
-    clientId="952a3d5f52dc045254f59942a71c2b02"
+    clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
     supportedWallets={[
       paperWallet({
         paperClientId: "adc009f0-3363-451c-8469-68cc1536d050"

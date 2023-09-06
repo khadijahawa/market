@@ -19,8 +19,7 @@ const axios = require("axios");
 const JWT = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxNTEyMDQ4ZS0xOWFlLTQ4ZmYtOGFiOS0xZGQxNDljMGRiMjQiLCJlbWFpbCI6ImNvbnRhY3QuZWxlYXJuaW5nMjAyMEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiMWQ0YjNhN2FjMDBiZWYwMDU5ZmMiLCJzY29wZWRLZXlTZWNyZXQiOiIzMzdlMTM5OTUwMjUwYjBmOWM1OGIzOTJkYTkxZjUzM2U1NWViZmNmNDQ3ZThiMWFkMDFiOTg5MTRkYWQ5ZTljIiwiaWF0IjoxNjc1MTY1MTUwfQ.Of1UvNC2NF3oBh0Qkr7aA7rVNJCl6oN6W08TeOYmEVI`;
 export const createToken = async (baseURI) => {
   //error handling
-  var hh = "0x7a69";
-  var goe = "0x5";
+  
   var mm = "0x13881";
   var bsct = "0x61";
 
@@ -72,7 +71,7 @@ export const createToken = async (baseURI) => {
     return {
       success: true,
       status:
-        "✅ Check out your transaction on Etherscan: https://ropsten.etherscan.io/tx/" +
+        "✅ Check out your transaction on Etherscan: https://polygonscan.com/tx/" +
         txHash
     };
   } catch (error) {

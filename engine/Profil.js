@@ -1,13 +1,10 @@
 import { bscChain, polyChain, ethChain } from './chainchange';
 import Link from 'next/link';
-
 import 'sf-font';
 import { Col, Dropdown } from '@nextui-org/react';
 import React from 'react';
 import { useEffect } from 'react';
 import { useRouter } from "next/router";
-
-
 
 export default function ConnectChain(props) {
   const [selected, setSelected] = React.useState(new Set(["Set Network"]));
@@ -15,9 +12,7 @@ export default function ConnectChain(props) {
     () => Array.from(selected).join(", ").replaceAll("_", " "),
     [selected]
   );
-
   const router = useRouter();
-
   async function enableChain() {
     var bsc = "Binance Smart Chain";
     var poly = "Polygon";
@@ -54,7 +49,6 @@ export default function ConnectChain(props) {
   useEffect(() => {
     enableChain();
   }, [selected]);
-
   return (
     <Col css={{ marginTop: "$2" }}>
       <li>
@@ -65,7 +59,6 @@ export default function ConnectChain(props) {
               ? "dropdown-item active"
               : "dropdown-item"
           }>
-
           <span className="me-1">
             <i className="icofont-user-alt-6"></i>
           </span>Profile

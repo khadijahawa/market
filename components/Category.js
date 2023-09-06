@@ -2,7 +2,6 @@ import CategoryList from "../data/Category/Category.json";
 import Link from 'next/link';
 
 var CategoryGetList = CategoryList;
-
 const Category = () => {
     return (
         <div>

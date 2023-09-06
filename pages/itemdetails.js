@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TimerTwo from "../components/common/TimerTwo";
+
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
@@ -10,11 +10,6 @@ const rpc = "https://polygon-rpc.com/";
 const bsctrpc = "https://bsc-dataseed2.defibit.io";
 const marketplaceAddress = "0xDBC3233788bab61C0A9D9b155539DE04fdA06EAd";
 const bsctmarket = "0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e";
-
-const PageHeaderText = {
-  linkText: "ItemDetails",
-  heading: "Item details"
-};
 
 const ItemInfo = {
   id: 1,

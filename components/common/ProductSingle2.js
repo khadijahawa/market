@@ -1,5 +1,4 @@
 import OwnerList from "./OwnerList";
-import Timer from "./TimerTwo";
 import Link from "next/link";
 
 const ProductSingle2 = ({ data, countdown = false, style }) => {
@@ -71,7 +70,6 @@ const ProductSingle2 = ({ data, countdown = false, style }) => {
         <div className="nft-item-bottom">
           <div className="nft-thumb">
             <img src={`${data.image}`} alt="nft-img" />
-            {countdown == true ? <Timer data={data} /> : ""}
             <span className="badge rounded-pill position-absolute">
               <i className="icofont-heart"></i>
             </span>
