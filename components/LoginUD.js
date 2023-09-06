@@ -8,15 +8,15 @@ function LoginUD() {
   const uauth = new UAuth({
     clientID: "db9bc76f-a465-483e-9022-de0bd19ffe95",
     redirectUri: "http://localhost:3000",
-    scope: "openid wallet email profile:optional social:optional",
+    scope: "openid wallet email profile:optional social:optional"
   });
-  
+
   const login = () => {
     uauth.loginWithPopup().then((authorization) => {
       console.log(authorization);
       alert("Signed in successfully");
       setIsLoggedIn(true);
-      localStorage.setItem("isLoggedIn", "true"); 
+      localStorage.setItem("isLoggedIn", "true");
     });
   };
 

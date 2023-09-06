@@ -1,10 +1,7 @@
 import React from "react";
-import { SearchBar } from "../SearchPage/searchBarIndex";
-import { Filter } from "../components/componentsindex";
+// import { SearchBar } from "../SearchPage/searchBarIndex";
+// import { Filter } from "../components/componentsindex";
 
+const searchPage = () => {};
 
-const searchPage = () => {
-    
-  };
-  
-  export default searchPage;
+export default searchPage;

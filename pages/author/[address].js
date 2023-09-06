@@ -14,12 +14,6 @@ import ActivitySingle from "../../components/common/ActivitySingle";
 import PopularList from "../../data/Collection/Popular.json";
 import FollowerSingle from "../../components/common/Collector";
 
-
-
-
-
-
-
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
 const Provider = "https://polygon-rpc.com/";
@@ -102,7 +96,6 @@ const Author = () => {
   const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState(AuthorInfo.profileImage);
 
-  
   const getAvatar = async () => {
     const { data, error } = await supabase
       .from("User")
@@ -112,7 +105,6 @@ const Author = () => {
       setAvatar(URLsupa + data[0].photo);
     }
   };
-
 
   const getSimpleHash = async (owner) => {
     const options = {
@@ -246,8 +238,6 @@ const Author = () => {
                           </div>
                         </div>
 
-
-
                         <ul className="profile-contact">
                           <li className="crypto-copy">
                             <div id="cryptoCode" className="crypto-page">
@@ -276,30 +266,6 @@ const Author = () => {
                               </div>
                             </div>
                           </li>
-
-
-
-
-
-
-
-
-                         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         </ul>
                       </div>
                     </div>
@@ -336,26 +302,44 @@ const Author = () => {
                                   <p>Add Friends</p>
                                 </div>
                               </a>
-                            </li>                
+                            </li>
                           </ul>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                     <div className="profile-details">
-                    <nav className="profile-nav">
-                            <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button className="nav-link active" id="nav-allNft-tab" data-bs-toggle="tab"
-                                    data-bs-target="#allNft" type="button" role="tab" aria-controls="allNft"
-                                    aria-selected="true">All NFT</button>                            
-                            <button className="nav-link" id="nav-follower-tab" data-bs-toggle="tab"
-                                    data-bs-target="#follower" type="button" role="tab" aria-controls="follower"
-                                    aria-selected="false">UNSTOPPABLE<span>
-                                    
-                                    
-                                    
-                                    </span></button>
-                            </div>
-                        </nav>
+                      <nav className="profile-nav">
+                        <div
+                          className="nav nav-tabs"
+                          id="nav-tab"
+                          role="tablist"
+                        >
+                          <button
+                            className="nav-link active"
+                            id="nav-allNft-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#allNft"
+                            type="button"
+                            role="tab"
+                            aria-controls="allNft"
+                            aria-selected="true"
+                          >
+                            All NFT
+                          </button>
+                          <button
+                            className="nav-link"
+                            id="nav-follower-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#follower"
+                            type="button"
+                            role="tab"
+                            aria-controls="follower"
+                            aria-selected="false"
+                          >
+                            UNSTOPPABLE<span></span>
+                          </button>
+                        </div>
+                      </nav>
                       <div className="tab-content" id="nav-tabContent">
                         <div
                           className="tab-pane activity-page fade show active"
@@ -367,16 +351,30 @@ const Author = () => {
                               <div className="col-xl-9">
                                 <article>
                                   <div className="activity-tab">
-                                  <ul className="nav nav-pills mb-30 px-2" id="pills-tab" role="tablist">
-
-<li className="nav-item" role="presentation">
-    <button className="nav-link" id="pills-favorites-tab"
-        data-bs-toggle="pill" data-bs-target="#pills-favorites"
-        type="button" role="tab" aria-controls="pills-favorites"
-        aria-selected="false"><i className="icofont-license"></i>
-        owned</button>
-</li>
-</ul>
+                                    <ul
+                                      className="nav nav-pills mb-30 px-2"
+                                      id="pills-tab"
+                                      role="tablist"
+                                    >
+                                      <li
+                                        className="nav-item"
+                                        role="presentation"
+                                      >
+                                        <button
+                                          className="nav-link"
+                                          id="pills-favorites-tab"
+                                          data-bs-toggle="pill"
+                                          data-bs-target="#pills-favorites"
+                                          type="button"
+                                          role="tab"
+                                          aria-controls="pills-favorites"
+                                          aria-selected="false"
+                                        >
+                                          <i className="icofont-license"></i>
+                                          owned
+                                        </button>
+                                      </li>
+                                    </ul>
 
                                     <div
                                       className="tab-content activity-content"
@@ -452,22 +450,10 @@ const Author = () => {
                                 </article>
                               </div>
 
-
-
-
-
-
-
-
-
-
                               <div className="col-xl-3">
                                 <aside className="mt-5 mt-xl-0">
                                   <div className="profile-widget search-widget">
-                                    <div className="widget-inner">
-                                      
-                                      
-                                    </div>
+                                    <div className="widget-inner"></div>
                                   </div>
                                   <div className="widget widget-instagram">
                                     <div className="widget-header">
@@ -690,18 +676,14 @@ const Author = () => {
                             <div className="row">
                               <div className="col-xl-9">
                                 <div className="follow-wrapper">
-                                  <img src="/assets/images/wallet/1.png"  ></img>
-                                  <div className="row g-3">
-                                   
-                                  </div>
+                                  <img src="/assets/images/wallet/1.png"></img>
+                                  <div className="row g-3"></div>
                                 </div>
                               </div>
 
                               <div className="col-xl-3">
                                 <aside className="mt-5 mt-xl-0">
-                                  <div className="profile-widget search-widget">
-                                    
-                                  </div>
+                                  <div className="profile-widget search-widget"></div>
                                   <div className="widget widget-instagram">
                                     <div className="widget-header">
                                       <h5 className="title">Featured NFT</h5>

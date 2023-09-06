@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 // import Products from '../data/Product/Products.json';
-import CollectionSingle from "../../components/common/CollectionSingal";
+// import CollectionSingle from "../../components/common/CollectionSingal";
 import copy from "copy-to-clipboard";
-import ProductSingle from "../../components/common/ProductSingle2";
-import User from "../../data/User/Users.json";
-import BullscMarket from "../../engine/BullscMarket.json";
-import NFT from "../../engine/NFT.json";
-import NFTS from "../../engine/NFTS.json";
-import { supabase } from "../../engine/Supabase";
-import ActivitySingle from "../../components/common/ActivitySingle";
-import PopularList from "../../data/Collection/Popular.json";
-import FollowerSingle from "../../components/common/Collector";
+import ProductSingle2 from "../components/common/ProductSingle2";
+import User from "../data/User/Users.json";
+// import BullscMarket from "../../engine/BullscMarket.json";
+// import NFT from "../../engine/NFT.json";
+// import NFTS from "../../engine/NFTS.json";
+import { supabase } from "../engine/Supabase";
+import ActivitySingle from "../components/common/ActivitySingle";
+// import PopularList from "../../data/Collection/Popular.json";
+import FollowerSingle from "../components/common/Collector";
 
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
@@ -26,18 +26,14 @@ var Following = User.slice(0, 8);
 
 const axios = require("axios");
 
-var GetPopularList = PopularList.slice(0, 3);
+// var GetPopularList = PopularList.slice(0, 3);
 
 // var featuredProduct = Products.slice(0,9);
 
-const PageHeaderText = {
-  linkText: "Home",
-  heading: "Author Profile",
-};
-
-
-
-
+// const PageHeaderText = {
+//   linkText: "Home",
+//   heading: "Author Profile"
+// };
 
 const AuthorInfo = {
   name: "Tamer",
@@ -60,7 +56,7 @@ const AuthorInfo = {
         "GOLD DIGGER (x Antoni Tudisco) #44/44 was put up for sale for0.0991 ETH",
       image: "/assets/images/activity/01.gif",
       by: "@rasselmrh",
-      createdAt: "10/07/2022, 10:03 am",
+      createdAt: "10/07/2022, 10:03 am"
     },
     {
       id: 2,
@@ -68,7 +64,7 @@ const AuthorInfo = {
       description: "two rare collection purchased for0.001 ETH",
       image: "/assets/images/activity/02.gif",
       by: "@technonazmul",
-      createdAt: "10/07/2022, 08:23 am",
+      createdAt: "10/07/2022, 08:23 am"
     },
     {
       id: 3,
@@ -76,7 +72,7 @@ const AuthorInfo = {
       description: "The Shopping Cart #54/65 was put up for sale for 0.021 ETH",
       image: "/assets/images/activity/03.gif",
       by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am",
+      createdAt: "10/07/2022, 12:03 am"
     },
     {
       id: 4,
@@ -85,9 +81,9 @@ const AuthorInfo = {
         "A offer of $200.00 was placed for ÜNDERSTANDING (Sean Williams) #1/20",
       image: "/assets/images/activity/04.gif",
       by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am",
-    },
-  ],
+      createdAt: "10/07/2022, 12:03 am"
+    }
+  ]
 };
 
 const Author = () => {
@@ -114,8 +110,8 @@ const Author = () => {
       headers: {
         accept: "application/json",
         "X-API-KEY":
-          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7",
-      },
+          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7"
+      }
     };
 
     const rest = await axios.get(
@@ -150,9 +146,9 @@ const Author = () => {
             name: "",
             image: "/assets/images/seller/collector-1.png",
             verified: false,
-            prfileLink: "/",
-          },
-        ],
+            prfileLink: "/"
+          }
+        ]
       };
     });
     setProds(simpleHashNFTs);
@@ -188,10 +184,6 @@ const Author = () => {
     getSimpleHash(address);
     getAvatar();
   }, [loading]);
-
-
-
-
 
   return (
     <>
@@ -399,7 +391,7 @@ const Author = () => {
                                               className="col-lg-4 col-sm-6"
                                               key={item.id}
                                             >
-                                              <ProductSingle data={item} />
+                                              <ProductSingle2 data={item} />
                                             </div>
                                           ))}
                                         </div>
@@ -447,7 +439,7 @@ const Author = () => {
                                               className="col-lg-4 col-sm-6"
                                               key={item.id}
                                             >
-                                              <ProductSingle data={item} />
+                                              <ProductSingle2 data={item} />
                                             </div>
                                           ))}
                                         </div>

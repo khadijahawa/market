@@ -9,17 +9,10 @@ import UDdis from "../components/UDdisconect";
 import { Spacer } from "@nextui-org/react";
 import ConnectPaper from "../components/ConnectPaper";
 
-
-
-
-
-
-
-
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
     {
-      wallet: wallet,
+      wallet: wallet
     },
     { onConflict: "wallet" }
   );
@@ -36,11 +29,11 @@ const Wallet = () => {
       console.log(window.ethereum);
 
       const addressArray = await window.ethereum.request({
-        method: "eth_requestAccounts",
+        method: "eth_requestAccounts"
       });
       const obj = {
         status: "Write a message in the text-field above.",
-        address: addressArray[0],
+        address: addressArray[0]
       };
       localStorage.setItem("data", JSON.stringify(obj));
       await insertUserWallet(addressArray[0]);
@@ -60,13 +53,13 @@ const Wallet = () => {
               </a>
             </p>
           </span>
-        ),
+        )
       };
     }
   };
   useEffect(() => {
     if (window.ethereum && window.ethereum?.selectedAddress) {
-     router.push("/");
+      router.push("/");
     }
   }, []);
   return (
@@ -127,7 +120,7 @@ const Wallet = () => {
               </div>
             </li>
           </ul>
-          <div className="tab-content" id="pills-tabContent">            
+          <div className="tab-content" id="pills-tabContent">
             <div
               className="tab-pane fade show active"
               id="pills-wallet-1"
@@ -190,8 +183,8 @@ const Wallet = () => {
                   >
                     Learn more about Unstoppable Domains
                   </a>
-                </div>               
-              </div>    
+                </div>
+              </div>
             </div>
             <div
               className="tab-pane fade"
@@ -201,14 +194,11 @@ const Wallet = () => {
             >
               <div className="wallet-content">
                 <div className="wallet-img">
-                  <img
-                    src="assets/images/wallet/255.png"
-                    alt="Wallet Name"
-                  />
+                  <img src="assets/images/wallet/255.png" alt="Wallet Name" />
                 </div>
                 <div className="wallet-desc">
                   <h5>Connect With Email Paper wallet</h5>
-                  
+
                   <ConnectPaper />
                   <Spacer></Spacer>
                   <a
@@ -218,11 +208,11 @@ const Wallet = () => {
                   >
                     Learn more about PaperWallet
                   </a>
-                </div>              
-              </div>    
-            </div>      
-          </div>   
-        </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

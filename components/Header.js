@@ -12,9 +12,6 @@ import AuthorCard from "./common/AuthorCard";
 import NFTS from "../engine/NFTS.json";
 import UDdis from "./UDdisconect";
 
-
-
-
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -64,14 +61,14 @@ const Header = () => {
     getUser(account);
   }
 
-  useEffect(() => {
-    if (typeof document !== undefined) {
-      require("bootstrap/dist/js/bootstrap");
-    }
-    setWallet(
-      window.ethereum.selectedAddress ? window.ethereum.selectedAddress : ""
-    );
-  }, []);
+  // useEffect(() => {
+  //   if (typeof document !== undefined) {
+  //     require("bootstrap/dist/js/bootstrap");
+  //   }
+  //   setWallet(
+  //     window.ethereum.selectedAddress ? window.ethereum.selectedAddress : ""
+  //   );
+  // }, []);
   async function onDisconnect() {
     console.log("Killing the wallet connection", provider);
     // TODO: Which providers have close method?
@@ -94,6 +91,16 @@ const Header = () => {
       require("bootstrap/dist/js/bootstrap");
     }
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWallet(
+        window.ethereum && window.ethereum.selectedAddress
+          ? window.ethereum.selectedAddress
+          : ""
+      );
+    }
+  }, []);
   const router = useRouter();
 
   return (
@@ -103,12 +110,10 @@ const Header = () => {
           <div className="header__content">
             <div className="header__logo">
               <Link href="http://bullsclub.space/">
-
                 <img
                   /* eslint-disable-line */ src="/assets/images/logo/logo.png"
                   alt="logo"
                 ></img>
-
               </Link>
             </div>
             <div className="header__menu ms-auto">
@@ -139,10 +144,9 @@ const Header = () => {
                           router.pathname == "/createnft"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Create NFT
-                        
+                        }
+                      >
+                        Create NFT
                       </Link>
                     </li>
                     <li>
@@ -152,10 +156,9 @@ const Header = () => {
                           router.pathname == "/portal"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Sell NFT
-                        
+                        }
+                      >
+                        Sell NFT
                       </Link>
                     </li>
                     <li>
@@ -165,13 +168,12 @@ const Header = () => {
                           router.pathname == "/explore "
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Market
-                        
+                        }
+                      >
+                        Market
                       </Link>
                     </li>
-                    
+
                     <li>
                       <Link
                         href="/collection"
@@ -179,14 +181,11 @@ const Header = () => {
                           router.pathname == "/collection"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Collections
-                        
+                        }
+                      >
+                        Collections
                       </Link>
                     </li>
-
-                    
 
                     <li>
                       <Link href="https://explorer.bullsclub.space/">
@@ -201,13 +200,11 @@ const Header = () => {
                           router.pathname == "/collection"
                             ? "drop-down-item active"
                             : "drop-down-item"
-                        }>
-                        
-                          Collectors
-                        
+                        }
+                      >
+                        Collectors
                       </Link>
                     </li>
-                    
                   </ul>
                 </li>
                 <li className="header__nav-item">
@@ -255,10 +252,7 @@ const Header = () => {
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="mailto:support@bullsclub.space"
-                        target="blank"
-                      >
+                      <a href="mailto:support@bullsclub.space" target="blank">
                         <a
                           className={
                             router.pathname == ""
@@ -271,12 +265,8 @@ const Header = () => {
                       </a>
                     </li>
 
-
                     <li>
-                      <a
-                        href="https://airdrop.bullsclub.space"
-                        target="blank"
-                      >
+                      <a href="https://airdrop.bullsclub.space" target="blank">
                         <a
                           className={
                             router.pathname == ""
@@ -289,7 +279,10 @@ const Header = () => {
                       </a>
                     </li>
                     <li>
-                      <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/" target="blank">
+                      <Link
+                        href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/"
+                        target="blank"
+                      >
                         BULLSCLUB
                       </Link>
                     </li>
@@ -323,7 +316,7 @@ const Header = () => {
                     <li>
                       <Profil wallet={wallet} />
                     </li>
-                   
+
                     <li>
                       <Link
                         href="/portal"
@@ -331,22 +324,22 @@ const Header = () => {
                           router.pathname == "/author"
                             ? "dropdown-item active"
                             : "dropdown-item"
-                        }>
-
+                        }
+                      >
                         <span className="me-1">
                           <i className="icofont-coins"></i>
-                        </span>Sell NFT
+                        </span>
+                        Sell NFT
                       </Link>
                     </li>
-                         <li>
-                            <UDdis />
-                          </li>
+                    <li>
+                      <UDdis />
+                    </li>
                   </ul>
                 </div>
               </div>
               <div className="wallet-btn">
                 <Link href="/wallet">
-
                   <span>
                     <i className="icofont-wallet" data-blast="color"></i>
                   </span>
@@ -357,36 +350,52 @@ const Header = () => {
                   </span>
                 </Link>
               </div>
-            </div> 
-
-
+            </div>
 
             <div>
-      <button className="menu-trigger header__btn" id="menu05">
-        <div className="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          {/* Removed the <ul> element since it's not necessary */}
+              <button className="menu-trigger header__btn" id="menu05">
+                <div
+                  className="btn btn-secondary dropdown-toggle"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {/* Removed the <ul> element since it's not necessary */}
+                </div>
+                <ul
+                  className="dropdown-menu dropdown-menu-light active"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  <li>
+                    <Link className="dropdown-item" href="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="/createnft">
+                      Create NFT
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="/portal">
+                      Sell NFT
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="/explore">
+                      Market
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="/collection">
+                      Collection
+                    </Link>
+                  </li>
+                </ul>
+              </button>
+            </div>
+          </div>
         </div>
-        <ul className="dropdown-menu dropdown-menu-light active" aria-labelledby="dropdownMenuButton1">
-          <li><Link className="dropdown-item" href="/">Home</Link></li>
-          <li><Link className="dropdown-item" href="/createnft">Create NFT</Link></li>
-          <li><Link className="dropdown-item" href="/portal">Sell NFT</Link></li>
-          <li><Link className="dropdown-item" href="/explore">Market</Link></li>
-          <li><Link className="dropdown-item" href="/collection">Collection</Link></li>
-        </ul>
-      </button>
-    </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-            
-          
-       
       </header>
     </div>
   );
