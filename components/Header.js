@@ -34,7 +34,7 @@ const Header = () => {
       require("bootstrap/dist/js/bootstrap");
     }
     setWallet(
-      window.ethereum.selectedAddress ? window.ethereum.selectedAddress : ""
+      window?.ethereum?.selectedAddress ? window?.ethereum?.selectedAddress : ""
     );
   }, []);
 
